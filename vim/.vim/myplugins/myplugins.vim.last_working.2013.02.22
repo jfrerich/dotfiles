@@ -1,0 +1,172 @@
+perl << EOF
+
+use Data::Dumper;
+
+####################################
+sub PrintVariables_perl {
+
+    my ($command) = @_;
+
+    my $line = VIM::Eval("getline(\".\")"); # get the line string
+
+    my @linearray = (); # array with each character in the line as entry in the array
+    my @vararray = ();  # array containing variables for printing
+
+    # charEndingArray (determine end of variable name)
+    # special characters must be escaped
+	my @charEndingArray = (); 
+    my @charEndingArray_vars = (",", "\\", " ", ";", ")", "+", "}");
+    my @omitArray_vars = ("-");
+
+	my @omitArray = ();
+    my @charEndingArray_dump = (",", "\\", " ", ";", ")", "+");
+    my @omitArray_dump = ("\@\\\$");
+
+	my $isVariable;
+	my $printline;
+    # determine the charEndingArray
+    if ($command eq "vars") {
+		@charEndingArray = @charEndingArray_vars;
+		@omitArray = @omitArray_vars;
+		$isVariable = "\\\$";
+    }
+    elsif ($command eq "dump") {
+		@charEndingArray = @charEndingArray_dump;
+		@omitArray = @omitArray_dump;
+		$isVariable = "@";
+    }
+
+    # the line has a variable/array/hash
+    if ($line =~ /$isVariable/) {
+
+		print "\n\n     LINE = $line\n";
+		$line =~ s/(^\s+)//;
+		my $whitespace = $1;
+
+		@linearray = split(// , $line);
+		@vararray = CreateVariables($isVariable, \@linearray, \@charEndingArray, \@omitArray);
+
+		# no variables for printing !!
+		if ($#vararray eq "-1") {
+	    	print "vararray is empty! There are no variables in the line \"$line\"\n";
+		}
+		# build the print statement
+		else {
+			# dumper statement
+			if ($command eq "dump") {
+
+	    		foreach my $var (@vararray) {
+
+					my $printline = "${whitespace}print \"";
+					my $var_no_special_characters = $var;
+					$var_no_special_characters =~ s/\$/\\\$/g;
+
+					$printline .= "### $var_no_special_characters ###\\n\", ";
+					$printline .= "Dumper(\@$var)";
+
+					# add , if not the last print variable
+					if ($var ne @vararray[$#vararray]) {
+		    			$printline .= ", ";
+					}
+	    			# complete the print statement
+	    			$printline .= ", \"\\n\";";
+					insertPrintStatement($printline);
+				}
+			}
+			# variable statement
+			elsif ($command eq "vars") {
+
+				$printline = "${whitespace}print \"";
+				
+	    		foreach my $var (@vararray) {
+
+					$printline .= "$var=\$$var";
+
+					# add , if not the last print variable
+					if ($var ne @vararray[$#vararray]) {
+		    			$printline .= ", ";
+					}
+	    		}
+	    		# complete the print statement
+	    		$printline .= "\\n\";";
+				insertPrintStatement($printline);
+			}
+		}
+    }
+    else {
+		print "\n\nLine \"$line\" does not contain any variables (ie. ${isVariable}'s)!\n";
+    }
+}
+
+####################################
+sub insertPrintStatement {
+
+	my ($printline) = @_;
+
+	print "PRINTLINE = $printline\n";
+	my $current_lnum = VIM::Eval("line(\".\")"); # get line number
+	$current_lnum++;
+
+	VIM::DoCommand(":execute 'norm! o'");
+	VIM::DoCommand(":call setline($current_lnum, '$printline')"); # move cursor away from first character in line otw will not find Path () on current line, but one up.
+}
+
+####################################
+sub CreateVariables {
+	
+	my ($isVariable, $linearray, $charEndingArray, $omitArray) = @_;	
+
+	my @linearray = @$linearray;	
+	my @charEndingArray = @$charEndingArray;	
+	my @omitArray = @$omitArray;	
+
+    my $savevar = 0;
+	my @vararray = ();
+
+	# read each character in the line
+	foreach my $char (@linearray) {
+	    if ($char =~ /$isVariable/) {
+			$savevar = 1;
+			$var = ""; 
+			next;
+	    }
+	    # check if hit an ending character
+	    if ($savevar eq 1) {
+			foreach my $endChar (@charEndingArray) {
+		    	if ($char eq $endChar) {
+					$savevar = 0;
+
+					# omit certain types of variables (ie. pointers ->, etc)
+					if ($#omitArray eq "-1") {
+			    		push (@vararray,$var);
+					}
+					else {
+			    		foreach my $omit (@omitArray) {
+							if ($var !~ /$omit/) {
+				    			push (@vararray,$var);
+							}
+			    		}
+					}
+		    	}
+			}
+	    }
+	    if ($savevar eq 1) {
+		$var .= $char; 
+	    }
+	}
+	return (@vararray);
+}
+
+EOF
+
+function PrintVariables_Vim()
+  perl PrintVariables_perl("vars");
+endfunction
+
+function PrintDumper_Vim()
+  perl PrintVariables_perl("dump");
+endfunction
+
+command -nargs=?  PrintVariables    :call PrintVariables_Vim()
+command -nargs=?  PrintDumper       :call PrintDumper_Vim()
+
