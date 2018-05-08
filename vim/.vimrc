@@ -9,7 +9,7 @@ set shiftwidth=4
 set incsearch            
 set noscrollbind            
 set nocursorbind            
-set novisualbell          " turn off visual bell
+set visualbell          " turn off visual bell
 "set vb t_vb=              " turn off visual bell
 set noerrorbells          " turn off error bells
 set nowrap                " default to not wrap lines when opening a file
