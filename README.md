@@ -1,5 +1,3 @@
-# dotfiles
-
 # <a href="https://github.com/jfrerich/dotfiles">jfrerich/dotfiles</a>
 
 I decided to create this repo to backup my dotfiles, but also to share what I
@@ -14,6 +12,39 @@ I use GNU Stow to manage my dotfiles as it is simple to use and keeps my home
 directory clean without any git files. To understand how to use GNU Stow, I
 recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
 **Credits** section below.
+
+### DOTFILES 
+
+http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html
+
+1. create dotfiles project on github.com
+    - https://services.github.com/on-demand/github-cli/create-remote-repository
+    - select initialize repo with a README
+2. clone repo from $HOME
+    - git clone https://github.com/jfrerich/dotfiles.git
+3. Add dot files to dotfiles/ dir
+    - mv ~/.vimrc to dotfiles/vim/.vimrc
+4. git add, commit and push
+    - git add .zshrc
+	  - git commit .zshrc
+	  - git push 
+5. stow files to create symlinks from $HOME
+	  - stow vim
+	  - stow tcsh
+	  - stow zsh
+  
+VIM Dotfiles
+
+.gitignore .vim/bundle and .vim/view 
+only setup the .vimrc and my plugins 
+PluginList to see plugins listed in .vimrc
+PluginInstall to install plugins
+
+Install stow on mac
+brew install stow
+
+
+
 
 ### Quick Install
 
