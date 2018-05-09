@@ -6,12 +6,22 @@ community. I was inspired by a few repos on GitHub and it helped me tremendously
 in my quest to fine-tune my setup. I use Linux, more specifically openSUSE, so
 be aware that I haven't used my dotfiles on another OS or Linux distribution.
 
+I use this repo to store my dotfiles and explain how to setup the files on my computer.
+
 ### Explanations
 
-I use GNU Stow to manage my dotfiles as it is simple to use and keeps my home
-directory clean without any git files. To understand how to use GNU Stow, I
-recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
-**Credits** section below.
+By adding all my dotfiles in a git repo and cloning to a local ~/dotfiles directory
+I'm able to consolidate accomplish a few things.
+
+1. All dotfiles are in one directory
+1. The git repo doesn't exist in my home directory
+1. All files are version controlled
+
+GNU Stow is used to link the files in ~/dotfiles to the $HOME directory. Because the 
+symlinks exist in $HOME, they are sourced as normal by tools such as vim, zsh, .etc
+
+To understand how to use GNU Stow, I recommend you to read the link *Using GNU Stow 
+to manage your dotfiles* from the **Credits** section below.
 
 ### DOTFILES 
 
@@ -20,7 +30,7 @@ recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
     - select initialize repo with a README
 2. clone repo from $HOME
     - `cd`
-    - ```git clone https://github.com/jfrerich/dotfiles.git```
+    - ``git clone https://github.com/jfrerich/dotfiles.git``
 3. Add dot files to dotfiles/ dir
     - ```mv ~/.vimrc to dotfiles/vim/.vimrc```
 4. git add, commit and push
@@ -41,42 +51,7 @@ recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
 
 ### Install stow on mac
 `brew install stow`
-
-
-
-
-### Quick Install
-
-Go to your home directory
-
-`cd`
-
-Clone the repo
-
-`git clone http://github.com/dmarcoux/dotfiles`
-
-Go to the dotfiles directory
-
-`cd dotfiles`
-
-Install *xyz* in $HOME (for example, vim)
-
-`stow vim`
-
-Uninstall *xyz* from $HOME (for example, vim)
-
-`stow -D vim`
-
-Install *abc* in a specific directory (for example, *etc* in the directory `/`)
-
-`sudo stow -t / etc`
-
-Uninstall *abc* from a specific directory (for example, *etc* from the directory
-`/`)
-
-`sudo stow -D etc -t /`
-
-### Credits
+## Credits
 
 Bits and chunks of my config files come from these sources. Thanks to the people
 behind them!
