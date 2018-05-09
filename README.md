@@ -21,17 +21,17 @@ http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfile
     - https://services.github.com/on-demand/github-cli/create-remote-repository
     - select initialize repo with a README
 2. clone repo from $HOME
-    - git clone https://github.com/jfrerich/dotfiles.git
+    - ```git clone https://github.com/jfrerich/dotfiles.git```
 3. Add dot files to dotfiles/ dir
-    - mv ~/.vimrc to dotfiles/vim/.vimrc
+    - ```mv ~/.vimrc to dotfiles/vim/.vimrc```
 4. git add, commit and push
-	- ```git add .zshrc```
+    - ```git add .zshrc```
     - ```git commit .zshrc```
     - ```git push``` 
 5. stow files to create symlinks from $HOME
-	  - ```stow vim```
-	  - ```stow tcsh```
-	  - ```stow zsh```
+    - ```stow vim```
+    - ```stow tcsh```
+    - ```stow zsh```
   
 VIM Dotfiles
 
@@ -81,7 +81,7 @@ Uninstall *abc* from a specific directory (for example, *etc* from the directory
 
 Bits and chunks of my config files come from these sources. Thanks to the people
 behind them!
-
+- http://github.com/dmarcoux/dotfiles
 - [Using GNU Stow to manage your
   dotfiles](http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfiles.html)
 - [zsh](https://github.com/xero/dotfiles) and [GNU Stow
