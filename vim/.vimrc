@@ -138,7 +138,10 @@ Plugin 'jiangmiao/auto-pairs'
 "Plugin 'Headlights' 
 
 " used this to install cmake
-" sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
+" Old 
+"   sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
+" New 
+"   brew install CMake
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
