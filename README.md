@@ -19,6 +19,7 @@ recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
     - https://services.github.com/on-demand/github-cli/create-remote-repository
     - select initialize repo with a README
 2. clone repo from $HOME
+    - `cd`
     - ```git clone https://github.com/jfrerich/dotfiles.git```
 3. Add dot files to dotfiles/ dir
     - ```mv ~/.vimrc to dotfiles/vim/.vimrc```
@@ -43,7 +44,7 @@ Only setup the .vimrc and my plugins
 .vim/view also does not need to be managed
 
 ### Install stow on mac
-brew install stow
+`brew install stow`
 
 
 
