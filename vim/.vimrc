@@ -53,7 +53,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call vundle#begin('~/dotfiles/.vim')
 
 " let Vundle manage Vundle, required
 " Cannot add comment at the end of the plugin line
