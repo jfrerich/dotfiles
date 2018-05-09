@@ -25,13 +25,13 @@ http://brandon.invergo.net/news/2012-05-26-using-gnu-stow-to-manage-your-dotfile
 3. Add dot files to dotfiles/ dir
     - mv ~/.vimrc to dotfiles/vim/.vimrc
 4. git add, commit and push
-    - ```git add .zshrc```
-	  - git commit .zshrc
-	  - git push 
+    - ```git add .zshrc
+    - git commit .zshrc
+    - git push``` 
 5. stow files to create symlinks from $HOME
-	  - stow vim
+	  - ```stow vim
 	  - stow tcsh
-	  - stow zsh
+	  - stow zsh```
   
 VIM Dotfiles
 
