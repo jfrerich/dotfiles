@@ -80,7 +80,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export EDITOR='vim'
 fi
 
 # Compilation flags
@@ -114,13 +114,13 @@ export KEYTIMEOUT=1
 alias c='clear'
 alias ltr='ls -ltr'
 alias ltra='ls -ltra'
-alias ds 'pwd > ~/.sd'
-alias sd 'cd `cat ~/.sd`'
+alias ds='pwd > ~/.sd'
+alias sd='cd `cat ~/.sd`'
 
 alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-#alias g "mvim"
+alias m="mvim"
 
-alias x exit
+alias x=exit
 
 ####################################
 # from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
@@ -147,5 +147,11 @@ alias ff='find . -type f -name'
 alias h='history'
 
 alias sortnr='sort -n -r'
+
+# remap cd to cd && ls 
+function cd {
+  builtin cd "$@" && ls -F
+}
+
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
