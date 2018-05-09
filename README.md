@@ -30,17 +30,17 @@ to manage your dotfiles* from the **Credits** section below.
     - select initialize repo with a README
 2. clone repo from $HOME
     - `cd`
-    - ``git clone https://github.com/jfrerich/dotfiles.git``
+    - `git clone https://github.com/jfrerich/dotfiles.git`
 3. Add dot files to dotfiles/ dir
-    - ```mv ~/.vimrc to dotfiles/vim/.vimrc```
+    - `mv ~/.vimrc to dotfiles/vim/.vimrc`
 4. git add, commit and push
-    - ```git add .zshrc```
-    - ```git commit .zshrc```
-    - ```git push``` 
+    - `git add .zshrc`
+    - `git commit .zshrc`
+    - `git push` 
 5. stow files to create symlinks from $HOME
-    - ```stow vim```
-    - ```stow tcsh```
-    - ```stow zsh```
+    - `stow vim`
+    - `stow tcsh`
+    - `stow zsh`
   
 ### VIM Dotfiles .gitignore setup
 
