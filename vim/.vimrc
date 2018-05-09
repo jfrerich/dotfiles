@@ -138,10 +138,8 @@ Plugin 'jiangmiao/auto-pairs'
 "Plugin 'Headlights' 
 
 " used this to install cmake
-" Old 
-"   sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
-" New 
-"   brew install CMake
+" Old  sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
+" New  brew install CMake
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -330,10 +328,9 @@ map <A-Up> ddkPk<CR>   " move up
 " comments mappings
 " select visual block with and then using mapping
 " source - http://wiki.ittoolbox.com/index.php/Comment_Blocks_of_Text_with_vim
+" 
 "####################################
-map ,# :s/^/#/<CR>:nohlsearch    " perl # comments
-map ,* :s/^/*/<CR>:nohlsearch    " spice # comments
-map ," :s/^/"/<CR>:nohlsearch    " vim # comments
+" map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
 "map <F2> FINDword/*{{{*/
 "functions
