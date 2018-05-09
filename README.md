@@ -34,14 +34,10 @@ recommend you to read the link *Using GNU Stow to manage your dotfiles* from the
   
 ### VIM Dotfiles .gitignore setup
 
-Only setup the .vimrc and my plugins 
-
-.gitignore 
-.vim/bundle and .vim/view 
-
-.vim/bundle uses git to build the bundles, so I ignore these and let PluginInstall do the install
-
-.vim/view also does not need to be managed
+- Only setup the .vimrc and my plugins 
+- .gitignore includes .vim/bundle and .vim/view 
+- .vim/bundle uses git to build the bundles, so I ignore these and let PluginInstall do the install
+- .vim/view also does not need to be managed
 
 ### Install stow on mac
 `brew install stow`
