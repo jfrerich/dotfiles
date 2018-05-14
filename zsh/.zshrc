@@ -4,11 +4,17 @@ export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/j_honky/.oh-my-zsh
 
+# get git of user@hostname in prompt 
+DEFAULT_USER="j_honky"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
+#ZSH_THEME="robbyrussell"
+#ZSH_THEME="gallois"
+#ZSH_THEME="superjarin"
+#ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
