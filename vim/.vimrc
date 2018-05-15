@@ -6,9 +6,9 @@ set title
 set smarttab
 set smartindent
 set shiftwidth=4
-set incsearch            
-set noscrollbind            
-set nocursorbind            
+set incsearch
+set noscrollbind
+set nocursorbind
 set visualbell          " turn off visual bell
 "set vb t_vb=              " turn off visual bell
 set noerrorbells          " turn off error bells
@@ -41,9 +41,9 @@ endif
 "####################################
 " ADDED 09/05/17
 "
-" Other plugin suggestion pages 
+" Other plugin suggestion pages
 " https://vimawesome.com/
-" 
+"
 " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 set nocompatible              " required
 filetype off                  " required
@@ -57,7 +57,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 " Cannot add comment at the end of the plugin line
-Plugin 'VundleVim/Vundle.vim'          
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 " autocomplete. Also uses ultisnips
 Bundle 'Valloric/YouCompleteMe'
@@ -82,7 +82,7 @@ Plugin 'nvie/vim-flake8'
 Plugin 'vsutil.vim'
 " traverse branches of file history. allows retreiving any edit
 " http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
-Plugin 'sjl/gundo.vim'              
+Plugin 'sjl/gundo.vim'
 " use % to go to matching <tag>
 Plugin 'adelarsq/vim-matchit'
 " git wrapper
@@ -98,8 +98,8 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Maybe use in the future
 " pymode runs rope and takes for ever. using syntastic instead
-"Plugin 'klen/python-mode'              
-" move to location in file.  not really needed.  Just do search 
+"Plugin 'klen/python-mode'
+" move to location in file.  not really needed.  Just do search
 "Plugin 'EasyMotion'
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
@@ -126,7 +126,7 @@ Plugin 'jiangmiao/auto-pairs'
 
 " PLUGINS not managed by vundle
 " bclose.vim script
-"let bclose_multiple = 0 
+"let bclose_multiple = 0
 
 
 
@@ -135,7 +135,7 @@ Plugin 'jiangmiao/auto-pairs'
 
 " not working
 "Plugin 'mattn/calendar.vim'
-"Plugin 'Headlights' 
+"Plugin 'Headlights'
 
 " used this to install cmake
 " Old  sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
@@ -276,7 +276,7 @@ let g:Perl_PerlRegexAnalyser = 'yes'
 source ~/.vim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
-" END ADDED 09/05/17 
+" END ADDED 09/05/17
 "####################################
 
 
@@ -314,16 +314,16 @@ vnoremap <c-a> :Inc<CR> " Increment by 1
 " move current line
 " use <alt> + up/down home keys or arrows
 
-map <A-j> ddpk<CR>     " move down 
-map <A-k> ddkPk<CR>    " move up 
-map <A-Down> ddpk<CR>  " move down 
-map <A-Up> ddkPk<CR>   " move up 
+map <A-j> ddpk<CR>     " move down
+map <A-k> ddkPk<CR>    " move up
+map <A-Down> ddpk<CR>  " move down
+map <A-Up> ddkPk<CR>   " move up
 
 "####################################
 " comments mappings
 " select visual block with and then using mapping
 " source - http://wiki.ittoolbox.com/index.php/Comment_Blocks_of_Text_with_vim
-" 
+"
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
@@ -348,7 +348,7 @@ inoremap # X<BS>#
 
 
 "You need the next line to change the color back when you hit escape.
-"inoremap <Esc> <Esc>:highlight Normal guibg=white<cr> 
+"inoremap <Esc> <Esc>:highlight Normal guibg=white<cr>
 "
 """""""""""""""""""""""""""""""""""""""
 " useful, but not always used
@@ -382,7 +382,7 @@ inoremap # X<BS>#
 "    one of the following functions, the default mappings will not work for other
 "    filetypes.  The defaults must be placed inside each function.
 "
-" the best option is to only set f(x) key mappings for specific filetypes and have 
+" the best option is to only set f(x) key mappings for specific filetypes and have
 " general f(x)'s map to other keys. In general, the f(x) keys are keys that are shared
 " for multiple filetypes and perform specific f(x)'s that are documented with the strip
 " on the keyboard. (~/misc/key_bindings)
@@ -393,14 +393,14 @@ inoremap # X<BS>#
 " endfunction
 "
 " function MapNT()
-"     setfiletype nt 
+"     setfiletype nt
 " endfunction
 
 "####################################
 " function Test()
 "     norm d
 "     "exe "norm d"
-"     "exe line("G") 
+"     "exe line("G")
 "     "exe "norm! d"
 "     "norm "G"
 "     exe "norm! d"
@@ -420,16 +420,16 @@ inoremap # X<BS>#
 "let g:ConqueTerm_ReadUnfocused = 1
 
 "aunmenu *
-"unmenu Toolbar           
-"unmenu! Toolbar           
+"unmenu Toolbar
+"unmenu! Toolbar
 
-"file-explorer 
+"file-explorer
 
 "syntax match CurrentLine  /.*\%#.*/
-"hi link CurrentLine Visual 
+"hi link CurrentLine Visual
 "hi CurrentLine guifg=white guibg=lightblue
 "syntax match CurrentLine "NONE"
-":map j j:hi CurrentLine guifg=blue guibg=lightblue<cr> 
+":map j j:hi CurrentLine guifg=blue guibg=lightblue<cr>
 "hi CurrentLine guifg=white guibg=lightblue
 
 "  01/26/10 - moved pmill to NT setup
