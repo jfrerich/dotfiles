@@ -67,7 +67,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  git-flow
   history-substring-search
+  zsh-autosuggestions
   colored-man-pages
   colorize
   dircycle
@@ -162,3 +164,5 @@ function cd {
 
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+
