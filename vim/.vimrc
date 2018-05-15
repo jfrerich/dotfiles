@@ -161,21 +161,21 @@ set foldlevel=99
 nnoremap <space> za
 
 " To add the proper PEP8 indentation, add the following to your .vimrc:
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ set softtabstop=4
+"     \ set shiftwidth=4
+"     \ set textwidth=79
+"     \ set expandtab
+"     \ set autoindent
+"     \ set fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
-  \ set tabstop=2
-  \ set softtabstop=2
-  \ set shiftwidth=2
+" au BufNewFile,BufRead *.js, *.html, *.css
+"   \ set tabstop=2
+"   \ set softtabstop=2
+"   \ set shiftwidth=2
 
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
@@ -298,13 +298,8 @@ let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 
 " allow for a user of vim folds to save and open folds when reopen the file
 " if a user doesn't have the following, I don't think they will see the folds when they load the file
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
-
-map <Tab>      ^i<tab>j
-"map <Tab>      ^i<tab>j         " add 1 tab to the right
-map 2<Tab>    ^i<tab><tab>^j        " add 2 tabs to the right
-map 3<Tab>    ^i<tab><tab><tab>^j    " add 3 tabs to the right
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
 
 vnoremap <c-a> :Inc<CR> " Increment by 1
 
@@ -393,26 +388,26 @@ inoremap # X<BS>#
 " on the keyboard. (~/misc/key_bindings)
 " function key mappings are in ~/.vim/plugin/maps.vim
 
-function MapPmill()
-    setfiletype pmill
-endfunction
-
-function MapNT()
-    setfiletype nt 
-endfunction
+" function MapPmill()
+"     setfiletype pmill
+" endfunction
+"
+" function MapNT()
+"     setfiletype nt 
+" endfunction
 
 "####################################
-function Test()
-    norm d
-    "exe "norm d"
-    "exe line("G") 
-    "exe "norm! d"
-    "norm "G"
-    exe "norm! d"
-    "norm "p"
-    "exe "P"
-    exe "norm! G"
-endfunction
+" function Test()
+"     norm d
+"     "exe "norm d"
+"     "exe line("G") 
+"     "exe "norm! d"
+"     "norm "G"
+"     exe "norm! d"
+"     "norm "p"
+"     "exe "P"
+"     exe "norm! G"
+" endfunction
 
 "map z di stack<CR> use<CR> <ESC> P '] i stack<CR> use<CR> <ESC> ^
 "map z di stack<CR> use<CR>  P '] i stack<CR> use<CR> <ESC> ^
@@ -443,4 +438,4 @@ endfunction
 "  au BufNewFile,BufRead 	*.vipp,*.vndl  	 				setfiletype verilog
 "  au! BufNewFile,BufRead 	*.err,*.cap_increase    so /export/home/jason/.vim/mappmill.vim
 "  au! BufNewFile,BufRead 	*.src          		so /export/home/jason/.vim/mapndl.vim
-  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
+"  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
