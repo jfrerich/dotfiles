@@ -68,6 +68,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   git
   history-substring-search
+  colored-man-pages
   colorize
   dircycle
   dirhistory
