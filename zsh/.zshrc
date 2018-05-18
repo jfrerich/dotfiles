@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+#export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
+export PATH=/usr/local/bin:$HOME/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/j_honky/.oh-my-zsh
@@ -126,7 +127,11 @@ alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
 alias sd='cd `cat ~/.sd`'
 
-alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+# mvim - updated to use brew version of macvim.  includes python3 support for
+# pythonmod plugin
+#alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
+alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
+alias g "mvim"
 alias m="mvim"
 
 alias x=exit
