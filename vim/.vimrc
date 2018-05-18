@@ -94,11 +94,11 @@ Plugin 'bling/vim-bufferline'
 " close the tag with C-_ in command mode
 Plugin 'closetag.vim'
 Plugin 'jiangmiao/auto-pairs'
-
+" pymode runs rope and takes for ever. using syntastic instead
+" got this working and allow <C-S-e> to run script in vim 
+Plugin 'klen/python-mode'
 
 " Maybe use in the future
-" pymode runs rope and takes for ever. using syntastic instead
-"Plugin 'klen/python-mode'
 " move to location in file.  not really needed.  Just do search
 "Plugin 'EasyMotion'
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
@@ -161,21 +161,22 @@ set foldlevel=99
 nnoremap <space> za
 
 " To add the proper PEP8 indentation, add the following to your .vimrc:
-" au BufNewFile,BufRead *.py
-"     \ set tabstop=4
-"     \ set softtabstop=4
-"     \ set shiftwidth=4
-"     \ set textwidth=79
-"     \ set expandtab
-"     \ set autoindent
-"     \ set fileformat=unix
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ softtabstop=4
+    \ shiftwidth=4
+    \ textwidth=79
+    \ expandtab
+    \ autoindent
+    \ fileformat=unix
 
-" au BufNewFile,BufRead *.js, *.html, *.css
-"   \ set tabstop=2
-"   \ set softtabstop=2
-"   \ set shiftwidth=2
+au BufNewFile,BufRead *.js, *.html, *.css
+  \ set tabstop=2
+  \ softtabstop=2
+  \ shiftwidth=2
 
-" au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
@@ -185,14 +186,14 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
 let python_highlight_all=1
 let g:ycm_python_binary_path = 'python'
@@ -204,6 +205,16 @@ syntax on
 "####################################
 " plugin settings
 "####################################
+"python-mode
+let g:pymode_lint = 0
+let g:pymode_run = 1
+let g:pymode_python = "python3"
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+" Override run current python file key shortcut to Ctrl-Shift-e
+let g:pymode_run_bind = "<C-S-e>"
+" Override view python doc key shortcut to Ctrl-Shift-d
+let g:pymode_doc_bind = "<C-S-d>"
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
@@ -270,47 +281,15 @@ let g:airline_symbols.maxlinenr = ''
 " YCM and snippet colliding
 let g:ycm_use_ultisnips_completer = 1
 
-" autopairs  http://aftnn.org/post/75730734352/vim-auto-closers-compared
-" don't add space after word and bracket, paren, .etc
-
-
-" https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme/18685821#18685821
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
-
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
-
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-" end stackoverflow doc
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-
+"http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
+" key maps 
+" 	start typing.  ife for example
+" 	<C-n> <C-p> to traverse popup menu
+" 	<tab> to insert snippet
+" 	<C-j> <C-k> to move through fields
+"
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 let g:Perl_PerlRegexAnalyser = 'yes'
 
@@ -355,29 +334,10 @@ vnoremap <c-a> :Inc<CR> " Increment by 1
 "map  :PrintVariables
 "map P :PrintVariablesOneLine
 
-" move current line
-" use <alt> + up/down home keys or arrows
-
-map <A-j> ddpk<CR>     " move down
-map <A-k> ddkPk<CR>    " move up
-map <A-Down> ddpk<CR>  " move down
-map <A-Up> ddkPk<CR>   " move up
-
-"####################################
-" comments mappings
-" select visual block with and then using mapping
-" source - http://wiki.ittoolbox.com/index.php/Comment_Blocks_of_Text_with_vim
 "
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
-"map <F2> FINDword/*{{{*/
-"functions
-" when have cursor on a word, pressing <F2> should find the beginning of the word, and yank
-" the word. then preform a search on the word.
-"function FINDword()
-"    yw
-"endfunction
 
 " abbreviations
 ab _" "####################################
@@ -389,7 +349,6 @@ ab _pr print "In Here!\n";
 "make vim indent when have smartindent on and placing a #
 "where ^H is typed as <Ctrl-V><Back-Space>.
 inoremap # X<BS>#
-
 
 "You need the next line to change the color back when you hit escape.
 "inoremap <Esc> <Esc>:highlight Normal guibg=white<cr>
