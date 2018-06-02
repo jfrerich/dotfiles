@@ -1,11 +1,11 @@
 [core]
 	excludesfile = /Users/j_honky/.gitignore_global
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+# [difftool "sourcetree"]
+	# cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	# path = 
+# [mergetool "sourcetree"]
+	# cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	# trustExitCode = true
 [filter "media"]
 	required = true
 	clean = git media clean %f
@@ -20,3 +20,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+[difftool "vimdiff"]
+	cmd = mvimdiff -f -d \"$LOCAL\" \"$REMOTE\"
+[diff]
+    external = ~/code/git-diff-wrapper.sh
