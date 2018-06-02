@@ -78,7 +78,7 @@ Plugin 'perl-support.vim'
 " syntax checker after write of file
 Plugin 'vim-syntastic/syntastic'
 " PEP8 checking
-Plugin 'nvie/vim-flake8'
+" Plugin 'nvie/vim-flake8'
 Plugin 'vsutil.vim'
 " traverse branches of file history. allows retreiving any edit
 " http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
@@ -96,7 +96,13 @@ Plugin 'closetag.vim'
 Plugin 'jiangmiao/auto-pairs'
 " pymode runs rope and takes for ever. using syntastic instead
 " got this working and allow <C-S-e> to run script in vim 
-Plugin 'klen/python-mode'
+"Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
+Plugin 'tagbar'
+Plugin 'vimwiki/vimwiki'
+Plugin 'suan/vim-instant-markdown'
+" Plugin 'suan/instant-markdown-d'
+Plugin 'iamcco/markdown-preview.vim'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
@@ -205,16 +211,33 @@ syntax on
 "####################################
 " plugin settings
 "####################################
+" disable syntastic checking for python (using pymode for checking)
+let g:syntastic_ignore_files = ['\.py$']
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['python'] }
+
 "python-mode
-let g:pymode_lint = 0
+let g:pymode_motion = 1
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_checkers = ['pyflakes']
+" disable whitespace before : check
+let g:pymode_lint_ignore = ['E203']
+let g:pymode_lint_ignore = ['E401']
 let g:pymode_run = 1
 let g:pymode_python = "python3"
 " Override go-to.definition key shortcut to Ctrl-]
-let g:pymode_rope_goto_definition_bind = "<C-]>"
+" let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_rope = 1
+let g:pymode_doc = 1
+let g:ropevim_enable_shortcuts = 1
 " Override run current python file key shortcut to Ctrl-Shift-e
-let g:pymode_run_bind = "<C-S-e>"
+" let g:pymode_run_bind = "<C-S-e>"
 " Override view python doc key shortcut to Ctrl-Shift-d
-let g:pymode_doc_bind = "<C-S-d>"
+" let g:pymode_doc_bind = "<C-S-d>"
+"let g:pymode_quickfix_maxheight = 6
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
@@ -280,6 +303,10 @@ let g:airline_symbols.maxlinenr = ''
 
 " YCM and snippet colliding
 let g:ycm_use_ultisnips_completer = 1
+
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" helppage -> :h vimwiki-syntax 
 
 "http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
 " key maps 
