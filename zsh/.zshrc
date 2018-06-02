@@ -1,6 +1,8 @@
 # If you come from bash you might have to change your $PATH.
 #export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
-export PATH=/usr/local/bin:$HOME/bin:$PATH
+# homebrew stores in /usr/local/cellar/<tool>
+# 	links to above are stored in /usr/local/bin
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/j_honky/.oh-my-zsh
@@ -74,6 +76,7 @@ plugins=(
   colored-man-pages
   colorize
   dircycle
+  zsh-dircolors-solarized
   dirhistory
 )
 
@@ -82,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -130,7 +134,7 @@ alias sd='cd `cat ~/.sd`'
 # mvim - updated to use brew version of macvim.  includes python3 support for
 # pythonmod plugin
 #alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
+#alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
 alias g "mvim"
 alias m="mvim"
 
@@ -141,6 +145,7 @@ alias x=exit
 ####################################
 # ls, the common ones I use a lot shortened for rapid fire usage
 
+alias ls='ls --color'     #always show --color
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
@@ -161,13 +166,17 @@ alias ff='find . -type f -name'
 alias h='history'
 
 alias sortnr='sort -n -r'
+alias top='htop'
+alias cat='ccat'
 
 # remap cd to cd && ls 
 function cd {
   builtin cd "$@" && ls -F
 }
 
+eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
 
+# installed with brew install
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
