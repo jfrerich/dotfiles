@@ -6,10 +6,11 @@ set title
 set smarttab
 set smartindent
 set shiftwidth=4
-set incsearch            
-set noscrollbind            
-set nocursorbind            
-set novisualbell          " turn off visual bell
+set textwidth=79
+set incsearch
+set noscrollbind
+set nocursorbind
+set visualbell          " turn off visual bell
 "set vb t_vb=              " turn off visual bell
 set noerrorbells          " turn off error bells
 set nowrap                " default to not wrap lines when opening a file
@@ -34,16 +35,12 @@ let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 syntax on
 filetype plugin on
 
-if has("gui_running")
-    :colorscheme torte
-endif
-
 "####################################
 " ADDED 09/05/17
 "
-" Other plugin suggestion pages 
+" Other plugin suggestion pages
 " https://vimawesome.com/
-" 
+"
 " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 set nocompatible              " required
 filetype off                  " required
@@ -53,11 +50,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+"call vundle#begin('~/dotfiles/.vim')
 
 " let Vundle manage Vundle, required
 " Cannot add comment at the end of the plugin line
-Plugin 'VundleVim/Vundle.vim'          
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 " autocomplete. Also uses ultisnips
 Bundle 'Valloric/YouCompleteMe'
@@ -73,16 +70,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 " comment lines 'gc'
 Plugin 'vim-scripts/tComment'
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
 Plugin 'perl-support.vim'
 " syntax checker after write of file
 Plugin 'vim-syntastic/syntastic'
 " PEP8 checking
-Plugin 'nvie/vim-flake8'
-Plugin 'vsutil.vim'
+" Plugin 'nvie/vim-flake8'
 " traverse branches of file history. allows retreiving any edit
 " http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
-Plugin 'sjl/gundo.vim'              
+" changed from gundo, because gundo no longer supports python3
+Plugin 'simnalamburt/mundo.vim'
 " use % to go to matching <tag>
 Plugin 'adelarsq/vim-matchit'
 " git wrapper
@@ -94,12 +91,20 @@ Plugin 'bling/vim-bufferline'
 " close the tag with C-_ in command mode
 Plugin 'closetag.vim'
 Plugin 'jiangmiao/auto-pairs'
-
+" pymode runs rope and takes for ever. using syntastic instead
+" got this working and allow <C-S-e> to run script in vim 
+"Plugin 'klen/python-mode'
+Plugin 'python-mode/python-mode'
+Plugin 'tagbar'
+Plugin 'vimwiki/vimwiki'
+Plugin 'suan/vim-instant-markdown'
+" Plugin 'suan/instant-markdown-d'
+Plugin 'iamcco/markdown-preview.vim'
+Plugin 'liuchengxu/space-vim-dark'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " Maybe use in the future
-" pymode runs rope and takes for ever. using syntastic instead
-"Plugin 'klen/python-mode'              
-" move to location in file.  not really needed.  Just do search 
+" move to location in file.  not really needed.  Just do search
 "Plugin 'EasyMotion'
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
@@ -107,6 +112,13 @@ Plugin 'jiangmiao/auto-pairs'
 " vim schema
 "Plugin 'Solarized'
 "Plugin 'altercation/vim-colors-solarized'
+"Plugin 'elzr/vim-json'
+"Plugin 'mhinz/vim-signify'
+"Plugin 'plasticboy/vim-markdown'
+"Plugin 'tpope/vim-sleuth'
+"Plugin 'vim-scripts/a.vim'
+"Plugin 'vsutil.vim'
+"Plugin 'VimRegEx.vim'
 
 
 " downloaded some time ago.  not sure if need, but put here and removed from
@@ -126,7 +138,7 @@ Plugin 'jiangmiao/auto-pairs'
 
 " PLUGINS not managed by vundle
 " bclose.vim script
-"let bclose_multiple = 0 
+"let bclose_multiple = 0
 
 
 
@@ -135,10 +147,11 @@ Plugin 'jiangmiao/auto-pairs'
 
 " not working
 "Plugin 'mattn/calendar.vim'
-"Plugin 'Headlights' 
+"Plugin 'Headlights'
 
 " used this to install cmake
-" sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
+" Old  sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
+" New  brew install CMake
 
 " Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
@@ -160,20 +173,22 @@ set foldlevel=99
 nnoremap <space> za
 
 " To add the proper PEP8 indentation, add the following to your .vimrc:
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
+" taken care of by pymode
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ softtabstop=4
+"     \ shiftwidth=4
+"     \ textwidth=79
+"     \ expandtab
+"     \ autoindent
+"     \ fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css
   \ set tabstop=2
-  \ set softtabstop=2
-  \ set shiftwidth=2
+  \ softtabstop=2
+  \ shiftwidth=2
 
+highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
@@ -184,18 +199,18 @@ let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-  project_base_dir = os.environ['VIRTUAL_ENV']
-  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-  execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"   project_base_dir = os.environ['VIRTUAL_ENV']
+"   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"   execfile(activate_this, dict(__file__=activate_this))
+" EOF
 
 let python_highlight_all=1
 let g:ycm_python_binary_path = 'python'
-syntax on
+" syntax on
 " END ADDED 9/1/2017
 "####################################
 
@@ -203,6 +218,49 @@ syntax on
 "####################################
 " plugin settings
 "####################################
+
+if has("gui_running")
+    " colorscheme torte
+    colorscheme space-vim-dark
+    let g:space_vim_dark_backgroun = 233
+    hi Comment guifg=#5C6370 ctermfg=59
+    hi Comment cterm=italic gui=italic
+endif
+
+" disable syntastic checking for python (using pymode for checking)
+let g:syntastic_ignore_files = ['\.py$']
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': [],
+            \ 'passive_filetypes': ['python'] }
+
+"python-mode
+let g:pymode_syntax = 1
+" let g:pymode_syntax_all = 1
+let g:pymode_motion = 1
+let g:pymode_lint = 1
+let g:pymode_lint_on_write = 1
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+let g:pymode_lint_checkers = ['pyflakes']
+" disable whitespace before : check
+let g:pymode_lint_ignore = ['E203']
+let g:pymode_lint_ignore = ['E401']
+let g:pymode_run = 1
+let g:pymode_python = "python3"
+" Override go-to.definition key shortcut to Ctrl-]
+let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_rope = 1
+let g:pymode_doc = 1
+let g:ropevim_enable_shortcuts = 1
+" Override run current python file key shortcut to Ctrl-Shift-e
+" let g:pymode_run_bind = "<C-S-e>"
+" Override view python doc key shortcut to Ctrl-Shift-d
+" let g:pymode_doc_bind = "<C-S-d>"
+"let g:pymode_quickfix_maxheight = 6
+
+" ctrlp
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
 " syntastic
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -220,54 +278,87 @@ let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
 " SimpylFold
-let g:SimpylFold_docstring_preview=1
+" let g:SimpylFold_docstring_preview=1
+
+" vim-airline
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
+" set guifont=DejaVu\ Sans:s12
+let g:airline_powerline_fonts = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.crypt = '🔒'
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+let g:airline_symbols.maxlinenr = '㏑'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" powerline symbols
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = '☰'
+let g:airline_symbols.maxlinenr = ''
+" end vim-airline
 
 " YCM and snippet colliding
 let g:ycm_use_ultisnips_completer = 1
 
-" autopairs  http://aftnn.org/post/75730734352/vim-auto-closers-compared
-" don't add space after word and bracket, paren, .etc
+" vimwiki with markdown support
+let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" helppage -> :h vimwiki-syntax 
 
-
-" https://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme/18685821#18685821
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
-
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
-
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-" end stackoverflow doc
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger     . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " .     g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
-
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 let g:Perl_PerlRegexAnalyser = 'yes'
+
+" rainbow_parenthesis
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 
 "####################################
 " my Plugins and key maps for myplugins
@@ -275,7 +366,7 @@ let g:Perl_PerlRegexAnalyser = 'yes'
 source ~/.vim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
-" END ADDED 09/05/17 
+" END ADDED 09/05/17
 "####################################
 
 
@@ -285,7 +376,8 @@ source ~/.vim/myplugins/*.vim
 " during * and # commands
 """""""""""""""""""""""""""""""""""""""
 " if > and in perl, don't add as a keyword
-set iskeyword+=: "add to iskeywords to help find dspf hierarchical names
+" set iskeyword+=: "add to iskeywords to help find dspf hierarchical names -
+" removed for python : after else 
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
 set iskeyword+=. "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
@@ -297,15 +389,12 @@ let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 
 " allow for a user of vim folds to save and open folds when reopen the file
 " if a user doesn't have the following, I don't think they will see the folds when they load the file
-au BufWinLeave * mkview
-au BufWinEnter * silent loadview
-
-map <Tab>      ^i<tab>j
-"map <Tab>      ^i<tab>j         " add 1 tab to the right
-map 2<Tab>    ^i<tab><tab>^j        " add 2 tabs to the right
-map 3<Tab>    ^i<tab><tab><tab>^j    " add 3 tabs to the right
+au BufWinLeave ?* mkview 1
+au BufWinEnter ?* silent loadview 1
 
 vnoremap <c-a> :Inc<CR> " Increment by 1
+vnoremap < <gv  " better indentation.  doesn't lose visual selection
+vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
 " buffers
 "map <A-n> :bn<CR>
@@ -315,30 +404,10 @@ vnoremap <c-a> :Inc<CR> " Increment by 1
 "map  :PrintVariables
 "map P :PrintVariablesOneLine
 
-" move current line
-" use <alt> + up/down home keys or arrows
-
-map <A-j> ddpk<CR>     " move down 
-map <A-k> ddkPk<CR>    " move up 
-map <A-Down> ddpk<CR>  " move down 
-map <A-Up> ddkPk<CR>   " move up 
-
+"
 "####################################
-" comments mappings
-" select visual block with and then using mapping
-" source - http://wiki.ittoolbox.com/index.php/Comment_Blocks_of_Text_with_vim
-"####################################
-map ,# :s/^/#/<CR>:nohlsearch    " perl # comments
-map ,* :s/^/*/<CR>:nohlsearch    " spice # comments
-map ," :s/^/"/<CR>:nohlsearch    " vim # comments
+" map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
-"map <F2> FINDword/*{{{*/
-"functions
-" when have cursor on a word, pressing <F2> should find the beginning of the word, and yank
-" the word. then preform a search on the word.
-"function FINDword()
-"    yw
-"endfunction
 
 " abbreviations
 ab _" "####################################
@@ -351,19 +420,13 @@ ab _pr print "In Here!\n";
 "where ^H is typed as <Ctrl-V><Back-Space>.
 inoremap # X<BS>#
 
-
 "You need the next line to change the color back when you hit escape.
-"inoremap <Esc> <Esc>:highlight Normal guibg=white<cr> 
+"inoremap <Esc> <Esc>:highlight Normal guibg=white<cr>
 "
 """""""""""""""""""""""""""""""""""""""
 " useful, but not always used
 ":set number/nonumber
 ":h option-list   -- get all options for .vimrc file
-":set foldmethod=marker
-"  <shift-v> for visual mode
-"  go to last desired line to fold and hit 'zf'
-"  space bar to open the fold
-"  zc anywhere within the fold to reclose
 
 """""""""""""""""""""""""""""""""""""""
 "if did_filetype()	" filetype already set..
@@ -387,32 +450,32 @@ inoremap # X<BS>#
 "    one of the following functions, the default mappings will not work for other
 "    filetypes.  The defaults must be placed inside each function.
 "
-" the best option is to only set f(x) key mappings for specific filetypes and have 
+" the best option is to only set f(x) key mappings for specific filetypes and have
 " general f(x)'s map to other keys. In general, the f(x) keys are keys that are shared
 " for multiple filetypes and perform specific f(x)'s that are documented with the strip
 " on the keyboard. (~/misc/key_bindings)
 " function key mappings are in ~/.vim/plugin/maps.vim
 
-function MapPmill()
-    setfiletype pmill
-endfunction
-
-function MapNT()
-    setfiletype nt 
-endfunction
+" function MapPmill()
+"     setfiletype pmill
+" endfunction
+"
+" function MapNT()
+"     setfiletype nt
+" endfunction
 
 "####################################
-function Test()
-    norm d
-    "exe "norm d"
-    "exe line("G") 
-    "exe "norm! d"
-    "norm "G"
-    exe "norm! d"
-    "norm "p"
-    "exe "P"
-    exe "norm! G"
-endfunction
+" function Test()
+"     norm d
+"     "exe "norm d"
+"     "exe line("G")
+"     "exe "norm! d"
+"     "norm "G"
+"     exe "norm! d"
+"     "norm "p"
+"     "exe "P"
+"     exe "norm! G"
+" endfunction
 
 "map z di stack<CR> use<CR> <ESC> P '] i stack<CR> use<CR> <ESC> ^
 "map z di stack<CR> use<CR>  P '] i stack<CR> use<CR> <ESC> ^
@@ -425,16 +488,16 @@ endfunction
 "let g:ConqueTerm_ReadUnfocused = 1
 
 "aunmenu *
-"unmenu Toolbar           
-"unmenu! Toolbar           
+"unmenu Toolbar
+"unmenu! Toolbar
 
-"file-explorer 
+"file-explorer
 
 "syntax match CurrentLine  /.*\%#.*/
-"hi link CurrentLine Visual 
+"hi link CurrentLine Visual
 "hi CurrentLine guifg=white guibg=lightblue
 "syntax match CurrentLine "NONE"
-":map j j:hi CurrentLine guifg=blue guibg=lightblue<cr> 
+":map j j:hi CurrentLine guifg=blue guibg=lightblue<cr>
 "hi CurrentLine guifg=white guibg=lightblue
 
 "  01/26/10 - moved pmill to NT setup
@@ -443,4 +506,4 @@ endfunction
 "  au BufNewFile,BufRead 	*.vipp,*.vndl  	 				setfiletype verilog
 "  au! BufNewFile,BufRead 	*.err,*.cap_increase    so /export/home/jason/.vim/mappmill.vim
 "  au! BufNewFile,BufRead 	*.src          		so /export/home/jason/.vim/mapndl.vim
-  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
+"  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
