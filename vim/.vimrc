@@ -6,6 +6,7 @@ set title
 set smarttab
 set smartindent
 set shiftwidth=4
+set textwidth=79
 set incsearch
 set noscrollbind
 set nocursorbind
@@ -33,10 +34,6 @@ let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
 syntax on
 filetype plugin on
-
-if has("gui_running")
-    :colorscheme torte
-endif
 
 "####################################
 " ADDED 09/05/17
@@ -73,16 +70,16 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 " comment lines 'gc'
 Plugin 'vim-scripts/tComment'
-Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'vim-scripts/indentpython.vim'
 Plugin 'perl-support.vim'
 " syntax checker after write of file
 Plugin 'vim-syntastic/syntastic'
 " PEP8 checking
 " Plugin 'nvie/vim-flake8'
-Plugin 'vsutil.vim'
 " traverse branches of file history. allows retreiving any edit
 " http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
-Plugin 'sjl/gundo.vim'
+" changed from gundo, because gundo no longer supports python3
+Plugin 'simnalamburt/mundo.vim'
 " use % to go to matching <tag>
 Plugin 'adelarsq/vim-matchit'
 " git wrapper
@@ -103,6 +100,8 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'suan/vim-instant-markdown'
 " Plugin 'suan/instant-markdown-d'
 Plugin 'iamcco/markdown-preview.vim'
+Plugin 'liuchengxu/space-vim-dark'
+Plugin 'kien/rainbow_parentheses.vim'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
@@ -113,6 +112,13 @@ Plugin 'iamcco/markdown-preview.vim'
 " vim schema
 "Plugin 'Solarized'
 "Plugin 'altercation/vim-colors-solarized'
+"Plugin 'elzr/vim-json'
+"Plugin 'mhinz/vim-signify'
+"Plugin 'plasticboy/vim-markdown'
+"Plugin 'tpope/vim-sleuth'
+"Plugin 'vim-scripts/a.vim'
+"Plugin 'vsutil.vim'
+"Plugin 'VimRegEx.vim'
 
 
 " downloaded some time ago.  not sure if need, but put here and removed from
@@ -167,14 +173,15 @@ set foldlevel=99
 nnoremap <space> za
 
 " To add the proper PEP8 indentation, add the following to your .vimrc:
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ softtabstop=4
-    \ shiftwidth=4
-    \ textwidth=79
-    \ expandtab
-    \ autoindent
-    \ fileformat=unix
+" taken care of by pymode
+" au BufNewFile,BufRead *.py
+"     \ set tabstop=4
+"     \ softtabstop=4
+"     \ shiftwidth=4
+"     \ textwidth=79
+"     \ expandtab
+"     \ autoindent
+"     \ fileformat=unix
 
 au BufNewFile,BufRead *.js, *.html, *.css
   \ set tabstop=2
@@ -203,7 +210,7 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let python_highlight_all=1
 let g:ycm_python_binary_path = 'python'
-syntax on
+" syntax on
 " END ADDED 9/1/2017
 "####################################
 
@@ -211,6 +218,15 @@ syntax on
 "####################################
 " plugin settings
 "####################################
+
+if has("gui_running")
+    " colorscheme torte
+    colorscheme space-vim-dark
+    let g:space_vim_dark_backgroun = 233
+    hi Comment guifg=#5C6370 ctermfg=59
+    hi Comment cterm=italic gui=italic
+endif
+
 " disable syntastic checking for python (using pymode for checking)
 let g:syntastic_ignore_files = ['\.py$']
 let g:syntastic_mode_map = { 'mode': 'active',
@@ -218,6 +234,8 @@ let g:syntastic_mode_map = { 'mode': 'active',
             \ 'passive_filetypes': ['python'] }
 
 "python-mode
+let g:pymode_syntax = 1
+" let g:pymode_syntax_all = 1
 let g:pymode_motion = 1
 let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
@@ -229,7 +247,7 @@ let g:pymode_lint_ignore = ['E401']
 let g:pymode_run = 1
 let g:pymode_python = "python3"
 " Override go-to.definition key shortcut to Ctrl-]
-" let g:pymode_rope_goto_definition_bind = "<C-]>"
+let g:pymode_rope_goto_definition_bind = "<C-]>"
 let g:pymode_rope = 1
 let g:pymode_doc = 1
 let g:ropevim_enable_shortcuts = 1
@@ -260,7 +278,7 @@ let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
 " SimpylFold
-let g:SimpylFold_docstring_preview=1
+" let g:SimpylFold_docstring_preview=1
 
 " vim-airline
 set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
@@ -308,17 +326,39 @@ let g:ycm_use_ultisnips_completer = 1
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " helppage -> :h vimwiki-syntax 
 
-"http://www.alexeyshmalko.com/2014/youcompleteme-ultimate-autocomplete-plugin-for-vim/
-" key maps 
-" 	start typing.  ife for example
-" 	<C-n> <C-p> to traverse popup menu
-" 	<tab> to insert snippet
-" 	<C-j> <C-k> to move through fields
-"
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 let g:Perl_PerlRegexAnalyser = 'yes'
+
+" rainbow_parenthesis
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+"" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
 
 "####################################
 " my Plugins and key maps for myplugins
@@ -336,7 +376,8 @@ source ~/.vim/myplugins/*.vim
 " during * and # commands
 """""""""""""""""""""""""""""""""""""""
 " if > and in perl, don't add as a keyword
-set iskeyword+=: "add to iskeywords to help find dspf hierarchical names
+" set iskeyword+=: "add to iskeywords to help find dspf hierarchical names -
+" removed for python : after else 
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
 set iskeyword+=. "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
@@ -352,6 +393,8 @@ au BufWinLeave ?* mkview 1
 au BufWinEnter ?* silent loadview 1
 
 vnoremap <c-a> :Inc<CR> " Increment by 1
+vnoremap < <gv  " better indentation.  doesn't lose visual selection
+vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
 " buffers
 "map <A-n> :bn<CR>
@@ -384,11 +427,6 @@ inoremap # X<BS>#
 " useful, but not always used
 ":set number/nonumber
 ":h option-list   -- get all options for .vimrc file
-":set foldmethod=marker
-"  <shift-v> for visual mode
-"  go to last desired line to fold and hit 'zf'
-"  space bar to open the fold
-"  zc anywhere within the fold to reclose
 
 """""""""""""""""""""""""""""""""""""""
 "if did_filetype()	" filetype already set..

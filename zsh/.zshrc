@@ -2,7 +2,14 @@
 #export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 # homebrew stores in /usr/local/cellar/<tool>
 # 	links to above are stored in /usr/local/bin
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
+# /Library/Python/3.6.{bin,lib} 
+# 	because couldn't install PyQt in /usr/local with homebrew
+# /usr/local/opt/coreutils/libexec/gnubin 
+# 	home brew coreutils.  
+# /usr/local/opt/python/libexec/bin
+# 	pick up this version of python (python3)
+# /usr/local/bin:
+export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/j_honky/.oh-my-zsh
