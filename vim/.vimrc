@@ -8,6 +8,7 @@ set smartindent
 set shiftwidth=4
 set textwidth=79
 set incsearch
+set number relativenumber
 set noscrollbind
 set nocursorbind
 set visualbell          " turn off visual bell
@@ -105,7 +106,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
-"Plugin 'EasyMotion'
+Plugin 'easymotion/vim-easymotion'
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
 "Plugin 'w0rp/ale'
@@ -359,6 +360,20 @@ au Syntax * RainbowParenthesesLoadBraces
 "" Enable persistent undo so that undo history persists across vim sessions
 set undofile
 set undodir=~/.vim/undo
+
+""" EasyMotion
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
 
 "####################################
 " my Plugins and key maps for myplugins
