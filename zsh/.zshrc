@@ -14,6 +14,8 @@ export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/j_honky/.oh-my-zsh
 
+export TERM="xterm-256color"     
+
 # get git of user@hostname in prompt 
 DEFAULT_USER="j_honky"
 
@@ -128,11 +130,13 @@ bindkey -v
 
 # http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
 # open command line in vim to do visual selection
-bindkey -M vicmd "^V" edit-command-line
+#didn't_really_use bindkey -M vicmd "^V" edit-command-line
 # only wait 10ms to change modes.  default is 40ms
 export KEYTIMEOUT=1
 
 alias c='clear'
+alias ll='ls -ltr'
+alias llh='ls -ltrh'
 alias ltr='ls -ltr'
 alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
@@ -142,7 +146,7 @@ alias sd='cd `cat ~/.sd`'
 # pythonmod plugin
 #alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 #alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
-alias g "mvim"
+#alias g="mvim"
 alias m="mvim"
 
 alias x=exit
@@ -157,7 +161,6 @@ alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
-alias ll='ls -l'      #long list
 alias ldot='ls -ld .*'
 alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
@@ -186,4 +189,12 @@ eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolor
 # installed with brew install
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+
+# bind k and j for VI mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+#bindkey -M viins ‘jk’ vi-cmd-mode
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
