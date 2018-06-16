@@ -103,16 +103,17 @@ Plugin 'suan/vim-instant-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'easymotion/vim-easymotion'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
-Plugin 'easymotion/vim-easymotion'
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
 "Plugin 'w0rp/ale'
 " vim schema
 "Plugin 'Solarized'
 "Plugin 'altercation/vim-colors-solarized'
+" Plugin 'terryma/vim-multiple-cursors' - just use gn command
 "Plugin 'elzr/vim-json'
 "Plugin 'mhinz/vim-signify'
 "Plugin 'plasticboy/vim-markdown'
