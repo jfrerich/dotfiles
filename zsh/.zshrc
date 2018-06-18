@@ -9,6 +9,7 @@
 # /usr/local/opt/python/libexec/bin
 # 	pick up this version of python (python3)
 # /usr/local/bin:
+export PERL5LIB="/Users/j_honky/perl5/lib/perl5:/Users/j_honky/perl5/lib/AfLib:/Users/j_honky/perl5/lib/RkLib"
 export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -174,6 +175,7 @@ alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
 alias h='history'
+alias -g G '| grep -i '
 
 alias sortnr='sort -n -r'
 alias top='htop'
