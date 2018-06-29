@@ -104,6 +104,8 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'prettier/vim-prettier'
+Plugin 'pangloss/vim-javascript'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
@@ -185,10 +187,10 @@ nnoremap <space> za
 "     \ autoindent
 "     \ fileformat=unix
 
-au BufNewFile,BufRead *.js, *.html, *.css
-  \ set tabstop=2
-  \ softtabstop=2
-  \ shiftwidth=2
+" au BufNewFile,BufRead *.js, *.html, *.css
+"   \ set tabstop=2
+"   \ softtabstop=2
+"   \ shiftwidth=2
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
@@ -279,6 +281,10 @@ let g:syntastic_enable_python_checker = 1
 let g:syntastic_perl_checkers = ['perl']
 let g:syntastic_enable_perl_checker = 1
 
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+let g:syntastic_enable_javascript_checker = 1
+
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
 
@@ -333,6 +339,29 @@ let g:ycm_key_list_previous_completion=[]
 
 let g:Perl_PerlRegexAnalyser = 'yes'
 
+"" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
+
+""" EasyMotion
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+
+""" prettier
+"run prettier before saving
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+
 " rainbow_parenthesis
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
@@ -357,24 +386,6 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-
-"" Enable persistent undo so that undo history persists across vim sessions
-set undofile
-set undodir=~/.vim/undo
-
-""" EasyMotion
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-" Jump to anywhere you want with minimal keystrokes, with just one key binding.
-" `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-
-" JK motions: Line motions
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 
 "####################################
 " my Plugins and key maps for myplugins
