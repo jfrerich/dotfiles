@@ -106,6 +106,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
+Plugin 'ack.vim'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
