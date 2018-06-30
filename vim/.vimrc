@@ -107,9 +107,11 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ack.vim'
+Plugin 'airblade/vim-gitgutter'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
+"
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
 "Plugin 'w0rp/ale'
