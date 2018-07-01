@@ -57,49 +57,27 @@ call vundle#begin()
 " Cannot add comment at the end of the plugin line
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
-" autocomplete. Also uses ultisnips
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
-" snippets for ultisnips
 Plugin 'honza/vim-snippets'
-" find anything from VIM http://www.youtube.com/watch?v=9XrHk3xjYsw
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
-" theme for info bar at bottom. https://github.com/vim-airline/vim-airline/wiki/Screenshots
 Plugin 'vim-airline/vim-airline'
-" directory viewer :NERDTree
 Plugin 'scrooloose/nerdtree'
-" comment lines 'gc'
 Plugin 'vim-scripts/tComment'
-" Plugin 'vim-scripts/indentpython.vim'
 Plugin 'perl-support.vim'
-" syntax checker after write of file
 Plugin 'vim-syntastic/syntastic'
-" PEP8 checking
-" Plugin 'nvie/vim-flake8'
-" traverse branches of file history. allows retreiving any edit
-" http://vimcasts.org/episodes/undo-branching-and-gundo-vim/
-" changed from gundo, because gundo no longer supports python3
 Plugin 'simnalamburt/mundo.vim'
-" use % to go to matching <tag>
 Plugin 'adelarsq/vim-matchit'
-" git wrapper
 Plugin 'tpope/vim-fugitive'
-" repeat (.) command for surround.vim and a few others
 Plugin 'tpope/vim-repeat'
-" Add open buffers to command line
 Plugin 'bling/vim-bufferline'
-" close the tag with C-_ in command mode
 Plugin 'closetag.vim'
 Plugin 'jiangmiao/auto-pairs'
-" pymode runs rope and takes for ever. using syntastic instead
-" got this working and allow <C-S-e> to run script in vim 
-"Plugin 'klen/python-mode'
 Plugin 'python-mode/python-mode'
 Plugin 'tagbar'
 Plugin 'vimwiki/vimwiki'
 Plugin 'suan/vim-instant-markdown'
-" Plugin 'suan/instant-markdown-d'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'kien/rainbow_parentheses.vim'
@@ -112,9 +90,13 @@ Plugin 'airblade/vim-gitgutter'
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
 "
+" Plugin 'vim-scripts/indentpython.vim'
+" Plugin 'suan/instant-markdown-d'
+
 " replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
 " would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
 "Plugin 'w0rp/ale'
+
 " vim schema
 "Plugin 'Solarized'
 "Plugin 'altercation/vim-colors-solarized'
