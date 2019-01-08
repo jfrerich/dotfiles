@@ -204,7 +204,7 @@ case `uname` in
     source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   ;;
   Linux)
-    # installed with brew install
+    # installed with apt install
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
