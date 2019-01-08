@@ -12,7 +12,7 @@
 	smudge = git media smudge %f
 [user]
 	name = Jason Frerich
-	email = mr.frerich@gmail.com
+	email = jasonfrerich@yahoo.com
 [commit]
 	template = /Users/j_honky/.stCommitMsg
 [filter "lfs"]
