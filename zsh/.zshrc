@@ -9,12 +9,12 @@
 # /usr/local/opt/python/libexec/bin
 # 	pick up this version of python (python3)
 # /usr/local/bin:
-export PERL5LIB="/Users/j_honky/perl5/lib/perl5:/Users/j_honky/perl5/lib/AfLib:/Users/j_honky/perl5/lib/RkLib"
+export PERL5LIB="$HOME/perl5/lib/perl5:$HOME/perl5/lib/AfLib:$HOME/perl5/lib/RkLib"
 export PATH="/usr/local/lib/python3.6/site-packages:/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 # export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/j_honky/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 export TERM="xterm-256color"     
 
