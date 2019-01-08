@@ -18,8 +18,14 @@ export ZSH=/Users/j_honky/.oh-my-zsh
 
 export TERM="xterm-256color"     
 
+export WORKON_HOME=$HOME/.virtualenvs   # Optional
+# export PROJECT_HOME=$HOME/projects      # Optional
+source /usr/local/bin/virtualenvwrapper.sh
+
 # get git of user@hostname in prompt 
 DEFAULT_USER="j_honky"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs)
+POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -89,11 +95,17 @@ plugins=(
   dircycle
   zsh-dircolors-solarized
   dirhistory
+  virtualenv
+  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
+setopt hist_ignore_dups
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
 
 # export MANPATH="/usr/local/man:$MANPATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -127,7 +139,7 @@ fi
 ####################################
 # My Personal Setup - from here to EOF
 ####################################
-
+autoload -U zmv
 bindkey -v
 
 # http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
@@ -144,12 +156,15 @@ alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
 alias sd='cd `cat ~/.sd`'
 
+alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
 # mvim - updated to use brew version of macvim.  includes python3 support for
 # pythonmod plugin
 #alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
 #alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
 #alias g="mvim"
 alias m="mvim"
+alias vi="mvim -v "
+alias vim="mvim -v "
 
 alias x=exit
 
@@ -176,7 +191,7 @@ alias fd='find . -type d -name'
 alias ff='find . -type f -name'
 
 alias h='history'
-alias -g G '| grep -i '
+alias -g G='| grep '
 
 alias sortnr='sort -n -r'
 alias top='htop'
@@ -201,3 +216,5 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+export PATH="/usr/local/opt/sqlite/bin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
