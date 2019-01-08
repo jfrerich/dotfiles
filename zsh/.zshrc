@@ -24,7 +24,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # get git of user@hostname in prompt 
 DEFAULT_USER="j_honky"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(virtualenv dir vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
 
 # Set name of the theme to load. Optionally, if you set this to "random"
