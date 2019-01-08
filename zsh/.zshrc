@@ -157,14 +157,6 @@ alias ds='pwd > ~/.sd'
 alias sd='cd `cat ~/.sd`'
 
 alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
-# mvim - updated to use brew version of macvim.  includes python3 support for
-# pythonmod plugin
-#alias mvim='/Applications/MacVim.app/Contents/bin/mvim'
-#alias mvim='/usr/local/Cellar/macvim/8.0-146_1/bin/mvim'
-#alias g="mvim"
-alias m="mvim"
-alias vi="mvim -v "
-alias vim="mvim -v "
 
 alias x=exit
 
@@ -194,8 +186,29 @@ alias h='history'
 alias -g G='| grep '
 
 alias sortnr='sort -n -r'
-alias top='htop'
-alias cat='ccat'
+
+case `uname` in 
+  Darwin)
+    alias top='htop'
+    alias cat='ccat'
+    # mvim - updated to use brew version of macvim.  includes python3 support for
+    # pythonmod plugin
+    #alias g="mvim"
+    alias m="mvim"
+    alias vi="mvim -v "
+    alias vim="mvim -v "
+
+    # installed with brew install
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+  ;;
+  Linux)
+    # installed with brew install
+    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+esac
 
 # remap cd to cd && ls 
 function cd {
@@ -204,10 +217,6 @@ function cd {
 
 eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
 
-# installed with brew install
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # bind k and j for VI mode
 bindkey -M vicmd 'k' history-substring-search-up
