@@ -5,7 +5,9 @@
 set title
 set smarttab
 set smartindent
-set shiftwidth=4
+set shiftwidth=2
+set tabstop=2
+set expandtab
 set textwidth=79
 set incsearch
 set number relativenumber
@@ -33,9 +35,8 @@ set csprg=/opt/local/bin/cscope
 
 let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
-syntax on
-filetype plugin on
 
+" au BufNewFile,BufRead *.html,*.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
 "####################################
 " ADDED 09/05/17
 "
@@ -44,6 +45,8 @@ filetype plugin on
 "
 " https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 set nocompatible              " required
+filetype plugin on
+syntax on
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -62,19 +65,25 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-obsession'
+" Plugin 'xolox/vim-misc'
+" Plugin 'xolox/vim-session'
 Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'perl-support.vim'
-Plugin 'vim-syntastic/syntastic'
+" Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
 Plugin 'simnalamburt/mundo.vim'
 Plugin 'adelarsq/vim-matchit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-bufferline'
-Plugin 'closetag.vim'
+Plugin 'alvan/vim-closetag'
+Plugin 'mattn/emmet-vim'
+Plugin 'arcseldon/vim-dragvisuals'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'python-mode/python-mode'
+Plugin 'python-mode/python-mode', {'pinned': 1}
 Plugin 'tagbar'
 Plugin 'vimwiki/vimwiki'
 Plugin 'suan/vim-instant-markdown'
@@ -82,10 +91,14 @@ Plugin 'iamcco/markdown-preview.vim'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
+Plugin 'unimpaired.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ack.vim'
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'bounceme/poppy.vim'
+Plugin 'vim-vdebug/vdebug'
+Plugin 'visual-increment'
+" Plugin 'airblade/vim-gitgutter'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
@@ -101,6 +114,7 @@ Plugin 'airblade/vim-gitgutter'
 "Plugin 'Solarized'
 "Plugin 'altercation/vim-colors-solarized'
 " Plugin 'terryma/vim-multiple-cursors' - just use gn command
+"Plugin 'arcseldon/vim-dragvisuals' - good idea, but really slow
 "Plugin 'elzr/vim-json'
 "Plugin 'mhinz/vim-signify'
 "Plugin 'plasticboy/vim-markdown'
@@ -160,7 +174,11 @@ set foldlevel=99
 
 " Enable folding with the spacebar
 nnoremap <space> za
-
+ 
+" autocmd FileType html setlocal shiftwidth=2 tabstop=2
+" autocmd FileType vim setlocal shiftwidth=2 
+au BufNewFile,BufRead *.html,*.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " To add the proper PEP8 indentation, add the following to your .vimrc:
 " taken care of by pymode
 " au BufNewFile,BufRead *.py
@@ -208,28 +226,41 @@ let g:ycm_python_binary_path = 'python'
 " plugin settings
 "####################################
 
-if has("gui_running")
+
+" Bundle 'Valloric/YouCompleteMe'
+" doing a PluginUpdate will sometimes break this plugin and the server needs to
+" be restarted.  This is done by going to bundle/YouCompleteMe and running
+" python install.py
+
+" if has("gui_running")
     " colorscheme torte
     colorscheme space-vim-dark
-    let g:space_vim_dark_backgroun = 233
+    let g:space_vim_dark_background = 233
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
-endif
+" endif
 
 " disable syntastic checking for python (using pymode for checking)
-let g:syntastic_ignore_files = ['\.py$']
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': [],
-            \ 'passive_filetypes': ['python'] }
+" let g:syntastic_ignore_files = ['\.py$']
+" let g:syntastic_mode_map = { 'mode': 'active',
+"             \ 'active_filetypes': [],
+"             \ 'passive_filetypes': ['python'] }
 
 "python-mode
+" Updating Python Mode can cause it to break and I've done it multiple
+" times! The best fix I found is to restore an old copy of the bundle/python-mode
+" folder from Time Machine backup.  
+" supposedly, the following pinned command will tell vundle to not update this
+" folder again, if PluginUpdate is run
+" an 
 let g:pymode_syntax = 1
 " let g:pymode_syntax_all = 1
 let g:pymode_motion = 1
 let g:pymode_lint = 1
 let g:pymode_lint_on_write = 1
-" let g:pymode_lint_checkers = ['pyflakes', 'pep8']
-let g:pymode_lint_checkers = ['pyflakes']
+let g:pymode_lint_checkers = ['pyflakes', 'pep8']
+" let g:pymode_lint_checkers = ['pyflakes']
+" let g:pymode_lint_checkers = ['pylint']
 " disable whitespace before : check
 let g:pymode_lint_ignore = ['E203']
 let g:pymode_lint_ignore = ['E401']
@@ -246,29 +277,50 @@ let g:ropevim_enable_shortcuts = 1
 " let g:pymode_doc_bind = "<C-S-d>"
 "let g:pymode_quickfix_maxheight = 6
 
+" disable <C-J> and <C-K> nerdtree mappings.  
+" this conflicts with shortcuts to navigate split windowns
+let g:NERDTreeMapJumpNextSibling = ''
+
 " ctrlp
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+" w0rp/ale
+" Write this in your vimrc file
+let g:ale_set_loclist = 0
+let g:ale_set_quickfix = 1
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
+
+let g:ale_javascript_eslint_use_global = 1
+
+let g:ale_fixers = {
+\   'javascript': ['eslint'],
+\}
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
+
 " syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
-let g:syntastic_python_checkers = ['python']
-let g:syntastic_enable_python_checker = 1
+" let g:syntastic_python_checkers = ['python']
+" let g:syntastic_enable_python_checker = 1
 
-let g:syntastic_perl_checkers = ['perl']
-let g:syntastic_enable_perl_checker = 1
+" let g:syntastic_perl_checkers = ['perl']
+" let g:syntastic_enable_perl_checker = 1
 
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-let g:syntastic_enable_javascript_checker = 1
+" let g:syntastic_javascript_checkers=['eslint']
+" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
+" let g:syntastic_enable_javascript_checker = 1
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
@@ -344,8 +396,10 @@ map <Leader>k <Plug>(easymotion-k)
 
 """ prettier
 "run prettier before saving
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+" let g:prettier#autoformat = 0
+" autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd BufWritePre *.js :normal gggqG
+" autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 
 " rainbow_parenthesis
 let g:rbpt_colorpairs = [
@@ -366,11 +420,16 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
+
+" RainbowParentheses does not work with Plugin 'pangloss/vim-javascript'
+" parenthesis aren't colored.  Workds for all others and like the pangloss
+" syntax better than having colored parenlike the parenthesis more than vim-javascripts
 let g:rbpt_max = 16
 au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+" let g:poppy_point_enable = 1 
 
 "####################################
 " my Plugins and key maps for myplugins
@@ -391,18 +450,19 @@ source ~/.vim/myplugins/*.vim
 " set iskeyword+=: "add to iskeywords to help find dspf hierarchical names -
 " removed for python : after else 
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
-set iskeyword+=. "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=< "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=> "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
+" set iskeyword+=. "add to iskeywords to help find dspf hierarchical names,
+" removed because python .
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 
 " allow for a user of vim folds to save and open folds when reopen the file
 " if a user doesn't have the following, I don't think they will see the folds when they load the file
-au BufWinLeave ?* mkview 1
-au BufWinEnter ?* silent loadview 1
+" au BufWinLeave ?* mkview 1
+" au BufWinEnter ?* silent loadview 1
 
 vnoremap <c-a> :Inc<CR> " Increment by 1
 vnoremap < <gv  " better indentation.  doesn't lose visual selection
@@ -425,7 +485,18 @@ vnoremap > >gv  " better indentation.  doesn't lose visual selection
 ab _" "####################################
 ab _* *########################################################################
 ab _# ####################################
-ab _pr print "In Here!\n";
+
+autocmd FileType python call PythonModeText()
+function! PythonModeText()
+    ab _pr print("In Here!")
+    ab _pre print("In Here!") exit()
+endfunction
+
+autocmd FileType perl call PerlModeText()
+function! PerlModeText()
+    ab _pr print "In Here!\n"
+    ab _pre print "In Here!\n"; exit;
+endfunction
 
 " Perl helpfuls
 "make vim indent when have smartindent on and placing a #
