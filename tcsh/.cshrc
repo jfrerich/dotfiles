@@ -52,7 +52,7 @@ endif
 #setenv EDITOR ~/Downloads/MacVim-snapshot-72/mvim
 
 # Should probably update this to later version of perl
-setenv PERL5LIB /Users/j_honky/perl5/lib/perl5:/Users/j_honky/perl5/lib/AfLib:/Users/j_honky/perl5/lib/RkLib
+setenv PERL5LIB $HOME/perl5/lib/perl5:$HOME/perl5/lib/AfLib:$HOME/perl5/lib/RkLib
 
 
 
