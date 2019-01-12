@@ -97,6 +97,7 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " Maybe use in the future
 "
+" Plugin editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'suan/instant-markdown-d'
 " Plugin 'snipmate-snippets'
