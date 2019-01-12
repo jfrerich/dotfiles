@@ -35,11 +35,6 @@ set csprg=/opt/local/bin/cscope
 
 let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
-
-" au BufNewFile,BufRead *.html,*.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
-"####################################
-" ADDED 09/05/17
-"
 " Other plugin suggestion pages
 " https://vimawesome.com/
 "
@@ -101,58 +96,41 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 
 " Maybe use in the future
-" move to location in file.  not really needed.  Just do search
 "
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'suan/instant-markdown-d'
+" Plugin 'snipmate-snippets'
+" Plugin 'vim-scripts/ultisnips'
 
 " vim schema
 "Plugin 'Solarized'
-"Plugin 'altercation/vim-colors-solarized'
-" Plugin 'terryma/vim-multiple-cursors' - just use gn command
-"Plugin 'arcseldon/vim-dragvisuals' - good idea, but really slow
 "Plugin 'elzr/vim-json'
 "Plugin 'mhinz/vim-signify'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'tpope/vim-sleuth'
 "Plugin 'vim-scripts/a.vim'
 "Plugin 'vsutil.vim'
-"Plugin 'VimRegEx.vim'
-
 
 " downloaded some time ago.  not sure if need, but put here and removed from
 " /plugin dir
 "Plugin 'rotate.vim'
 "Plugin 'cscope.vim'
-"Plugin 'increment.vim'
 "Plugin 'SearchComplete'
 "Plugin 'taglist.vim'
 "Plugin 'Align.vim'
 "Plugin 'table_format.vim'
 "Plugin 'vim_IDE.vim'
+
 " seems broken
 "Plugin 'VimRegEx.vim'
-"Plugin 'Vimball'
-
 
 " PLUGINS not managed by vundle
 " bclose.vim script
 "let bclose_multiple = 0
 
-
-
-"Plugin 'snipmate-snippets'
-"Plugin 'vim-scripts/ultisnips'
-
-" not working
-"Plugin 'mattn/calendar.vim'
-"Plugin 'Headlights'
-
 " used this to install cmake
 " Old  sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
 " New  brew install CMake
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -171,8 +149,6 @@ set foldlevel=99
 " Enable folding with the spacebar
 nnoremap <space> za
  
-" autocmd FileType html setlocal shiftwidth=2 tabstop=2
-" autocmd FileType vim setlocal shiftwidth=2 
 au BufNewFile,BufRead *.html,*.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " To add the proper PEP8 indentation, add the following to your .vimrc:
@@ -213,15 +189,10 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 let python_highlight_all=1
 let g:ycm_python_binary_path = 'python'
-" syntax on
-" END ADDED 9/1/2017
-"####################################
-
 
 "####################################
 " plugin settings
 "####################################
-
 
 " Bundle 'Valloric/YouCompleteMe'
 " doing a PluginUpdate will sometimes break this plugin and the server needs to
@@ -276,7 +247,6 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " w0rp/ale
-" Write this in your vimrc file
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
@@ -284,7 +254,6 @@ let g:ale_set_quickfix = 1
 let g:airline#extensions#ale#enabled = 1
 
 let g:ale_javascript_eslint_use_global = 1
-
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
@@ -297,7 +266,6 @@ let g:ale_fix_on_save = 1
 
 " vim-airline
 set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
-" set guifont=DejaVu\ Sans:s12
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -363,7 +331,6 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-
 """ prettier
 "run prettier before saving
 " let g:prettier#autoformat = 0
@@ -392,7 +359,7 @@ let g:rbpt_colorpairs = [
     \ ]
 
 " RainbowParentheses does not work with Plugin 'pangloss/vim-javascript'
-" parenthesis aren't colored.  Workds for all others and like the pangloss
+" parenthesis aren't colored.  Works for all others and like the pangloss
 " syntax better than having colored parenlike the parenthesis more than vim-javascripts
 let g:rbpt_max = 16
 au VimEnter * RainbowParenthesesToggle
@@ -407,10 +374,6 @@ au Syntax * RainbowParenthesesLoadBraces
 source ~/.vim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
-" END ADDED 09/05/17
-"####################################
-
-
 "let g:Perl_PerlTags='enabled'
 """""""""""""""""""""""""""""""""""""""
 " define additive keywords to find
@@ -421,8 +384,8 @@ source ~/.vim/myplugins/*.vim
 " removed for python : after else 
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
-set iskeyword+=< "add to iskeywords to help find dspf hierarchical names
-set iskeyword+=> "add to iskeywords to help find dspf hierarchical names
+" set iskeyword+=< "add to iskeywords to help find dspf hierarchical names
+" set iskeyword+=> "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
 " set iskeyword+=. "add to iskeywords to help find dspf hierarchical names,
@@ -438,18 +401,11 @@ vnoremap <c-a> :Inc<CR> " Increment by 1
 vnoremap < <gv  " better indentation.  doesn't lose visual selection
 vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
-" buffers
-"map <A-n> :bn<CR>
-"map <A-p> :bp<CR>
-"map <A-d> :bd:sp:bn
-
 "map  :PrintVariables
 "map P :PrintVariablesOneLine
 
-"
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
-
 
 " abbreviations
 ab _" "####################################
@@ -473,90 +429,3 @@ endfunction
 "where ^H is typed as <Ctrl-V><Back-Space>.
 inoremap # X<BS>#
 
-"You need the next line to change the color back when you hit escape.
-"inoremap <Esc> <Esc>:highlight Normal guibg=white<cr>
-"
-"""""""""""""""""""""""""""""""""""""""
-" useful, but not always used
-":set number/nonumber
-":h option-list   -- get all options for .vimrc file
-
-"""""""""""""""""""""""""""""""""""""""
-"if did_filetype()	" filetype already set..
-"    finish		" ..don't do these checks
-"endif
-"if getline(1) =~ '^#'
-"    setfiletype place
-"elseif getline(1) =~? '\<drawing\>'
-"    setfiletype drawing
-"endif
-
-"ource/export/circuits/software/PrintTimingPath/nt.vim
-"ource /export/circuits/software/PrintTimingPath/pmill.vim
-
-"  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
-
-"####################################
-"
-" permanent mappings
-" these were the original default mappings. Once a file is opened that calls
-"    one of the following functions, the default mappings will not work for other
-"    filetypes.  The defaults must be placed inside each function.
-"
-" the best option is to only set f(x) key mappings for specific filetypes and have
-" general f(x)'s map to other keys. In general, the f(x) keys are keys that are shared
-" for multiple filetypes and perform specific f(x)'s that are documented with the strip
-" on the keyboard. (~/misc/key_bindings)
-" function key mappings are in ~/.vim/plugin/maps.vim
-
-" function MapPmill()
-"     setfiletype pmill
-" endfunction
-"
-" function MapNT()
-"     setfiletype nt
-" endfunction
-
-"####################################
-" function Test()
-"     norm d
-"     "exe "norm d"
-"     "exe line("G")
-"     "exe "norm! d"
-"     "norm "G"
-"     exe "norm! d"
-"     "norm "p"
-"     "exe "P"
-"     exe "norm! G"
-" endfunction
-
-"map z di stack<CR> use<CR> <ESC> P '] i stack<CR> use<CR> <ESC> ^
-"map z di stack<CR> use<CR>  P '] i stack<CR> use<CR> <ESC> ^
-"map z :call Test()<CR>
-
-
-"let g:ConqueTerm_Color = 1
-"let g:ConqueTerm_TERM = 'vt100'
-"let g:ConqueTerm_Syntax = 'conque'
-"let g:ConqueTerm_ReadUnfocused = 1
-
-"aunmenu *
-"unmenu Toolbar
-"unmenu! Toolbar
-
-"file-explorer
-
-"syntax match CurrentLine  /.*\%#.*/
-"hi link CurrentLine Visual
-"hi CurrentLine guifg=white guibg=lightblue
-"syntax match CurrentLine "NONE"
-":map j j:hi CurrentLine guifg=blue guibg=lightblue<cr>
-"hi CurrentLine guifg=white guibg=lightblue
-
-"  01/26/10 - moved pmill to NT setup
-"  au BufNewFile,BufRead 	*dspf,*netlist*,*.spi,*.vec,vec.*,*.mon,*wire,*.inc,*.tech,*.lib,*.prepped,*.net,*.dpf		setfiletype spice
-"  au BufNewFile,BufRead 	*README  	 				setfiletype readme
-"  au BufNewFile,BufRead 	*.vipp,*.vndl  	 				setfiletype verilog
-"  au! BufNewFile,BufRead 	*.err,*.cap_increase    so /export/home/jason/.vim/mappmill.vim
-"  au! BufNewFile,BufRead 	*.src          		so /export/home/jason/.vim/mapndl.vim
-"  au! BufNewFile,BufRead 	*.err,*.cap_increase    :call MapNT()
