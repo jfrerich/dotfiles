@@ -72,7 +72,6 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'perl-support.vim'
-" Plugin 'vim-syntastic/syntastic'
 Plugin 'w0rp/ale'
 Plugin 'simnalamburt/mundo.vim'
 Plugin 'adelarsq/vim-matchit'
@@ -106,10 +105,6 @@ Plugin 'terryma/vim-multiple-cursors'
 "
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'suan/instant-markdown-d'
-
-" replacement for syntastic.  Updated syntax live taking advantage of asynchrous vim 8.0
-" would be nice, but need to figure if all errors can be shown in a buffer, like syntastic
-"Plugin 'w0rp/ale'
 
 " vim schema
 "Plugin 'Solarized'
@@ -241,12 +236,6 @@ let g:ycm_python_binary_path = 'python'
     hi Comment cterm=italic gui=italic
 " endif
 
-" disable syntastic checking for python (using pymode for checking)
-" let g:syntastic_ignore_files = ['\.py$']
-" let g:syntastic_mode_map = { 'mode': 'active',
-"             \ 'active_filetypes': [],
-"             \ 'passive_filetypes': ['python'] }
-
 "python-mode
 " Updating Python Mode can cause it to break and I've done it multiple
 " times! The best fix I found is to restore an old copy of the bundle/python-mode
@@ -302,26 +291,6 @@ let g:ale_fixers = {
 
 " Set this variable to 1 to fix files when you save them.
 let g:ale_fix_on_save = 1
-
-" syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
-" let g:syntastic_python_checkers = ['python']
-" let g:syntastic_enable_python_checker = 1
-
-" let g:syntastic_perl_checkers = ['perl']
-" let g:syntastic_enable_perl_checker = 1
-
-" let g:syntastic_javascript_checkers=['eslint']
-" let g:syntastic_javascript_eslint_exe = 'npm run lint --'
-" let g:syntastic_enable_javascript_checker = 1
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
