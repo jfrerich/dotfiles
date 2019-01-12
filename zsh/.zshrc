@@ -99,6 +99,20 @@ plugins=(
   virtualenvwrapper
 )
 
+case `uname` in 
+  Darwin)
+  ;;
+  Linux)
+    # needed for ssh-add when on ubuntu, using zsh
+    # https://github.com/robbyrussell/oh-my-zsh/tree/master/plugins/ssh-agent
+    
+    # add ssh-agent when on Ubuntu Linux 
+    plugins+=(ssh-agent)
+    
+    # must be before source of oh-my-zsh
+    zstyle :omz:plugins:ssh-agent identities id_rsa
+esac
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
