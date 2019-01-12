@@ -98,7 +98,8 @@ Plugin 'ack.vim'
 " Plugin 'bounceme/poppy.vim'
 Plugin 'vim-vdebug/vdebug'
 Plugin 'visual-increment'
-" Plugin 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Maybe use in the future
 " move to location in file.  not really needed.  Just do search
