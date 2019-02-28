@@ -212,7 +212,7 @@ alias sortnr='sort -n -r'
 case `uname` in 
   Darwin)
     alias top='htop'
-    alias cat='ccat'
+    alias cat='pygmentize -O style=native'
     # mvim - updated to use brew version of macvim.  includes python3 support for
     # pythonmod plugin
     #alias g="mvim"
@@ -237,7 +237,7 @@ function cd {
   builtin cd "$@" && ls -F
 }
 
-eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
+# eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
 
 
 # bind k and j for VI mode
