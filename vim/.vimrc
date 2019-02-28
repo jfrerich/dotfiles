@@ -94,6 +94,8 @@ Plugin 'vim-vdebug/vdebug'
 Plugin 'visual-increment'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'fatih/vim-go'
+Plugin 'fatih/molokai'
 
 " Maybe use in the future
 "
@@ -207,6 +209,18 @@ let g:ycm_python_binary_path = 'python'
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
 " endif
+
+" vim-go
+let g:go_metalinter_autosave = 0
+let g:go_list_type = "quickfix"
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_types = 1
 
 "python-mode
 " Updating Python Mode can cause it to break and I've done it multiple
