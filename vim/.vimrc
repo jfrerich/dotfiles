@@ -2,19 +2,27 @@
 "####################################
 " default settings
 "####################################
-set autowrite       " automatically write file if you call :make - used for :GoBuild  
+set autowrite             " automatically write file if you call :make - used for :GoBuild  
 set title
 set smarttab
+set encoding=utf-8
 set smartindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
+set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
+set updatetime=100
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
 set textwidth=79
 set incsearch
 set number relativenumber
 set noscrollbind
 set nocursorbind
-set visualbell          " turn off visual bell
+set visualbell            " turn off visual bell
 "set vb t_vb=              " turn off visual bell
 set noerrorbells          " turn off error bells
 set nowrap                " default to not wrap lines when opening a file
@@ -28,7 +36,6 @@ set nosol                 " no start of line. when in Visual and do Cntl-D or G,
                           " want this for column editing. Ex - HSIM .vec files
 set guioptions-=T         " don't view the Toolbar
 set winaltkeys=no " Disable menu accelerators.  The Alt key that activates the menu interfere with the Brief key mappings.
-"set filetype=on
 set hlsearch
 set ruler                " show row, column, and % file in bottom right corner
 set completeopt=menu
@@ -36,11 +43,22 @@ set csprg=/opt/local/bin/cscope
 
 let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
-" Other plugin suggestion pages
-" https://vimawesome.com/
-"
-" https://realpython.com/blog/python/vim-and-python-a-match-made-in-heaven/
 set nocompatible              " required
+
+"""""""""""""""""""""""""""""""""""""""
+" define additive keywords to find
+" during * and # commands
+"""""""""""""""""""""""""""""""""""""""
+set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
+set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
+set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
+set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
+
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/undodir
+endif
+
 filetype plugin on
 syntax on
 filetype off                  " required
@@ -48,9 +66,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/dotfiles/.vim')
 
 " let Vundle manage Vundle, required
 " Cannot add comment at the end of the plugin line
@@ -152,45 +167,19 @@ nnoremap <C-H> <C-W><C-H>
 " map <C-M> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
-
 " Enable folding with the spacebar
 nnoremap <space> za
  
-au BufNewFile,BufRead *.html,*.js setlocal tabstop=2 shiftwidth=2 softtabstop=2
-au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
-" To add the proper PEP8 indentation, add the following to your .vimrc:
-" taken care of by pymode
-" au BufNewFile,BufRead *.py
-"     \ set tabstop=4
-"     \ softtabstop=4
-"     \ shiftwidth=4
-"     \ textwidth=79
-"     \ expandtab
-"     \ autoindent
-"     \ fileformat=unix
-
-" au BufNewFile,BufRead *.js, *.html, *.css
-"   \ set tabstop=2
-"   \ softtabstop=2
-"   \ shiftwidth=2
+vnoremap <c-a> :Inc<CR> " Increment by 1
+vnoremap < <gv  " better indentation.  doesn't lose visual selection
+vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
 highlight BadWhitespace ctermbg=red guibg=darkred
 au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
-set encoding=utf-8
+au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.vim/undodir
-endif
-
-let g:ycm_autoclose_preview_window_after_completion=1
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "python with virtualenv support
 " py << EOF
@@ -202,29 +191,21 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "   execfile(activate_this, dict(__file__=activate_this))
 " EOF
 
-let python_highlight_all=1
-let g:ycm_python_binary_path = 'python'
-
 "####################################
 " plugin settings
 "####################################
-
-" Bundle 'Valloric/YouCompleteMe'
-" doing a PluginUpdate will sometimes break this plugin and the server needs to
-" be restarted.  This is done by going to bundle/YouCompleteMe and running
-" python install.py
-
 " if has("gui_running")
     " colorscheme torte
     let g:space_vim_dark_background = 233
     colorscheme space-vim-dark " apply after setting let g:space_vim_dark
-    set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
     hi Visual term=reverse cterm=reverse guibg=Grey50
 " endif
 
+"####################################
 " vim-go
+"####################################
 "go build, run, test mappings
 autocmd FileType go nmap <leader>b  <Plug>(go-build)
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
@@ -234,12 +215,9 @@ autocmd FileType go nmap <leader>i  <Plug>(go-info)
 
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
-
 " let g:go_fmt_command = "goimports"
-
 let g:go_auto_type_info = 1 " may be overkill -> always show function signature at bottom
 let g:go_auto_sameids = 1
-set updatetime=100
 
 let g:go_metalinter_autosave = 0
 let g:go_highlight_build_constraints = 1
@@ -251,7 +229,9 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
-"python-mode
+"####################################
+" python-mode
+"####################################
 " Updating Python Mode can cause it to break and I've done it multiple
 " times! The best fix I found is to restore an old copy of the bundle/python-mode
 " folder from Time Machine backup.  
@@ -293,22 +273,22 @@ let g:ctrlp_cmd = 'CtrlP'
 " w0rp/ale
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-
-" Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
-
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
 
-" Set this variable to 1 to fix files when you save them.
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save them.
+
+" Set this. Airline will handle the rest.
+let g:airline#extensions#ale#enabled = 1
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
 
+"####################################
 " vim-airline
+"####################################
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -345,26 +325,41 @@ let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 " end vim-airline
 
+"####################################
+" YouCompleteMe
+"####################################
+" Bundle 'Valloric/YouCompleteMe'
+" doing a PluginUpdate will sometimes break this plugin and the server needs to
+" be restarted.  This is done by going to bundle/YouCompleteMe and running
+" python install.py
+
 " YCM and snippet colliding
 let g:ycm_use_ultisnips_completer = 1
+
+let g:ycm_autoclose_preview_window_after_completion=1
+"let g:ycm_server_keep_logfiles = 1
+"let g:ycm_server_log_level = 'debug'
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let python_highlight_all=1
+let g:ycm_python_binary_path = 'python'
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 
 " vimwiki with markdown support
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " helppage -> :h vimwiki-syntax 
 
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-
 let g:Perl_PerlRegexAnalyser = 'yes'
 
-""" EasyMotion
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
+"####################################
+" EasyMotion
+"####################################
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-nmap s <Plug>(easymotion-overwin-f)
 " Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
+nmap s <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
@@ -414,31 +409,12 @@ source ~/.vim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
 "let g:Perl_PerlTags='enabled'
-"""""""""""""""""""""""""""""""""""""""
-" define additive keywords to find
-" during * and # commands
-"""""""""""""""""""""""""""""""""""""""
-" if > and in perl, don't add as a keyword
-" set iskeyword+=: "add to iskeywords to help find dspf hierarchical names -
-" removed for python : after else 
-set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
-set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
-" set iskeyword+=< "add to iskeywords to help find dspf hierarchical names
-" set iskeyword+=> "add to iskeywords to help find dspf hierarchical names
-set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
-set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
-" set iskeyword+=. "add to iskeywords to help find dspf hierarchical names,
-" removed because python .
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 
 " allow for a user of vim folds to save and open folds when reopen the file
 " if a user doesn't have the following, I don't think they will see the folds when they load the file
 " au BufWinLeave ?* mkview 1
 " au BufWinEnter ?* silent loadview 1
-
-vnoremap <c-a> :Inc<CR> " Increment by 1
-vnoremap < <gv  " better indentation.  doesn't lose visual selection
-vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
 "map  :PrintVariables
 "map P :PrintVariablesOneLine
@@ -462,9 +438,3 @@ function! PerlModeText()
     ab _pr print "In Here!\n"
     ab _pre print "In Here!\n"; exit;
 endfunction
-
-" Perl helpfuls
-"make vim indent when have smartindent on and placing a #
-"where ^H is typed as <Ctrl-V><Back-Space>.
-inoremap # X<BS>#
-
