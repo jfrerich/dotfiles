@@ -175,6 +175,11 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 
 set encoding=utf-8
 
+if has('persistent_undo')
+  set undofile
+  set undodir=~/.vim/undodir
+endif
+
 let g:ycm_autoclose_preview_window_after_completion=1
 "let g:ycm_server_keep_logfiles = 1
 "let g:ycm_server_log_level = 'debug'
@@ -328,10 +333,6 @@ let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
 
 let g:Perl_PerlRegexAnalyser = 'yes'
-
-"" Enable persistent undo so that undo history persists across vim sessions
-set undofile
-set undodir=~/.vim/undo
 
 """ EasyMotion
 " Turn on case insensitive feature
