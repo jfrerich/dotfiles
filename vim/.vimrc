@@ -209,10 +209,12 @@ let g:ycm_python_binary_path = 'python'
 
 " if has("gui_running")
     " colorscheme torte
-    colorscheme space-vim-dark
     let g:space_vim_dark_background = 233
+    colorscheme space-vim-dark " apply after setting let g:space_vim_dark
+    set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
+    hi Visual term=reverse cterm=reverse guibg=Grey50
 " endif
 
 " vim-go
@@ -285,7 +287,6 @@ let g:ale_fix_on_save = 1
 " let g:SimpylFold_docstring_preview=1
 
 " vim-airline
-set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 let g:airline_powerline_fonts = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
