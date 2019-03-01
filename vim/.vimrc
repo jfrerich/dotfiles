@@ -2,6 +2,7 @@
 "####################################
 " default settings
 "####################################
+set autowrite       " automatically write file if you call :make - used for :GoBuild  
 set title
 set smarttab
 set smartindent
@@ -96,6 +97,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'fatih/vim-go'
 Plugin 'fatih/molokai'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Maybe use in the future
 "
@@ -144,6 +146,11 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" error navigation
+" map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
+" map <C-M> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
 
 " Enable folding
 set foldmethod=indent
@@ -218,8 +225,23 @@ let g:ycm_python_binary_path = 'python'
 " endif
 
 " vim-go
-let g:go_metalinter_autosave = 0
+"go build, run, test mappings
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <leader>i  <Plug>(go-info)
+
+" use only quickfix list, never location list
 let g:go_list_type = "quickfix"
+
+" let g:go_fmt_command = "goimports"
+
+let g:go_auto_type_info = 1 " may be overkill -> always show function signature at bottom
+let g:go_auto_sameids = 1
+set updatetime=100
+
+let g:go_metalinter_autosave = 0
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_fields = 1
