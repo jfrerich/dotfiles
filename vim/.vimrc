@@ -119,8 +119,6 @@ Plugin 'AndrewRadev/splitjoin.vim'
 " Plugin editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'suan/instant-markdown-d'
-" Plugin 'snipmate-snippets'
-" Plugin 'vim-scripts/ultisnips'
 
 " vim schema
 "Plugin 'Solarized'
