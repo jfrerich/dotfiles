@@ -211,6 +211,10 @@ autocmd FileType go nmap <leader>t  <Plug>(go-test)
 autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <leader>i  <Plug>(go-info)
 
+autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
 " let g:go_fmt_command = "goimports"
