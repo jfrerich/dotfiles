@@ -266,7 +266,7 @@ let g:NERDTreeMapJumpNextSibling = ''
 
 " ctrlp
 let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
+" let g:ctrlp_cmd = 'CtrlPMRU'
 
 " w0rp/ale
 let g:ale_set_loclist = 0
