@@ -13,7 +13,7 @@ set expandtab
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 set guifont=UbuntuMonoDerivativePowerline-Regular:h13
 " set guifont=DejaVuSansMonoPowerline:h11
-set updatetime=100
+set updatetime=800
 
 " Enable folding
 set foldmethod=indent
@@ -202,21 +202,38 @@ au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
     hi Visual term=reverse cterm=reverse guibg=Grey50
+    hi Terminal ctermbg=black guibg=black 
 " endif
 
 "####################################
 " vim-go
+" https://www.diycode.cc/projects/fatih/vim-go
 "####################################
 "go build, run, test mappings
-autocmd FileType go nmap <leader>b  <Plug>(go-build)
-autocmd FileType go nmap <leader>r  <Plug>(go-run)
-autocmd FileType go nmap <leader>t  <Plug>(go-test)
-autocmd FileType go nmap <Leader>c  <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <leader>i  <Plug>(go-info)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+" go-def 
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+
+" go-doc
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+
+
+"Show a list of interfaces which is implemented by the type under your cursor
+"with <leader>s
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+" Rename the identifier under the cursor to a new name
+au FileType go nmap <Leader>e <Plug>(go-rename)
+
+au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
