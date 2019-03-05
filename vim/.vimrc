@@ -306,6 +306,8 @@ let g:ale_javascript_eslint_use_global = 1
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
+let g:ale_sign_error='✗'
+let g:ale_sign_warning='⚠'
 
 let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save them.
 
@@ -314,6 +316,8 @@ let g:airline#extensions#ale#enabled = 1
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
+
+let g:airline#extensions#tabline#enabled = 1
 
 "####################################
 " vim-airline
