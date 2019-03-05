@@ -44,6 +44,8 @@ set ruler                " show row, column, and % file in bottom right corner
 set completeopt=menu
 set csprg=/opt/local/bin/cscope
 
+set noswapfile
+
 let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
 set nocompatible              " required
