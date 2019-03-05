@@ -93,7 +93,7 @@ Plugin 'simnalamburt/mundo.vim'
 Plugin 'adelarsq/vim-matchit'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'bling/vim-bufferline'
+" Plugin 'bling/vim-bufferline'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
 Plugin 'jiangmiao/auto-pairs'
@@ -336,6 +336,7 @@ let g:airline#extensions#ale#enabled = 1
 " let g:SimpylFold_docstring_preview=1
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 "####################################
 " vim-airline
