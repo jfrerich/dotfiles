@@ -96,7 +96,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-bufferline'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
-Plugin 'arcseldon/vim-dragvisuals'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'python-mode/python-mode', {'pinned': 1}
 Plugin 'tagbar'
@@ -110,13 +109,11 @@ Plugin 'unimpaired.vim'
 Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ack.vim'
-" Plugin 'bounceme/poppy.vim'
 Plugin 'vim-vdebug/vdebug'
 Plugin 'visual-increment'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'fatih/vim-go'
-Plugin 'fatih/molokai'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'powerline/powerline-fonts'
 
@@ -127,6 +124,7 @@ Plugin 'powerline/powerline-fonts'
 " Plugin 'suan/instant-markdown-d'
 
 " vim schema
+" Plugin 'bounceme/poppy.vim'
 "Plugin 'Solarized'
 "Plugin 'elzr/vim-json'
 "Plugin 'mhinz/vim-signify'
@@ -137,6 +135,7 @@ Plugin 'powerline/powerline-fonts'
 
 " downloaded some time ago.  not sure if need, but put here and removed from
 " /plugin dir
+"Plugin 'arcseldon/vim-dragvisuals'
 "Plugin 'rotate.vim'
 "Plugin 'cscope.vim'
 "Plugin 'SearchComplete'
