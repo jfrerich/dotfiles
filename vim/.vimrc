@@ -36,7 +36,7 @@ set hidden                " can write a buffer, bring up another, go back to ori
 set showmatch             " briefly show matching (,[,{
 set nosol                 " no start of line. when in Visual and do Cntl-D or G, don't go to start of line, but keep in same column
                           " want this for column editing. Ex - HSIM .vec files
-set guioptions-=T         " don't view the Toolbar
+set guioptions=           " don't show scrollbars or menu bar"
 set winaltkeys=no " Disable menu accelerators.  The Alt key that activates the menu interfere with the Brief key mappings.
 set hlsearch
 set ruler                " show row, column, and % file in bottom right corner
