@@ -23,6 +23,7 @@ set textwidth=79
 set incsearch
 set number relativenumber
 set noscrollbind
+set scrolloff=3
 set nocursorbind
 set visualbell            " turn off visual bell
 "set vb t_vb=              " turn off visual bell
