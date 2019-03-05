@@ -165,6 +165,10 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"" Split
+noremap <Leader>h :<C-u>split<CR>
+noremap <Leader>v :<C-u>vsplit<CR>
+
 " error navigation
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 " map <C-M> :cprevious<CR>
