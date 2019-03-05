@@ -187,7 +187,6 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-
 "python with virtualenv support
 " py << EOF
 " import os
@@ -215,32 +214,51 @@ au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 " vim-go
 " https://www.diycode.cc/projects/fatih/vim-go
 "####################################
-"go build, run, test mappings
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-au FileType go nmap <leader>R :<C-u>GoRun %<cr>
 
-" go-def 
-au FileType go nmap <Leader>ds <Plug>(go-def-split)
-au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
-" go-doc
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+augroup go
+  "go build, run, test mappings
+  au FileType go nmap <leader>b <Plug>(go-build)
+  au FileType go nmap <leader>r <Plug>(go-run)
+  au FileType go nmap <leader>t <Plug>(go-test)
+  au FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+  au FileType go nmap <leader>R :<C-u>GoRun %<cr>
 
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 
-"Show a list of interfaces which is implemented by the type under your cursor
-"with <leader>s
-au FileType go nmap <Leader>s <Plug>(go-implements)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
-" Rename the identifier under the cursor to a new name
-au FileType go nmap <Leader>e <Plug>(go-rename)
+  "Show a list of interfaces which is implemented by the type under your cursor
+  au FileType go nmap <Leader>s <Plug>(go-implements)
 
-au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+  " Rename the identifier under the cursor to a new name
+  au FileType go nmap <Leader>e <Plug>(go-rename)
+
+  au FileType go nmap <C-g> :GoDecls<cr>
+  au FileType go imap <C-g> <esc>:<C-u>GoDecls<cr>
+
+  au FileType go nmap <leader>dr :GoDeclsDir<cr>
+  au FileType go imap <leader>dr <esc>:<C-u>GoDeclsDir<cr>
+
+  au Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
+
+  " au FileType go nmap <buffer> <S-F11>  <Plug>(go-debug-stepout)
+  " au FileType go nmap <S-F11> <Plug>(go-step-out)
+  " au Filetype go command! -bang A call (<bang>0, 'edit')
+
+  " au Filetype go noremap <S-F11> :call GoDebugStepOut()<CR>
+
+  " n  <C-LeftMouse> *@<LeftMouse>:GoDef<CR>
+  "    î           *@:call AutoPairsJump()<CR>
+  "    ð           *@:call AutoPairsToggle()<CR>
+  "
+augroup END
+
 
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
