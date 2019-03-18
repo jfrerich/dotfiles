@@ -22,7 +22,6 @@
 	required = true
 [difftool "vimdiff"]
 	cmd = mvimdiff -f -d \"$LOCAL\" \"$REMOTE\"
-  external = ~/code/git-diff-wrapper.sh
 [diff]
     tool = vimdiff
 [gui]
