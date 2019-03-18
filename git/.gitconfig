@@ -22,5 +22,10 @@
 	required = true
 [difftool "vimdiff"]
 	cmd = mvimdiff -f -d \"$LOCAL\" \"$REMOTE\"
+  external = ~/code/git-diff-wrapper.sh
 [diff]
-    external = ~/code/git-diff-wrapper.sh
+    tool = vimdiff
+[gui]
+	recentrepo = /Users/j_honky/go/src/github.com/mattermost/mattermost-plugin-demo
+[difftool]
+	prompt = false

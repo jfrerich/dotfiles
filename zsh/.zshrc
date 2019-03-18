@@ -169,6 +169,8 @@ bindkey -v
 # only wait 10ms to change modes.  default is 40ms
 export KEYTIMEOUT=1
 
+alias gdt='git difftool'
+
 alias c='clear'
 alias ll='ls -ltr'
 alias llh='ls -ltrh'
