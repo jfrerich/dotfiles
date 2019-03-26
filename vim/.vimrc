@@ -71,6 +71,8 @@ filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=/usr/local/opt/fzf
+
 call vundle#begin()
 
 " let Vundle manage Vundle, required
@@ -117,6 +119,7 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'fatih/vim-go'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'powerline/powerline-fonts'
+Plugin 'junegunn/fzf.vim'
 
 " Maybe use in the future
 "
@@ -169,6 +172,8 @@ nnoremap <C-H> <C-W><C-H>
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
+
+nmap ; :Buffers<CR>
 
 " error navigation
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
