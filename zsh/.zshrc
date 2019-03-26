@@ -261,3 +261,5 @@ export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
