@@ -206,7 +206,7 @@ au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
     colorscheme space-vim-dark " apply after setting let g:space_vim_dark
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
-    hi Visual term=reverse cterm=reverse guibg=Grey50
+    hi Visual term=reverse cterm=reverse guibg=#454545
     hi Terminal ctermbg=black guibg=black 
 " endif
 
