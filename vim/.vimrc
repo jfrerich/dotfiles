@@ -33,6 +33,7 @@ set ignorecase
 set smartcase             " overrides idnorecase if uppercase used in search string
 set wildmode=longest,list " help command-line
 set formatoptions-=a      " auto formatting of paragraphs
+set formatoptions+=j      " delete comment characters when joining lines
 set hidden                " can write a buffer, bring up another, go back to original, and undo will work
 set showmatch             " briefly show matching (,[,{
 set nosol                 " no start of line. when in Visual and do Cntl-D or G, don't go to start of line, but keep in same column
