@@ -281,7 +281,7 @@ let g:go_list_type = "quickfix"
 let g:go_auto_type_info = 1 " may be overkill -> always show function signature at bottom
 let g:go_auto_sameids = 1
 
-let g:go_metalinter_autosave_enabled = []
+" let g:go_metalinter_autosave_enabled = [govet]
 let g:go_metalinter_command = ''
 
 let g:go_metalinter_autosave = 0
@@ -350,6 +350,10 @@ let g:ale_javascript_eslint_use_global = 1
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \}
+
+let g:ale_linters = {'go': ['gometalinter', 'govet']}
+let g:ale_go_gometalinter_options = ' --exclude=ALL_CAPS --exclude="should have comment" --aggregate --fast --sort=line --vendor --vendored-linters --enable=govet --disable=gocyclo '
+
 let g:ale_sign_error='✗'
 let g:ale_sign_warning='⚠'
 
