@@ -448,12 +448,12 @@ let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
-""" prettier
-"run prettier before saving
-" let g:prettier#autoformat = 0
 " autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
 " autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
+"run prettier before saving
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " rainbow_parenthesis
 let g:rbpt_colorpairs = [
