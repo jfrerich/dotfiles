@@ -194,13 +194,13 @@ case `uname` in
 
     # installed with brew install
     source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   ;;
   Linux)
     # installed with apt install
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-    source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    # source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 esac
 
