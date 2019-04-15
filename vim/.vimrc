@@ -347,14 +347,15 @@ let g:ctrlp_map = '<c-p>'
 " w0rp/ale
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
-let g:ale_javascript_eslint_use_global = 1
+" let g:ale_javascript_eslint_use_global = 1
+" let g:ale_javascript_eslint_executable = 'eslint'
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
 \   'javascript.jsx': ['eslint'],
 \}
 
 let g:ale_linters = {
-\ 'javascript': ['eslist'], 
+\ 'javascript': ['eslint'], 
 \ 'go': ['gometalinter', 'govet']
 \}
 let g:ale_go_gometalinter_options = ' --exclude=ALL_CAPS --exclude="should have comment" --aggregate --fast --sort=line --vendor --vendored-linters --enable=govet --disable=gocyclo '
