@@ -109,7 +109,7 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'unimpaired.vim'
-Plugin 'prettier/vim-prettier'
+" Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'ack.vim'
@@ -350,9 +350,13 @@ let g:ale_set_quickfix = 1
 let g:ale_javascript_eslint_use_global = 1
 let g:ale_fixers = {
 \   'javascript': ['eslint'],
+\   'javascript.jsx': ['eslint'],
 \}
 
-let g:ale_linters = {'go': ['gometalinter', 'govet']}
+let g:ale_linters = {
+\ 'javascript': ['eslist'], 
+\ 'go': ['gometalinter', 'govet']
+\}
 let g:ale_go_gometalinter_options = ' --exclude=ALL_CAPS --exclude="should have comment" --aggregate --fast --sort=line --vendor --vendored-linters --enable=govet --disable=gocyclo '
 
 let g:ale_sign_error='✗'
@@ -452,8 +456,8 @@ map <Leader>k <Plug>(easymotion-k)
 " autocmd BufWritePre *.js :normal gggqG
 " autocmd BufWritePre *.jsx,*.js,*.json,*.css,*.scss,*.less,*.graphql Prettier
 "run prettier before saving
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+" let g:prettier#autoformat = 0
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 " rainbow_parenthesis
 let g:rbpt_colorpairs = [
