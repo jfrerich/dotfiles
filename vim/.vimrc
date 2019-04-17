@@ -62,7 +62,7 @@ set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
 
 if has('persistent_undo')
   set undofile
-  set undodir=~/.vim/undodir
+  set undodir=~/.vim_undodir
 endif
 
 filetype plugin on
