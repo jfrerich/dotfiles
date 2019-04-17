@@ -185,7 +185,7 @@ alias sortnr='sort -n -r'
 case `uname` in 
   Darwin)
     alias top='htop'
-    alias cat='pygmentize -O style=native'
+    alias cat='pygmentize -g -O style=native'
     # mvim - updated to use brew version of macvim.  includes python3 support for
     # pythonmod plugin
     #alias g="mvim"
