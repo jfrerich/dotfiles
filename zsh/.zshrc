@@ -26,6 +26,10 @@ export ZSH=$HOME/.oh-my-zsh
 
 export TERM="xterm-256color"     
 
+# Enable go modules support
+# https://developers.mattermost.com/contribute/server/dependencies/
+export GO111MODULE=on
+
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
 # export PROJECT_HOME=$HOME/projects      # Optional
 source /usr/local/bin/virtualenvwrapper.sh
