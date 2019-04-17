@@ -31,7 +31,7 @@ export WORKON_HOME=$HOME/.virtualenvs   # Optional
 source /usr/local/bin/virtualenvwrapper.sh
 
 # get git of user@hostname in prompt 
-DEFAULT_USER="j_honky"
+DEFAULT_USER="jfrerich"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
 
