@@ -149,6 +149,7 @@ alias mm='cd $HOME/go/src/github.com/mattermost'
 alias mms='cd $HOME/go/src/github.com/mattermost/mattermost-server'
 alias mmw='cd $HOME/go/src/github.com/mattermost/mattermost-webapp'
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
+alias ngrok_mm='ngrok http 8065' 
 
 alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
 
