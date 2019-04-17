@@ -39,7 +39,7 @@ POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
 ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
