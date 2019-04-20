@@ -178,6 +178,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 nmap ; :Buffers<CR>
 nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
 nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <Leader>ag :Ag <C-R><C-W><CR>
 " nnoremap <silent> <leader>k :call SearchWordWithAg()<CR>
 
 function! SearchWordWithAg()
