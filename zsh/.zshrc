@@ -28,7 +28,8 @@ export TERM="xterm-256color"
 
 # Enable go modules support
 # https://developers.mattermost.com/contribute/server/dependencies/
-export GO111MODULE=on
+# export GO111MODULE=on   # this really screwed up my developement area!  use
+# go dep for now
 
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
 # export PROJECT_HOME=$HOME/projects      # Optional
