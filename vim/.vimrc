@@ -13,7 +13,7 @@ set expandtab
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 set guifont=UbuntuMonoDerivativePowerline-Regular:h13
 " set guifont=DejaVuSansMonoPowerline:h11
-set updatetime=800
+set updatetime=100
 
 " Enable folding
 set foldmethod=indent
