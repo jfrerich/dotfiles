@@ -179,6 +179,10 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
+alias ltr='exa -l -s=modified'
+alias l='ltr'
+alias la='exa -la -s=modified'
+
 alias grep='grep --color'
 
 alias dud='du -d 1 -h'
