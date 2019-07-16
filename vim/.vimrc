@@ -88,6 +88,7 @@ Plugin 'tpope/vim-surround'
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-session'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/tComment'
 Plugin 'perl-support.vim'
@@ -106,12 +107,14 @@ Plugin 'vimwiki/vimwiki'
 Plugin 'suan/vim-instant-markdown'
 Plugin 'iamcco/markdown-preview.vim'
 Plugin 'liuchengxu/space-vim-dark'
+Plugin 'rakr/vim-one'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'unimpaired.vim'
 " Plugin 'prettier/vim-prettier'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'epilande/vim-react-snippets'
 Plugin 'ack.vim'
 Plugin 'vim-vdebug/vdebug'
 Plugin 'visual-increment'
@@ -221,10 +224,13 @@ au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
     " colorscheme torte
     let g:space_vim_dark_background = 233
     colorscheme space-vim-dark " apply after setting let g:space_vim_dark
+    " autocmd BufEnter *.go colorscheme space-vim-dark
+    " colorscheme one " apply after setting let g:space_vim_dark
     hi Comment guifg=#5C6370 ctermfg=59
     hi Comment cterm=italic gui=italic
     hi Visual term=reverse cterm=reverse guibg=#454545
     hi Terminal ctermbg=black guibg=black 
+    " autocmd BufEnter *.jsx colorscheme one
 " endif
 
 "####################################
@@ -368,6 +374,9 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save th
 
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
+
+let g:airline_theme='molokai'
+" other good ones: light, molokai, sol, understated, simple 
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
