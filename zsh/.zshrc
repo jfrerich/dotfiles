@@ -28,7 +28,7 @@ export TERM="xterm-256color"
 
 # Enable go modules support
 # https://developers.mattermost.com/contribute/server/dependencies/
-# export GO111MODULE=on   # this really screwed up my developement area!  use
+export GO111MODULE=on   # this really screwed up my developement area!  use
 # go dep for now
 
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
@@ -75,6 +75,7 @@ plugins=(
   dirhistory
   virtualenv
   virtualenvwrapper
+  you-should-use
 )
 
 case `uname` in 
@@ -150,15 +151,17 @@ alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
 alias sd='cd `cat ~/.sd`'
 
+alias md='make deploy'
 alias mm='cd $HOME/go/src/github.com/mattermost'
 alias mms='cd $HOME/go/src/github.com/mattermost/mattermost-server'
 alias mmw='cd $HOME/go/src/github.com/mattermost/mattermost-webapp'
+alias mmr='cd $HOME/go/src/github.com/mattermost/mattermost-redux'
 alias mmj='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-jira'
 alias mmb='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-bitbucket'
 alias mmg='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-github'
 alias mme='cd $HOME/go/src/github.com/mattermost/enterprise'
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
-alias ngrok_mm='ngrok http 8065' 
+alias ngrok_mm='ngrok http 8065 -subdomain=jasonf' 
 
 alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
 
@@ -223,7 +226,7 @@ function cd {
   builtin cd "$@" && ls -F
 }
 
-# eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
+eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
 
 
 # bind k and j for VI mode
