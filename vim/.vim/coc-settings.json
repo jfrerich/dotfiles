@@ -1,0 +1,27 @@
+{
+  //"extends": "eslint:recommended",
+//  "eslint.quite": true,
+  "eslint.options": {
+    "configFile": "/Users/jfrerich/.eslintrc.json"
+  },
+  "eslint.autoFixOnSave": true,
+
+  "jest.watch": true,
+  "jest.watchman": true,
+
+//  "rules": { "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], },
+
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"]
+    },
+     "efm": {
+      "command": "efm-langserver",
+      "args": [],
+      "filetypes": ["vim", "eruby", "markdown", "vimwiki"]
+    },
+  },
+}
+
