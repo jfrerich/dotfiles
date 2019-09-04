@@ -255,6 +255,7 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
