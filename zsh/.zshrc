@@ -151,16 +151,26 @@ alias ltr='ls -ltr'
 alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
 alias sd='cd `cat ~/.sd`'
+alias go='richgo'
+alias g='hub'
 
 alias md='make deploy'
-alias mm='cd $HOME/go/src/github.com/mattermost'
-alias mms='cd $HOME/go/src/github.com/mattermost/mattermost-server'
-alias mmw='cd $HOME/go/src/github.com/mattermost/mattermost-webapp'
-alias mmr='cd $HOME/go/src/github.com/mattermost/mattermost-redux'
-alias mmj='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-jira'
-alias mmb='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-bitbucket'
-alias mmg='cd $HOME/go/src/github.com/mattermost/mattermost-plugin-github'
-alias mme='cd $HOME/go/src/github.com/mattermost/enterprise'
+alias mmdevdocs='cd $HOME/Sites/mattermost-developer-documentation' # edit docs @ developers.mattermost.com/ 
+
+mm_dir="$HOME/go/src/github.com/mattermost"
+alias mm='cd $mm_dir'
+alias mmdocs='cd $mm_dir/docs' # edit docs @ docs.mattermost.com/ 
+alias mmdevtools='cd $mm_dir/dev-tools-documentation' # edit docs @ developers.mattermost.com/ 
+alias mme='cd $mm_dir/enterprise'
+alias mmm='cd $mm_dir/mattermost-mobile'
+alias mmj='cd $mm_dir/mattermost-plugin-jira'
+alias mmb='cd $mm_dir/mattermost-plugin-bitbucket'
+alias mmg='cd $mm_dir/mattermost-plugin-github'
+alias mmz='cd $mm_dir/mattermost-plugin-zoom'
+alias mmr='cd $mm_dir/mattermost-redux'
+alias mms='cd $mm_dir/mattermost-server'
+alias mmw='cd $mm_dir/mattermost-webapp'
+
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
 alias ngrok_mm='ngrok http 8065 -subdomain=jasonf' 
 
