@@ -36,7 +36,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 " --- code specific ---
 Plugin 'python-mode/python-mode', {'pinned': 1}
 Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
+" Plugin 'mxw/vim-jsx'
+Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'fatih/vim-go'
 Plugin 'perl-support.vim'
 
