@@ -183,7 +183,7 @@ alias x=exit
 ####################################
 # ls, the common ones I use a lot shortened for rapid fire usage
 
-alias ls='ls --color'     #always show --color
+# alias ls='ls --color'     #always show --color
 alias l='ls -lFh'     #size,show type,human readable
 alias la='ls -lAFh'   #long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
@@ -193,9 +193,11 @@ alias lS='ls -1FSsh'
 alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
-alias ltr='exa -l -s=modified'
+alias ltr='exa -l --icons -s=modified'
+alias ltra='exa -l --icons --all -s=modified'
 alias l='ltr'
-alias la='exa -la -s=modified'
+alias la='exa -la --icons -s=modified'
+alias ls='exa'
 
 alias grep='grep --color'
 
