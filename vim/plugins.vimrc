@@ -80,6 +80,9 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'dbeniamine/cheat.sh-vim'
 
+Plugin 'tpope/vim-projectionist'
+Plugin 'editorconfig/editorconfig-vim'
+
 " Plugin 'vim-polyglot'
 
 " Maybe use in the future
