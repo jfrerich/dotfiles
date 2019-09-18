@@ -78,7 +78,11 @@ Plugin 'rakr/vim-one'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'unimpaired.vim'
 Plugin 'ack.vim'
-Plugin 'airblade/vim-gitgutter'
+
+" inline git gutter changes
+" Plugin 'airblade/vim-gitgutter'
+Plugin 'mhinz/vim-signify'
+
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/fzf.vim'
