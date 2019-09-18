@@ -63,7 +63,7 @@ augroup END
 
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
-" let g:go_fmt_command = "goimports"
+let g:go_fmt_command = "goimports"
 let g:go_auto_type_info = 1 " may be overkill -> always show function signature at bottom
 let g:go_auto_sameids = 1
 
