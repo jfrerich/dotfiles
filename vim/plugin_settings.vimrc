@@ -317,3 +317,11 @@ let g:CheatSheetDefaultMode = 2
 
 "let g:Perl_PerlTags='enabled'
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
+
+"####################################
+" vim-signify
+"####################################
+"This setting messes up snippets in jsx -> try fn snippet for example
+" let g:signify_realtime = 1
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE 
+
