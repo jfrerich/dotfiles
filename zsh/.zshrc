@@ -172,7 +172,7 @@ alias mms='cd $mm_dir/mattermost-server'
 alias mmw='cd $mm_dir/mattermost-webapp'
 
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
-alias ngrok_mm='ngrok http 8065 -subdomain=jasonf' 
+alias mm_ngrok='ngrok http 8065 -subdomain=jasonf' 
 
 alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
 
