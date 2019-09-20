@@ -376,6 +376,3 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
-
-# mm-redux variable
-export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
