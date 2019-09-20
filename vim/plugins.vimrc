@@ -86,6 +86,7 @@ Plugin 'mhinz/vim-signify'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'junegunn/fzf.vim'
+Plugin 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plugin 'dbeniamine/cheat.sh-vim'
 
 Plugin 'tpope/vim-projectionist'

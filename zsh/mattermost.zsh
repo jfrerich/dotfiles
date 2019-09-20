@@ -1,3 +1,6 @@
+# mm-redux variable
+export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
+
 export VAULT_ADDR="https://vault.internal.mattermost.com:8200"
 
 alias md='make deploy'

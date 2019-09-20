@@ -9,9 +9,6 @@ source $HOME/keys.vimrc
 source ~/.vim/myplugins/*.vim
 "map  :call PrintVariables_Vim()<CR>
 
-"let g:Perl_PerlTags='enabled'
-let g:explDetailedList=1 " show delailed list of files (ie. size, date)
-
 " allow for a user of vim folds to save and open folds when reopen the file
 " if a user doesn't have the following, I don't think they will see the folds when they load the file
 " au BufWinLeave ?* mkview 1
@@ -22,6 +19,8 @@ let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
+
+  autocmd FileType json syntax match Comment +\/\/.\+$+
 
 " abbreviations
 ab _" "####################################
@@ -39,3 +38,8 @@ function! PerlModeText()
     ab _pr print "In Here!\n"
     ab _pre print "In Here!\n"; exit;
 endfunction
+
+" if exists('g:loaded_webdevicons')
+"     call webdevicons#refresh()
+" endif
+let g:vim_jsx_pretty_colorful_config = 1 " default 0

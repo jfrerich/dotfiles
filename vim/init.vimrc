@@ -1,33 +1,38 @@
-"version 5.6
-"####################################
-" default settings
-"####################################
+"++++++++++++++++++++ init.vimrc
+
 set autowrite             " automatically write file if you call :make - used for :GoBuild  
 set title
 set smarttab
-set encoding=utf-8
+set encoding=UTF-8
 set smartindent
 set shiftwidth=2
 set tabstop=2
 set expandtab
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
-set guifont=UbuntuMonoDerivativePowerline-Regular:h13
+" set guifont=UbuntuMonoDerivativePowerline-Regular:h13
+set guifont=HackNerdFontComplete-Regular:h12
+" set guifont=DroidSansMono\ Nerd\ Font:h12                     
+" set guifont=Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono\ 12
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '              
+let g:webdevicons_conceal_nerdtree_brackets = 0               
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1               
+let g:DevIconsEnableFoldersOpenClose = 1                      
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1             
+                                                              
+if exists('g:loaded_webdevicons')                             
+  call webdevicons#refresh()                                  
+endif                                                         
+
 " set guifont=DejaVuSansMonoPowerline:h11
 set updatetime=300
-set signcolumn=yes
+" set signcolumn=yes " git gutter, errors, warnings
 
-
-
-
-      "commandPath": "/Users/jfrerich/go/bin/",
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Enable folding
 set foldmethod=indent
@@ -58,6 +63,7 @@ set winaltkeys=no " Disable menu accelerators.  The Alt key that activates the m
 set hlsearch
 set ruler                " show row, column, and % file in bottom right corner
 set completeopt=menu
+set completeopt+=preview
 set csprg=/opt/local/bin/cscope
 
 set noswapfile

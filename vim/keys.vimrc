@@ -17,6 +17,8 @@ nmap ; :Buffers<CR>
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
+nnoremap <leader>* :%s/<c-r>=expand("<cword>")<CR>/
+
 " nnoremap <silent> <leader>k :call SearchWordWithAg()<CR>
 "
 function! SearchWordWithAg()
@@ -27,6 +29,9 @@ endfunction
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 " map <C-M> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
+
+nnoremap <Leader>q :Quickfix<CR>
+nnoremap <Leader>l :Quickfix!<CR>
 
 " Enable folding with the spacebar
 " nnoremap <space> za
