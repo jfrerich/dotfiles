@@ -164,6 +164,7 @@ alias x=exit
 # from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 ####################################
 # ls, the common ones I use a lot shortened for rapid fire usage
+alias bat='bat -p'
 
 # alias ls='ls --color'     #always show --color
 alias l='ls -lFh'     #size,show type,human readable
