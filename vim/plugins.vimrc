@@ -36,16 +36,15 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Automatically clear search highlights after move your cursor
 Plugin 'haya14busa/is.vim'
 
-" --- code specific ---
+" --- language specific ---
 Plugin 'python-mode/python-mode', {'pinned': 1}
+Plugin 'fatih/vim-go'
+Plugin 'perl-support.vim'
 
 " --- js, jsx, typescript
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
-
-Plugin 'fatih/vim-go'
-Plugin 'perl-support.vim'
 
 " --- fonts, status line---
 Plugin 'ryanoasis/vim-devicons'
@@ -102,6 +101,7 @@ Plugin 'editorconfig/editorconfig-vim'
 " Plugin editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
 " Plugin 'vim-scripts/indentpython.vim'
 " Plugin 'suan/instant-markdown-d'
+" Plugin junegunn/limelight
 
 " vim schema
 " Plugin 'bounceme/poppy.vim'
