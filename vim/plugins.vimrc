@@ -33,6 +33,9 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/rainbow_parentheses.vim'
 
+" Automatically clear search highlights after move your cursor
+Plugin 'haya14busa/is.vim'
+
 " --- code specific ---
 Plugin 'python-mode/python-mode', {'pinned': 1}
 
