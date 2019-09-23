@@ -25,6 +25,12 @@ function! SearchWordWithAg()
   execute 'Ag' expand('<cword>')
 endfunction
 
+" Keep cursor at the bottom of the visual selection after you yank it.
+vmap y ygv<Esc>
+
+" Auto-resize splits when Vim gets resized.
+autocmd VimResized * wincmd =
+
 " error navigation
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 " map <C-M> :cprevious<CR>
