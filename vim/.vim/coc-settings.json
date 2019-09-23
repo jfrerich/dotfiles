@@ -22,6 +22,12 @@
       "args": [],
       "filetypes": ["vim", "eruby", "markdown", "vimwiki"]
     },
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh", "zsh"],
+      "ignoredRootPaths": ["~"]
+    },
   },
 }
 
