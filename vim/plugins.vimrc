@@ -66,7 +66,6 @@ Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/tComment'
 Plugin 'simnalamburt/mundo.vim'
 Plugin 'adelarsq/vim-matchit'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
 " Plugin 'bling/vim-bufferline'
 Plugin 'alvan/vim-closetag'
@@ -81,6 +80,10 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'unimpaired.vim'
 Plugin 'ack.vim'
 
+" --- git ---
+Plugin 'tpope/vim-fugitive'
+" diff two git directorys :DirDiff <dir1> <dir2>
+Plugin 'will133/vim-dirdiff'
 " inline git gutter changes
 " Plugin 'airblade/vim-gitgutter'
 Plugin 'mhinz/vim-signify'
