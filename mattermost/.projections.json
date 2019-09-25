@@ -1,0 +1,43 @@
+
+{
+  "*.go" : {
+    "alternate": "{}_test.go",
+    "type": "source"
+  },
+  "*_test.go" : {
+    "alternate": "{}.go",
+    "type": "test"
+  },
+  "store/storetest/*.go" : {
+    "alternate": "store/sqlstore/{}.go",
+    "type": "test"
+  },
+  "store/sqlstore/*.go" : {
+    "alternate": "store/storetest/{}.go",
+    "type": "source"
+  },
+  "*.test.jsx" : {
+    "alternate": ["{}.js", "{}.jsx"],
+    "type": "test"
+  },
+  "*.test.js" : {
+    "alternate": ["{}.js", "{}.jsx"],
+    "type": "test"
+  },
+  "*.js" : {
+    "alternate": ["{}.test.js", "{}.test.jsx"],
+    "type": "source"
+  },
+  "*.jsx" : {
+    "alternate": "{}.test.jsx",
+    "type": "source"
+  },
+  "*.tsx" : {
+    "alternate": "{}.test.tsx",
+    "type": "source"
+  },
+  "*.test.tsx" : {
+    "alternate": ["{}.ts", "{}.tsx"],
+    "type": "test"
+  }
+}
