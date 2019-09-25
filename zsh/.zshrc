@@ -31,6 +31,7 @@ export TERM="xterm-256color"
 export GO111MODULE=on   # this really screwed up my developement area!  use
 # go dep for now
 
+source $HOME/.private.zsh
 source $HOME/mattermost.zsh
 
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
