@@ -3,6 +3,8 @@ source $HOME/plugins.vimrc
 source $HOME/plugin_settings.vimrc
 source $HOME/keys.vimrc
 
+highlight Folded guibg=darkgrey guifg=grey
+
 "####################################
 " my Plugins and key maps for myplugins
 "####################################
