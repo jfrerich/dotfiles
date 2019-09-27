@@ -32,6 +32,7 @@ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " --- vim enhancements ---
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'mhinz/vim-startify'
 
 " Automatically clear search highlights after move your cursor
 Plugin 'haya14busa/is.vim'
@@ -82,6 +83,8 @@ Plugin 'ack.vim'
 
 " --- git ---
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/gv.vim'
+Plugin 'tpope/vim-rhubarb'
 " diff two git directorys :DirDiff <dir1> <dir2>
 Plugin 'will133/vim-dirdiff'
 " inline git gutter changes
@@ -110,7 +113,6 @@ Plugin 'editorconfig/editorconfig-vim'
 " Plugin 'bounceme/poppy.vim'
 "Plugin 'Solarized'
 "Plugin 'elzr/vim-json'
-"Plugin 'mhinz/vim-signify'
 "Plugin 'plasticboy/vim-markdown'
 "Plugin 'tpope/vim-sleuth'
 "Plugin 'vim-scripts/a.vim'
