@@ -87,6 +87,12 @@ let g:go_debug_windows = {
       \ 'out':   'botright 10new',
       \ 'vars':  'leftabove 40vnew',
 \ }
+
+highlight goFunction guifg=lightred 
+highlight goTRun guifg=orange 
+
+autocmd FileType go syntax match goTRun /t.Run/
+
 "####################################
 " END -- vim-go
 "####################################
