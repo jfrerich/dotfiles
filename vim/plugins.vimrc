@@ -100,6 +100,8 @@ Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'tpope/vim-projectionist'
 Plugin 'editorconfig/editorconfig-vim'
 
+Plugin 'benknoble/vim-auto-origami'
+
 " Plugin 'vim-polyglot'
 
 " Maybe use in the future

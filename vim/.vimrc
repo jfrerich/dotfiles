@@ -3,7 +3,8 @@ source $HOME/plugins.vimrc
 source $HOME/plugin_settings.vimrc
 source $HOME/keys.vimrc
 
-highlight Folded guibg=darkgrey guifg=grey
+" highlight Folded guibg=darkgrey guifg=grey
+highlight Folded ctermfg=141 ctermbg=234 guifg=#9a9aba guibg=#212026
 
 "####################################
 " my Plugins and key maps for myplugins
@@ -34,6 +35,13 @@ function! PythonModeText()
     ab _pr print("In Here!")
     ab _pre print("In Here!") exit()
 endfunction
+
+augroup autofoldcolumn
+  au!
+
+  " Or whatever autocmd-events you want
+  au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
+augroup END
 
 autocmd FileType perl call PerlModeText()
 function! PerlModeText()
