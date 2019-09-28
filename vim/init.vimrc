@@ -34,9 +34,7 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-" Enable folding
-set foldmethod=indent
-set foldlevel=99
+autocmd FileType go setlocal foldmethod=indent foldlevel=0 foldlevelstart=0
 
 set textwidth=79
 set incsearch
