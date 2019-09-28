@@ -81,6 +81,10 @@ let g:go_highlight_operators = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_types = 1
 
+" https://github.com/fatih/vim-go/issues/502
+" don't close all folds on :w
+let g:go_fmt_experimental = 1
+
 " increase width of stack and vars windows from defaults
 let g:go_debug_windows = {
       \ 'stack': 'leftabove 40vnew',
