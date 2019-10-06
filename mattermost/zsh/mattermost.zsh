@@ -1,7 +1,9 @@
 # mm-redux variable
 export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
 
-alias md='make deploy'
+alias mmmd='make deploy'
+alias mmmsd='make server-debug'
+alias mmmwd='make webapp-debug'
 alias mmdevdocs='cd $HOME/Sites/mattermost-developer-documentation' # edit docs @ developers.mattermost.com/ 
 
 mm_dir="$HOME/go/src/github.com/mattermost"
