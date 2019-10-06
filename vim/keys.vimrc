@@ -6,7 +6,15 @@ let mapleader = ","
 
 " cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
-"split navigations
+" vim-fugitive {{{
+noremap <Leader>ga :Gwrite<CR>
+noremap <Leader>gc :Gcommit<CR>
+noremap <Leader>gp :Gpush<CR>
+noremap <Leader>gs :Gstatus<CR>
+noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gd :Gvdiffsplit<CR>
+" }}}
+"Split Navigations {{{
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -101,7 +109,6 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " endfunction
 
 " set statusline^=%{StatusDiagnostic}
-
 
 " Using CocList
 " Show all diagnostics
