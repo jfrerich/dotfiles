@@ -70,16 +70,17 @@ let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
 set nocompatible              " required
 
-"""""""""""""""""""""""""""""""""""""""
-" define additive keywords to find
-" during * and # commands
-"""""""""""""""""""""""""""""""""""""""
+" iskeyword  {{{
+" define additive keywords to find during * and # commands
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
+" }}}
 
 if has('persistent_undo')
   set undofile
   set undodir=~/.vim_undodir
 endif
+
+" vim:foldmethod=marker:foldlevel=0
