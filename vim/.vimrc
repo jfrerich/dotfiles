@@ -23,7 +23,9 @@ source ~/.vim/myplugins/*.vim
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
-  autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+highlight jsTest guifg=orange 
+autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 
 " abbreviations
 ab _" "####################################
@@ -36,12 +38,11 @@ function! PythonModeText()
     ab _pre print("In Here!") exit()
 endfunction
 
-augroup autofoldcolumn
-  au!
-
-  " Or whatever autocmd-events you want
-  au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
-augroup END
+" augroup autofoldcolumn
+"   au!
+"   " Or whatever autocmd-events you want
+"   au CursorHold,BufWinEnter,WinEnter * AutoOrigamiFoldColumn
+" augroup END
 
 autocmd FileType perl call PerlModeText()
 function! PerlModeText()
