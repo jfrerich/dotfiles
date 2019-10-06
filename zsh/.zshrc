@@ -31,9 +31,6 @@ export TERM="xterm-256color"
 export GO111MODULE=on   # this really screwed up my developement area!  use
 # go dep for now
 
-source $HOME/.private.zsh
-source $HOME/mattermost.zsh
-
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
 # export PROJECT_HOME=$HOME/projects      # Optional
 source /usr/local/bin/virtualenvwrapper.sh
@@ -99,6 +96,9 @@ esac
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+source $HOME/.private.zsh
+source $HOME/mattermost.zsh
+
 
 setopt hist_ignore_dups
 setopt HIST_IGNORE_ALL_DUPS
@@ -247,6 +247,24 @@ ulimit -n 8096
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+fif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}"
+}
+
+# using ripgrep combined with preview
+# find-in-file - usage: fif <searchTerm>
+# open with vim
+vfif() {
+  if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
+  m $(rg --files-with-matches --no-messages "$1" | fzf --preview "highlight -O ansi -l {} 2> /dev/null | rg --colors 'match:bg:yellow' --ignore-case --pretty --context 10 '$1' || rg --ignore-case --pretty --context 10 '$1' {}")
+}
+
+# fd - cd to selected directory
+# use cd **<tab>
 
 # fcoc - checkout git commit
 fcoc() {
