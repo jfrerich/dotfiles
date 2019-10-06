@@ -19,17 +19,18 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-"" Split
+" }}}
+" Split Windows {{{
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
-
-" fzf.vim
+" }}}
+" fzf.vim {{{
 nmap ; :Buffers<CR>
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader><leader> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 nnoremap <leader>* :%s/<c-r>=expand("<cword>")<CR>/
+" }}}
 
 " nnoremap <silent> <leader>k :call SearchWordWithAg()<CR>
 "
@@ -43,16 +44,21 @@ vmap y ygv<Esc>
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
 
+map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
+
 " error navigation
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 " map <C-M> :cprevious<CR>
 nnoremap <leader>a :cclose<CR>
 
+" quickfix {{{
 nnoremap <Leader>q :Quickfix<CR>
 nnoremap <Leader>l :Quickfix!<CR>
-
+"  }}}
+" Folding {{{
 " Enable folding with the spacebar
-" nnoremap <space> za
+nnoremap <space> zA
+" }}}
  
 vnoremap <c-a> :Inc<CR> " Increment by 1
 vnoremap < <gv  " better indentation.  doesn't lose visual selection
@@ -64,11 +70,24 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
 au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
-"####################################
-" coc.vim
-"####################################
-
-
+" vim-asterisk {{{
+" map *   <Plug>(asterisk-*)
+map #   <Plug>(asterisk-#)
+map g*  <Plug>(asterisk-g*)
+map g#  <Plug>(asterisk-g#)
+map z*  <Plug>(asterisk-z*)
+map gz* <Plug>(asterisk-gz*)
+map z#  <Plug>(asterisk-z#)
+map gz# <Plug>(asterisk-gz#)
+" }}}
+" vim-test {{{
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
+" }}}
+" coc.vim {{{
 " Use `[c` and `]c` to navigate diagnostics -> conflicts with [c c] with git
 " gutter traversing
 " nmap <silent> [c <Plug>(coc-diagnostic-prev)
@@ -130,3 +149,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Fix autofix problem of current line
 nmap <leader>qf  <Plug>(coc-fix-current)
+" }}}
+
+" vim:foldmethod=marker:foldlevel=0
