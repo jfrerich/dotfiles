@@ -1,5 +1,3 @@
-"+++++++ plugin_settings.vimrc
-
 " if has("gui_running")
     " colorscheme torte
     let g:space_vim_dark_background = 233
@@ -13,10 +11,8 @@
     " autocmd BufEnter *.jsx colorscheme one
 " endif
 
-"####################################
-" vim-go
+" vim-go {{{
 " https://www.diycode.cc/projects/fatih/vim-go
-"####################################
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
 
 augroup go
@@ -96,13 +92,25 @@ highlight goFunction guifg=lightred
 highlight goTRun guifg=orange 
 
 autocmd FileType go syntax match goTRun /t.Run/
+" END vim-go }}}
+" vim-test {{{
+" run tests in vim terminal
+let test#strategy = "vimterminal"
+let test#vim#term_position="vertical"                                                                                                                                                                                                                                           
 
-"####################################
-" END -- vim-go
-"####################################
-
-"####################################
-" python-mode
+let test#go#runner = "richgo"
+let g:test#go#richgo#options = '-v'
+" function! DebugNearest()
+"   let g:test#go#runner = 'delve'
+"   TestNearest
+"   unlet g:test#go#runner
+" endfunction
+" nmap <silent> t<C-d> :call DebugNearest()<CR>
+" END vim-test }}}
+" vim-asterisk {{{
+let g:asterisk#keeppos = 1
+" END vim-test }}}
+" python-mode {{{
 "####################################
 " Updating Python Mode can cause it to break and I've done it multiple
 " times! The best fix I found is to restore an old copy of the bundle/python-mode
@@ -133,27 +141,19 @@ let g:ropevim_enable_shortcuts = 1
 " Override view python doc key shortcut to Ctrl-Shift-d
 " let g:pymode_doc_bind = "<C-S-d>"
 "let g:pymode_quickfix_maxheight = 6
-"####################################
-" END python-mode
-"####################################
-
-
-"####################################
-" NERDtree
-"####################################
+" END python-mode }}}
+" NERDtree {{{
 " disable <C-J> and <C-K> nerdtree mappings.  
 " this conflicts with shortcuts to navigate split windowns
 let g:NERDTreeMapJumpNextSibling = ''
-
-"####################################
-" ctrlp
-"####################################
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+" }}}
+" ctrlp {{{
 let g:ctrlp_map = '<c-p>'
 " let g:ctrlp_cmd = 'CtrlPMRU'
-
-"####################################
-" w0rp/ale
-"####################################
+" }}}
+" w0rp/ale {{{
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 " let g:ale_javascript_eslint_use_global = 1
@@ -173,13 +173,8 @@ let g:ale_sign_error='✗'
 let g:ale_sign_warning='⚠'
 
 let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save them.
-"####################################
-" END - w0rp/ale
-"####################################
-
-"####################################
-" airline
-"####################################
+" END - w0rp/ale }}}
+" airline {{{
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
@@ -229,13 +224,8 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
-"####################################
-" END airline
-"####################################
-
-"####################################
-" YouCompleteMe
-"####################################
+" END airline }}}
+" YouCompleteMe {{{
 " Bundle 'Valloric/YouCompleteMe'
 " doing a PluginUpdate will sometimes break this plugin and the server needs to
 " be restarted.  This is done by going to bundle/YouCompleteMe and running
@@ -252,21 +242,17 @@ let python_highlight_all=1
 let g:ycm_python_binary_path = 'python'
 let g:ycm_key_list_select_completion=[]
 let g:ycm_key_list_previous_completion=[]
-"####################################
-" END - YouCompleteMe
-"####################################
-
-"####################################
-" vimwiki with markdown support
-"####################################
-let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
+" END - YouCompleteMe }}}
+" vimwiki with markdown support {{{
+" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 " helppage -> :h vimwiki-syntax 
-
-let g:Perl_PerlRegexAnalyser = 'yes'
-
-"####################################
-" EasyMotion
-"####################################
+" }}}
+" FZF {{{
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~55%' }
+" }}}
+" EasyMotion {{{
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
 " Turn on case insensitive feature
@@ -277,6 +263,7 @@ let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+" }}}
 
 " autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
@@ -285,9 +272,7 @@ map <Leader>k <Plug>(easymotion-k)
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-"####################################
-" rainbow_parenthesis
-"####################################
+" rainbow_parenthesis {{{
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -316,22 +301,23 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " let g:poppy_point_enable = 1 
-"####################################
 " END - rainbow_parenthesis
-"####################################
+" }}}
 
-"####################################
-" cheat.sh
-"####################################
+" cheat.sh {{{
 let g:CheatSheetDefaultMode = 2
+" }}}
 
 "let g:Perl_PerlTags='enabled'
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
+let g:Perl_PerlRegexAnalyser = 'yes'
 
-"####################################
-" vim-signify
+
+" vim-signify {{{
 "####################################
 "This setting messes up snippets in jsx -> try fn snippet for example
 " let g:signify_realtime = 1
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE 
+" }}}
 
+" vim:foldmethod=marker:foldlevel=0
