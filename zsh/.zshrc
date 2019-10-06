@@ -187,8 +187,8 @@ alias grep='grep --color'
 
 alias dud='du -d 1 -h'
 alias duf='du -sh *'
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+# alias fd='find . -type d -name'
+# alias ff='find . -type f -name'
 
 alias h='history'
 alias -g G='| grep '
