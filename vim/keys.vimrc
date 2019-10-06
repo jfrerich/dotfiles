@@ -1,4 +1,8 @@
 "++++++++++++++++++++keys.vimrc
+"
+" map <leader> to , {{{
+let mapleader = ","
+" }}}
 
 " cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 
