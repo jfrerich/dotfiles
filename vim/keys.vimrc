@@ -27,7 +27,7 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " fzf.vim {{{
 nmap ; :Buffers<CR>
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-nnoremap <silent> <leader><leader> :Files<CR>
+nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 nnoremap <leader>* :%s/<c-r>=expand("<cword>")<CR>/
 " }}}
