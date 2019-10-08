@@ -71,14 +71,10 @@ au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabs
 au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 " vim-asterisk {{{
-" map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
-map g*  <Plug>(asterisk-g*)
-map g#  <Plug>(asterisk-g#)
-map z*  <Plug>(asterisk-z*)
-map gz* <Plug>(asterisk-gz*)
-map z#  <Plug>(asterisk-z#)
-map gz# <Plug>(asterisk-gz#)
+map *   <Plug>(asterisk-z*)
+map #   <Plug>(asterisk-z#)
+map g*  <Plug>(asterisk-gz*)
+map g#  <Plug>(asterisk-gz#)
 " }}}
 " vim-test {{{
 nmap <silent> t<C-n> :TestNearest<CR>
