@@ -64,12 +64,6 @@ vnoremap <c-a> :Inc<CR> " Increment by 1
 vnoremap < <gv  " better indentation.  doesn't lose visual selection
 vnoremap > >gv  " better indentation.  doesn't lose visual selection
 
-highlight BadWhitespace ctermbg=red guibg=darkred
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
-
-au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
-au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
-
 " vim-asterisk {{{
 map *   <Plug>(asterisk-z*)
 map #   <Plug>(asterisk-z#)

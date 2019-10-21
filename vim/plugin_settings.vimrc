@@ -1,15 +1,3 @@
-" if has("gui_running")
-    " colorscheme torte
-    let g:space_vim_dark_background = 233
-    colorscheme space-vim-dark " apply after setting let g:space_vim_dark
-    " autocmd BufEnter *.go colorscheme space-vim-dark
-    " colorscheme one " apply after setting let g:space_vim_dark
-    hi Comment guifg=#5C6370 ctermfg=59
-    hi Comment cterm=italic gui=italic
-    hi Visual term=reverse cterm=reverse guibg=#454545
-    hi Terminal ctermbg=black guibg=black 
-    " autocmd BufEnter *.jsx colorscheme one
-" endif
 
 " vim-go {{{
 " https://www.diycode.cc/projects/fatih/vim-go
@@ -87,11 +75,6 @@ let g:go_debug_windows = {
       \ 'out':   'botright 10new',
       \ 'vars':  'leftabove 40vnew',
 \ }
-
-highlight goFunction guifg=lightred 
-highlight goTRun guifg=orange 
-
-autocmd FileType go syntax match goTRun /t.Run/
 " END vim-go }}}
 " vim-test {{{
 " run tests in vim terminal

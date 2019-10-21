@@ -3,8 +3,43 @@ source $HOME/plugins.vimrc
 source $HOME/plugin_settings.vimrc
 source $HOME/keys.vimrc
 
+" --- Highlights {{{ 
 " highlight Folded guibg=darkgrey guifg=grey
-highlight Folded ctermfg=141 ctermbg=234 guifg=#9a9aba guibg=#212026
+" highlight Folded ctermfg=141 ctermbg=234 guifg=#9a9aba guibg=#212026
+
+" if has("gui_running")
+    let g:space_vim_dark_background = 233
+    " colorscheme space-vim-dark " apply after setting let g:space_vim_dark
+    colorscheme one " apply after setting let g:space_vim_dark
+    " autocmd BufEnter *.go colorscheme space-vim-dark
+    " colorscheme one " apply after setting let g:space_vim_dark
+
+" highlight goFunction guifg=lightred 
+" endif
+hi Comment guifg=#5C6370 ctermfg=59
+hi Comment cterm=italic gui=italic
+hi Visual term=reverse cterm=reverse guibg=#454545
+hi Terminal ctermbg=black guibg=black 
+ 
+hi Normal guibg=gray8
+
+highlight BadWhitespace ctermbg=red guibg=darkred
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabstop=2
+au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+augroup go
+  autocmd FileType go syntax match goTRun /t.Run/
+  highlight goTRun guifg=orange 
+augroup END
+
+autocmd FileType json syntax match Comment +\/\/.\+$+
+highlight jsTest guifg=orange 
+autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
+
+
+" }}}
 
 "####################################
 " my Plugins and key maps for myplugins
@@ -23,9 +58,6 @@ source ~/.vim/myplugins/*.vim
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
-autocmd FileType json syntax match Comment +\/\/.\+$+
-highlight jsTest guifg=orange 
-autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 
 " abbreviations
 ab _" "####################################
