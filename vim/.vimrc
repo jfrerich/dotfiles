@@ -41,6 +41,9 @@ autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 
 " }}}
 
+" Auto-resize splits when Vim gets resized.
+autocmd VimResized * wincmd =
+
 "####################################
 " my Plugins and key maps for myplugins
 "####################################
@@ -59,10 +62,11 @@ source ~/.vim/myplugins/*.vim
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
 
-" abbreviations
+" ---  Abbreviations {{{
 ab _" "####################################
 ab _* *########################################################################
 ab _# ####################################
+" }}}
 
 autocmd FileType python call PythonModeText()
 function! PythonModeText()
@@ -86,3 +90,5 @@ endfunction
 "     call webdevicons#refresh()
 " endif
 let g:vim_jsx_pretty_colorful_config = 1 " default 0
+
+" vim:foldmethod=marker:foldlevel=0
