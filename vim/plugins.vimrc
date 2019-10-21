@@ -1,4 +1,4 @@
-" --- Plugin Setup {{{
+" - Plugin Setup {{{
 filetype plugin on
 syntax on
 filetype off                  " required
@@ -9,10 +9,10 @@ set rtp+=/usr/local/opt/fzf
 
 call vundle#begin()
 " }}}
-
+" - Plugins Begin {{{
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+" }}}
 " --- Autocompletion {{{
 "plugin 'coc.vim'  --> has to be manually installed
 " ~/.vim/coc-settings.json for settings
@@ -40,6 +40,7 @@ Plugin 'mhinz/vim-startify'
 " Plugin 'haya14busa/is.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'unimpaired.vim'
+Plugin 'quick-scope'
 " }}}
 " --- Code Navigation {{{
 Plugin 'tagbar'
@@ -54,7 +55,7 @@ Plugin 'ack.vim'
 Plugin 'tpope/vim-projectionist'
 " }}}
 " --- Language Specific {{{
-Plugin 'python-mode/python-mode', {'pinned': 1}
+Plugin 'python-mode/python-mode'
 Plugin 'fatih/vim-go'
 Plugin 'perl-support.vim'
 " }}}
@@ -92,9 +93,10 @@ Plugin 'will133/vim-dirdiff'
 " inline git gutter changes
 Plugin 'mhinz/vim-signify'
 " }}}
-
+" --- Themes {{{
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'rakr/vim-one'
+" }}}
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'editorconfig/editorconfig-vim'
@@ -148,7 +150,7 @@ Plugin 'benknoble/vim-auto-origami'
 " Old  sudo "/Users/j_honky/Downloads/cmake-3.9.1-Darwin-x86_64/CMake.app/Contents/bin/cmake-gui" --install
 " New  brew install CMake
 
-" --- Plugin Cleanup {{{
+" - Plugins End {{{
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
