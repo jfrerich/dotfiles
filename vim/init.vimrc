@@ -10,9 +10,13 @@ set tabstop=2
 set expandtab
 " set guifont=Meslo\ LG\ M\ Regular\ for\ Powerline
 " set guifont=UbuntuMonoDerivativePowerline-Regular:h13
-set guifont=HackNerdFontComplete-Regular:h12
+" set guifont=InconsolataForPowerline-dz:h11
 " set guifont=DroidSansMono\ Nerd\ Font:h12                     
 " set guifont=Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono\ 12
+
+" used until 2019-10-10
+set guifont=HackNerdFontComplete-Regular:h11
+
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '              
 let g:webdevicons_conceal_nerdtree_brackets = 0               
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1               
