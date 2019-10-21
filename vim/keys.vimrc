@@ -41,16 +41,18 @@ endfunction
 " Keep cursor at the bottom of the visual selection after you yank it.
 vmap y ygv<Esc>
 
-" Auto-resize splits when Vim gets resized.
-autocmd VimResized * wincmd =
+nnoremap <silent> <leader>n :nohlsearch <CR>
 
 map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 
 " error navigation
 " map <C-N> :cnext<CR>   " doesn't work, use unimpaired mapings [q, ]q 
 " map <C-M> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
 
+" Alternate File {{{
+nnoremap <leader>a :A<CR>
+" nnoremap <leader>a :cclose<CR>
+" }}}
 " quickfix {{{
 nnoremap <Leader>q :Quickfix<CR>
 nnoremap <Leader>l :Quickfix!<CR>
