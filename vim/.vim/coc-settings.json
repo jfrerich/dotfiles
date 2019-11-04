@@ -1,15 +1,9 @@
 {
-  //"extends": "eslint:recommended",
-//  "eslint.quite": true,
-  "eslint.options": {
-    "configFile": "/Users/jfrerich/.eslintrc.json"
-  },
   "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
 
   "jest.watch": true,
   "jest.watchman": true,
-
-//  "rules": { "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }], },
 
   "languageserver": {
     "golang": {
