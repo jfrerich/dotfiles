@@ -136,7 +136,7 @@ Plugin 'benknoble/vim-auto-origami'
 " Plugin 'bling/vim-bufferline'
 " Plugin 'tmhedberg/SimpylFold'
 " Bundle 'Valloric/YouCompleteMe' 
-" Plugin 'w0rp/ale'
+" Plugin 'dense-analysis/ale'
 " }}}
 " --- seems broken {{{
 "Plugin 'VimRegEx.vim'
