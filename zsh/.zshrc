@@ -341,6 +341,7 @@ _gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
 _viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
 
 # fcoc_preview - checkout git commit with previews
+alias fcocp=fcoc_preview
 fcoc_preview() {
   local commit
   commit=$( glNoGraph |
