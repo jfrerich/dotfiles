@@ -392,6 +392,19 @@ gotest() {
     go test -v -run="$1" . 
 }
 
+### BREW + FZF
+# update multiple packages at once
+# mnemonic [B]rew [U]pdate [P]lugin
+bip() {
+  local inst=$(brew search | eval "fzf ${FZF_DEFAULT_OPTS} -m --header='[brew:install]'")
+
+  if [[ $inst ]]; then
+    for prog in $(echo $inst)
+    do brew install $prog
+    done
+  fi
+}
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
