@@ -43,7 +43,7 @@ autocmd FileType go setlocal foldmethod=indent foldlevel=0 foldlevelstart=0
 set textwidth=79
 set incsearch
 set shell=/bin/sh
-set number relativenumber
+set number
 set noscrollbind
 set scrolloff=1
 set nocursorbind
