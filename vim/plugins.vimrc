@@ -91,7 +91,8 @@ Plugin 'tpope/vim-rhubarb'
 " diff two git directorys :DirDiff <dir1> <dir2>
 Plugin 'will133/vim-dirdiff'
 " inline git gutter changes
-Plugin 'mhinz/vim-signify'
+" Plugin 'mhinz/vim-signify'
+Plugin 'airblade/vim-gitgutter'
 " }}}
 " --- Themes {{{
 Plugin 'liuchengxu/space-vim-dark'
