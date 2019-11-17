@@ -17,6 +17,8 @@ augroup go
   au FileType go nmap <Leader>gd <Plug>(go-doc)
   au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
+  au FileType go nmap <Leader>ge <Plug>(go-iferr)
+
   "Show a list of interfaces which is implemented by the type under your cursor
   au FileType go nmap <Leader>s <Plug>(go-implements)
 
