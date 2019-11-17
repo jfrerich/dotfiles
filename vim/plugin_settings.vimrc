@@ -298,6 +298,10 @@ let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 let g:Perl_PerlRegexAnalyser = 'yes'
 
 
+" vim-gitgutter {{{
+" don't overwrite other plugins signs
+let g:gitgutter_sign_priority=0
+" }}}
 " vim-signify {{{
 "####################################
 "This setting messes up snippets in jsx -> try fn snippet for example
