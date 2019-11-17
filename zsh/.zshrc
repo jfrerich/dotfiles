@@ -413,3 +413,4 @@ export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/to
 
 # mattermost make test uses the $GO var to run go. Use richgo for better output
 export GO=/usr/local/bin/richgo
+# export PATH="/usr/local/opt/go@1.12/bin:$PATH"
