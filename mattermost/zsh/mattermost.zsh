@@ -15,13 +15,14 @@ alias mmm='cd $mm_dir/mattermost-mobile'
 alias mmj='cd $mm_dir/mattermost-plugin-jira'
 alias mmb='cd $mm_dir/mattermost-plugin-bitbucket'
 alias mmg='cd $mm_dir/mattermost-plugin-github'
+alias mmo='cd $mm_dir/mattermost-plugin-msoffice'
 alias mmz='cd $mm_dir/mattermost-plugin-zoom'
 alias mmr='cd $mm_dir/mattermost-redux'
 alias mms='cd $mm_dir/mattermost-server'
 alias mmw='cd $mm_dir/mattermost-webapp'
 
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
-alias mm_ngrok="ngrok http 8065 -subdomain=$NGROK_SUBDOMAIN" 
+alias mm_ngrok="ngrok http -bind-tls=true -hostname=jasonf.ngrok.io 8065" 
 
 mm_user() {
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
