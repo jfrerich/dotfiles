@@ -1,0 +1,6 @@
+
+# Fmt Printf debug
+snippet pp "My PrettyPrint nested variables"
+$1D, _ := json.MarshalIndent(${1:${VISUAL}}, "", "    ")
+fmt.Printf("$1 = %+v\n", string($1D))
+endsnippet
