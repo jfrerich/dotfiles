@@ -35,6 +35,13 @@ augroup go
   au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 
+  " to get :GoDeclsDir to also allow searching the filename, modify the
+  " following line in ~/.vim/bundle/vim-go/autoload/fzf/decls.vim
+  " the -n 1,2,3 says search 1st (type) 2nd (func/type) and 3rd columns (fileame)
+  " \ 'options': '-n 1,2,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
+  " the -n 1,3 says search first and 3rd columns
+  " \ 'options': '-n 1,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
+  
   " au FileType go nmap <buffer> <S-F11>  <Plug>(go-debug-stepout)
   " au FileType go nmap <S-F11> <Plug>(go-step-out)
   " au Filetype go command! -bang A call (<bang>0, 'edit')
@@ -209,7 +216,18 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
+
+" less useful.  Free up this space on the status line
+let g:airline_section_y='' 
+
+let g:airline#extensions#coc#enabled = 1
+
+
 " END airline }}}
+
+" UltiSnips {{{
+let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+" }}}
 " YouCompleteMe {{{
 " Bundle 'Valloric/YouCompleteMe'
 " doing a PluginUpdate will sometimes break this plugin and the server needs to
