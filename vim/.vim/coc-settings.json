@@ -1,5 +1,13 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.hoverTarget": "float",
+
   "diagnostic.checkCurrentLine": true,
+
+  "signature.enable": true,
+  "signature.target": "float",
+  "signature.triggerSignatureWait": 300,
+
   "snippets.userSnippetsDirectory": "/Users/jfrerich/.vim/mysnippets",
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
