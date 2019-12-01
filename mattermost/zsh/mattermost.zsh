@@ -28,13 +28,21 @@ mm_user() {
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
 }
 
+mm_user_actviate() {
+    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user $1@example.com 
+}
+
 mm_userbot() {
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert $1 --bot
 }
 
+mm_user2sysadmin() {
+    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert --username $1 --system_admin
+}
+
 mm_usersysadmin() {
-    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1 --sysadmin
+    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1 --system_admin
 }
 
 mm_bot2user() {
