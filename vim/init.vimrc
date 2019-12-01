@@ -28,7 +28,6 @@ if exists('g:loaded_webdevicons')
 endif                                                         
 
 " set guifont=DejaVuSansMonoPowerline:h11
-set updatetime=300
 " set signcolumn=yes " git gutter, errors, warnings
 
 " Better display for messages
@@ -38,7 +37,8 @@ set updatetime=300
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
 
-autocmd FileType go setlocal foldmethod=indent foldlevel=0 foldlevelstart=0
+" This creates an error when using coc.vim.  To repro, newline <Tab> <Tab>
+" autocmd FileType go setlocal foldmethod=indent foldlevel=0 foldlevelstart=0 
 
 set textwidth=79
 set incsearch
