@@ -30,7 +30,7 @@ au BufNewFile,BufRead *.html,*.js,*.css setlocal tabstop=2 shiftwidth=2 softtabs
 au BufNewFile,BufRead *.vimrc setlocal tabstop=2 shiftwidth=2 softtabstop=2
 
 augroup go
-  autocmd FileType go syntax match goTRun /t.Run/
+  autocmd FileType go syntax match goTRun /t.Run.".*"/
   highlight goTRun guifg=orange 
 augroup END
 
@@ -38,6 +38,8 @@ autocmd FileType json syntax match Comment +\/\/.\+$+
 highlight jsTest guifg=orange 
 autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 
+" Add some syntax highlighthing to jsx/tsx snapshots. xml does a decent job
+autocmd BufRead,BufNewFile *.tsx.snap,*.jsx.snap setlocal filetype=xml
 
 " }}}
 
@@ -73,6 +75,13 @@ function! PythonModeText()
     ab _pr print("In Here!")
     ab _pre print("In Here!") exit()
 endfunction
+
+augroup javascript_folding
+    au!
+    " .ts, .tsx, .js, .jsx
+    au FileType typescript,typescript.tsx,javascript,javascriptreact setlocal foldmethod=syntax
+augroup END
+
 
 " augroup autofoldcolumn
 "   au!
