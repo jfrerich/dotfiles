@@ -14,12 +14,11 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " }}}
 " --- Autocompletion {{{
-"plugin 'coc.vim'  --> has to be manually installed
 " ~/.vim/coc-settings.json for settings
-" replacement for youcomplete and ale linter (uses vscode extensions)
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
 " --- Snippets {{{
-Plugin 'SirVer/ultisnips'
+" Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
 " }}}
