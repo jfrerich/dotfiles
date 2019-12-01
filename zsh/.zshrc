@@ -139,6 +139,7 @@ fi
 autoload -U zmv
 bindkey -v
 
+# Aliases {{{
 # http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
 # open command line in vim to do visual selection
 #didn't_really_use bindkey -M vicmd "^V" edit-command-line
@@ -194,6 +195,7 @@ alias h='history'
 alias -g G='| grep '
 
 alias sortnr='sort -n -r'
+# }}}
 
 case `uname` in 
   Darwin)
@@ -248,6 +250,7 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 
+# Custom Functions {{{
 # using ripgrep combined with preview
 # find-in-file - usage: fif <searchTerm>
 fif() {
@@ -389,6 +392,21 @@ fstash() {
   done
 }
 
+# fkill - kill processes - list only the ones you can kill. Modified the earlier script.
+fkill() {
+    local pid 
+    if [ "$UID" != "0" ]; then
+        pid=$(ps -f -u $UID | sed 1d | fzf -m | awk '{print $2}')
+    else
+        pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    fi  
+
+    if [ "x$pid" != "x" ]
+    then
+        echo $pid | xargs kill -${1:-9}
+    fi  
+}
+
 gotest() {
     go test -v -run="$1" . 
 }
@@ -406,6 +424,29 @@ bip() {
   fi
 }
 
+# Update (one or multiple) selected application(s)
+# mnemonic [B]rew [U]pdate [P]lugin
+bup() {
+  local upd=$(brew leaves | fzf -m)
+
+  if [[ $upd ]]; then
+    for prog in $(echo $upd)
+    do brew upgrade $prog 
+    done
+  fi
+}
+
+# autojump and re-define j() command to use fzf
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+j() {
+    if [[ "$#" -ne 0 ]]; then
+        cd $(autojump $@)
+        return
+    fi
+    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
+}
+# }}}
+
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -416,3 +457,5 @@ export GO=/usr/local/bin/richgo
 # export PATH="/usr/local/opt/go@1.12/bin:$PATH"
 
 export FZF_CTRL_T_OPTS='--preview "bat {} --color=always" --height 100%'
+
+# vim:foldmethod=marker:foldlevel=0
