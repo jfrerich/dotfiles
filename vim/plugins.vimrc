@@ -43,8 +43,6 @@ Plugin 'quick-scope'
 " }}}
 " --- Code Navigation {{{
 Plugin 'tagbar'
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'junegunn/fzf.vim'
 Plugin 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plugin 'kien/ctrlp.vim'
@@ -146,6 +144,8 @@ Plugin 'benknoble/vim-auto-origami'
 " --- replaced by another plugin{{{
 " Plugin 'ack.vim' -> fzf.vim
 " Plugin 'scrooloose/nerdtree'  -> coc-explorer
+" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " }}}
 
 " used this to install cmake
