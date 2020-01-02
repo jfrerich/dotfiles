@@ -1,11 +1,28 @@
 {
+  "list.nextKeymap": "<C-n>",
+  "list.previousKeymap": "<C-p>",
+  "list.maxHeight": 20,
+  "list.insertMappings": {
+    "<C-c>": "do:exit"
+  },
+
+  "explorer.icon.enableVimDevions": true,
+  "explorer.icon.enableNerdfont": true,
+
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.hoverTarget": "float",
+  "coc.preferences.hoverTarget": "echo",
+
+  "suggest.noselect": false,
+  "suggest.snippetIndicator": " [snip]",
+  "suggest.preferCompleteThanJumpPlaceholder": true,
+  "suggest.echodocSupport": true,
+  "suggest.floatEnable": true,
 
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.messageTarget": "float",
 
   "signature.enable": true,
-  "signature.target": "float",
+  "signature.target": "echo",
   "signature.triggerSignatureWait": 300,
 
   "snippets.userSnippetsDirectory": "/Users/jfrerich/.vim/mysnippets",
@@ -22,7 +39,7 @@
      "efm": {
       "command": "efm-langserver",
       "args": [],
-      "filetypes": ["vim", "eruby", "markdown", "vimwiki"]
+      "filetypes": ["vim", "eruby", "vimwiki"]
     },
     "bash": {
       "command": "bash-language-server",
