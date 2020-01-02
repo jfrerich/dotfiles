@@ -14,7 +14,7 @@ augroup go
   au FileType go nmap <Leader>ds <Plug>(go-def-split)
   au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  " au FileType go nmap <Leader>gd <Plug>(go-doc)
   au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 
   au FileType go nmap <Leader>ge <Plug>(go-iferr)
@@ -35,12 +35,13 @@ augroup go
   au Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
   au Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 
+  " handle with coc.vim
+  let g:go_def_mapping_enabled = 0
+
   " to get :GoDeclsDir to also allow searching the filename, modify the
   " following line in ~/.vim/bundle/vim-go/autoload/fzf/decls.vim
   " the -n 1,2,3 says search 1st (type) 2nd (func/type) and 3rd columns (fileame)
   " \ 'options': '-n 1,2,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
-  " the -n 1,3 says search first and 3rd columns
-  " \ 'options': '-n 1,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
   
   " au FileType go nmap <buffer> <S-F11>  <Plug>(go-debug-stepout)
   " au FileType go nmap <S-F11> <Plug>(go-step-out)
@@ -57,6 +58,7 @@ augroup END
 " use only quickfix list, never location list
 let g:go_list_type = "quickfix"
 let g:go_fmt_command = "goimports"
+let g:go_gorename_command = 'gopls'
 let g:go_auto_type_info = 1 " may be overkill -> always show function signature at bottom
 let g:go_auto_sameids = 1
 let g:go_decls_mode = 'fzf'
@@ -170,12 +172,13 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save th
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
-let g:airline_theme='molokai'
+let g:airline_theme='cool'
 " other good ones: light, molokai, sol, understated, simple 
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
 
+let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
@@ -217,16 +220,90 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
+set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
+let g:airline#extensions#coc#enabled = 1
 " less useful.  Free up this space on the status line
 let g:airline_section_y='' 
-
-let g:airline#extensions#coc#enabled = 1
-
+" let g:airline_section_y=%{get(b:,'coc_current_function','')}
+" let g:airline_section_y='jason'%{coc#status()}
+" let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
+" let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
+" let g:airline_section_y=cocstatusline
 
 " END airline }}}
+" coc.vim {{{
+" replacement for youcomplete and ale linter (uses vscode extensions)
+" coc-snippets
 
+" coc config extensions to install when they aren't already installed
+let g:coc_global_extensions = [ 
+  \ 'coc-eslint',
+  \ 'coc-tsserver',
+  \ 'coc-jest',
+  \ 'coc-ultisnips',
+  \ 'coc-json',
+  \ 'coc-css',
+  \ 'coc-python',
+  \ 'coc-yaml',
+  \ ]
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" use <tab> for trigger completion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" jaf use <c-n> <c-p> instead
+" let g:coc_snippet_next = '<tab>'
+
+" TAKEN DIRECTLY FROM https://github.com/neoclide/coc.nvim
+" if hidden is not set, TextEdit might fail.
+" set hidden
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Better display for messages
+"jaf set cmdheight=2
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" don't give |ins-completion-menu| messages.
+" set shortmess+=c
+
+" always show signcolumns
+set signcolumn=yes
+
+  " \ 'coc-snippets',
+" END }}}
 " UltiSnips {{{
+" Ultisnips - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/UltiSnips/go.snippets
+" snippets (SnipMate) - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/snippets.snippets
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
+" let g:UltiSnipsSnippetDirectories=["mysnippets"]
+let g:UltiSnipsEnableSnipMate=0
+let g:coc_node_path = '/usr/local/opt/node@10/bin/node'
 " }}}
 " YouCompleteMe {{{
 " Bundle 'Valloric/YouCompleteMe'
