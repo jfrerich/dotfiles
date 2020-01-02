@@ -34,7 +34,7 @@ Plugin 'simnalamburt/mundo.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'mhinz/vim-startify'
+" Plugin 'mhinz/vim-startify'
 " Automatically clear search highlights after move your cursor
 " Plugin 'haya14busa/is.vim'
 Plugin 'haya14busa/vim-asterisk'
@@ -49,7 +49,6 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'ack.vim'
 Plugin 'tpope/vim-projectionist'
 " }}}
 " --- Language Specific {{{
@@ -100,7 +99,6 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'benknoble/vim-auto-origami'
-
 " {{{ COMMENTED OUT
 " }}}
 " --- Maybe use in the future {{{
@@ -109,6 +107,7 @@ Plugin 'benknoble/vim-auto-origami'
 " Plugin 'suan/instant-markdown-d'
 " Plugin junegunn/limelight
 " Plugin 'vim-polyglot'
+" Plugin 'mhinz/vim-grepper'
 " Plugin 'tpope/vim-obsession'
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-session'
@@ -143,6 +142,10 @@ Plugin 'benknoble/vim-auto-origami'
 " --- PLUGINS not managed by vundle {{{
 " bclose.vim script
 "let bclose_multiple = 0
+" }}}
+" --- replaced by another plugin{{{
+" Plugin 'ack.vim' -> fzf.vim
+" Plugin 'scrooloose/nerdtree'  -> coc-explorer
 " }}}
 
 " used this to install cmake
