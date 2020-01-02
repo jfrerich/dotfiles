@@ -43,7 +43,6 @@ Plugin 'quick-scope'
 " }}}
 " --- Code Navigation {{{
 Plugin 'tagbar'
-Plugin 'scrooloose/nerdtree'
 " Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plugin 'junegunn/fzf.vim'

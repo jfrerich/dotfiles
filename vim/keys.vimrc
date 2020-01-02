@@ -138,9 +138,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
-
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+" }}}
+" coc.vim - coc-explorer{{{
+nmap ge :CocCommand explorer<CR>
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
