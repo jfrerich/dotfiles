@@ -1,0 +1,7 @@
+labelType: long
+# this is too redundant
+startStyle:
+  hide: true
+passStyle:
+  crossout: true
+leaveTestPrefix: true
