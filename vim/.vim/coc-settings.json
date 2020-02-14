@@ -13,7 +13,6 @@
   "coc.preferences.hoverTarget": "echo",
 
   "suggest.noselect": false,
-  "suggest.snippetIndicator": " [snip]",
   "suggest.preferCompleteThanJumpPlaceholder": true,
   "suggest.echodocSupport": true,
   "suggest.floatEnable": true,
@@ -48,5 +47,8 @@
       "ignoredRootPaths": ["~"]
     },
   },
+  "markdownlint.config": {
+      "line_length": false
+  }
 }
 
