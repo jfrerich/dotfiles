@@ -246,9 +246,37 @@ export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_CTRL_T_COMMAND='rg --files --hidden' # don't show hidden files.  don't use --no-ignore so .gitignore works
+# export FZF_CTRL_T_COMMAND='rg'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+
+
+# fe [FUZZY PATTERN] - Open the selected file with the default editor
+#   - Bypass fuzzy finder if there's only one match (--select-1)
+#   - Exit if there's no match (--exit-0)
+# https://github.com/junegunn/fzf/wiki/Examples#opening-files
+# fe() {
+fe() {
+  local files
+  IFS=$'\n' files=($(fzf --query="$1" --multi --select-1 --exit-0 --height 50%))
+  # [[ -n "$files" ]] && ${EDITOR:-mvim} "${files[@]}"
+  [[ -n "$files" ]] && mvim "${files[@]}"
+}
+
+# Modified version where you can press
+#   - CTRL-O to open with `open` command,
+#   - CTRL-E or Enter key to open with the $EDITOR
+fo() {
+  local out file key
+  IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
+  key=$(head -1 <<< "$out")
+  file=$(head -2 <<< "$out" | tail -1)
+  if [ -n "$file" ]; then
+    [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
+  fi
+}
 
 # Custom Functions {{{
 # using ripgrep combined with preview
