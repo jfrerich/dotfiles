@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ~/.vim/coc-settings.json for settings
 Plugin 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
-" --- Snippets {{{
+" ---   Snippets {{{
 " Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'epilande/vim-react-snippets'
@@ -49,12 +49,22 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-projectionist'
 " }}}
+" --- Language Agnostic {{{
+Plugin 'AndrewRadev/splitjoin.vim'
+" }}}
 " --- Language Specific {{{
-Plugin 'python-mode/python-mode'
-Plugin 'fatih/vim-go'
+" }}}
+" ---   perl {{{
 Plugin 'perl-support.vim'
 " }}}
-" --- js, jsx, typescript {{{
+" ---   python {{{
+Plugin 'python-mode/python-mode'
+" }}}
+" ---   go {{{
+Plugin 'fatih/vim-go'
+Plugin 'buoto/gotests-vim'
+" }}}
+" ---   js, jsx, typescript {{{
 Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
 Plugin 'HerringtonDarkholme/yats.vim'
@@ -93,10 +103,10 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'rakr/vim-one'
 " }}}
-Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'benknoble/vim-auto-origami'
+Plugin 'shougo/echodoc'
 " {{{ COMMENTED OUT
 " }}}
 " --- Maybe use in the future {{{
@@ -109,6 +119,9 @@ Plugin 'benknoble/vim-auto-origami'
 " Plugin 'tpope/vim-obsession'
 " Plugin 'xolox/vim-misc'
 " Plugin 'xolox/vim-session'
+" Plugin 'roxma/nvim-yarp'
+" Plugin 'Shougo/denite.nvim'
+" Plugin 'roxma/vim-hug-neovim-rpc'
 " }}}
 " --- vim schema {{{
 " Plugin 'bounceme/poppy.vim'
