@@ -26,6 +26,9 @@ export ZSH=$HOME/.oh-my-zsh
 
 export TERM="xterm-256color"     
 
+# colorize man page with bat
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # Enable go modules support
 # https://developers.mattermost.com/contribute/server/dependencies/
 export GO111MODULE=on   # this really screwed up my developement area!  use
@@ -192,7 +195,8 @@ alias duf='du -sh *'
 # alias ff='find . -type f -name'
 
 alias h='history'
-alias -g G='| grep '
+alias -g G='| rg '
+alias -g Gi='| rg -v '
 
 alias sortnr='sort -n -r'
 # }}}
@@ -468,7 +472,7 @@ bup() {
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 j() {
     if [[ "$#" -ne 0 ]]; then
-        cd $(autojump $@)
+        cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' | rg $1 | fzf --height 40% --reverse --inline-info )" 
         return
     fi
     cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
