@@ -17,6 +17,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/Cellar/qt/5.11.0/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
 
 export PYTHONPATH="$HOME/code/mylibraries/python/django-getrealty"
 # export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
