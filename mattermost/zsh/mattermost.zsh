@@ -4,6 +4,7 @@ export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
 alias jp='j plugins'
 alias ju='j user_repos'
 
+alias md='make deploy'
 alias mmmd='make deploy'
 alias mmmsd='make server-debug'
 alias mmmwd='make webapp-debug'
