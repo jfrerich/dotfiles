@@ -1,3 +1,14 @@
+export WORKON_HOME=$HOME/.virtualenvs   # Optional
+# export PROJECT_HOME=$HOME/projects      # Optional
+source /usr/local/bin/virtualenvwrapper.sh
+
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 #export PATH=/usr/local/bin:/usr/local/sbin:$HOME/bin:$PATH
 # homebrew stores in /usr/local/cellar/<tool>
@@ -35,17 +46,17 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 export GO111MODULE=on   # this really screwed up my developement area!  use
 # go dep for now
 
-export WORKON_HOME=$HOME/.virtualenvs   # Optional
-# export PROJECT_HOME=$HOME/projects      # Optional
-source /usr/local/bin/virtualenvwrapper.sh
-
 # get git of user@hostname in prompt 
 DEFAULT_USER="jfrerich"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context virtualenv dir vcs)
 POWERLEVEL9K_VIRTUALENV_BACKGROUND=107
 
 # Set name of the theme to load. 
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+POWERLEVEL10K_COLOR_SCHEME='light'
+# ZSH_THEME="bullet-train"
+# BULLETTRAIN_PROMPT_SEPARATE_LINE=false
+# BULLETTRAIN_PROMPT_ADD_NEWLINE=false
 
 # enable command auto-correction.
 # ENABLE_CORRECTION="true"
@@ -158,9 +169,11 @@ alias llh='ls -ltrh'
 alias ltr='ls -ltr'
 alias ltra='ls -ltra'
 alias ds='pwd > ~/.sd'
-alias sd='cd `cat ~/.sd`'
+alias sd='cd `\cat ~/.sd`'
 alias go='richgo'
+alias gdoc='godoc -http=":6060"' # http://localhost:6060/pkg/github.com/mattermost/mattermost-plugin-msoffice/server/  - run from mmserver/app
 alias g='hub'
+alias hb='hub browse'
 
 alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
 
@@ -198,6 +211,7 @@ alias duf='du -sh *'
 alias h='history'
 alias -g G='| rg '
 alias -g Gi='| rg -v '
+alias -g F='| fzf '
 
 alias sortnr='sort -n -r'
 # }}}
@@ -205,7 +219,8 @@ alias sortnr='sort -n -r'
 case `uname` in 
   Darwin)
     alias top='htop'
-    alias cat='pygmentize -g -O style=native'
+    alias cat='pygmentize -g -O style=monokai'
+#  -f terminal256 -g -P style=monokai $* 
     # mvim - updated to use brew version of macvim.  includes python3 support for
     # pythonmod plugin
     #alias g="mvim"
@@ -251,12 +266,10 @@ export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
 # FZF
-export FZF_DEFAULT_COMMAND='rg --files --hidden'
+export FZF_DEFAULT_COMMAND='rg --files' # this is also picked up by vim :Files.  don' use --hidden or .git dir will be included
 export FZF_CTRL_T_COMMAND='rg --files --hidden' # don't show hidden files.  don't use --no-ignore so .gitignore works
 # export FZF_CTRL_T_COMMAND='rg'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-
 
 # fe [FUZZY PATTERN] - Open the selected file with the default editor
 #   - Bypass fuzzy finder if there's only one match (--select-1)
@@ -482,13 +495,23 @@ j() {
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
+# export PATH="/usr/local/opt/node@12/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
+
+export CONFLUENCE_HOME=$HOME/confluence
 
 # mattermost make test uses the $GO var to run go. Use richgo for better output
 export GO=/usr/local/bin/richgo
 # export PATH="/usr/local/opt/go@1.12/bin:$PATH"
 
 export FZF_CTRL_T_OPTS='--preview "bat {} --color=always" --height 100%'
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home"
+export PATH=$PATH:$JAVA_HOME/bin
+
+source <(mmctl completion zsh)
 
 # vim:foldmethod=marker:foldlevel=0
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

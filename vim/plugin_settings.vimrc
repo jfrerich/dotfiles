@@ -42,6 +42,7 @@ augroup go
   " following line in ~/.vim/bundle/vim-go/autoload/fzf/decls.vim
   " the -n 1,2,3 says search 1st (type) 2nd (func/type) and 3rd columns (fileame)
   " \ 'options': '-n 1,2,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
+  " \ 'options': '-n 1,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
   
   " au FileType go nmap <buffer> <S-F11>  <Plug>(go-debug-stepout)
   " au FileType go nmap <S-F11> <Plug>(go-step-out)
@@ -172,7 +173,9 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save th
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
-let g:airline_theme='cool'
+" let g:airline_theme='cool' 
+" let g:airline_theme='base16_colors'
+let g:airline_theme='base16_bright'
 " other good ones: light, molokai, sol, understated, simple 
 
 " SimpylFold

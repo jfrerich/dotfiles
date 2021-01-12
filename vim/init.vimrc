@@ -17,6 +17,15 @@ set expandtab
 " used until 2019-10-10
 set guifont=HackNerdFontComplete-Regular:h11
 
+" if (has("termguicolors"))
+"     set termguicolors
+" endif
+if has("gui_vimr")
+  set guifont=Menlo-Regular:h11
+  " Here goes some VimR specific settings like
+  " color xyz
+endif
+
 let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '              
 let g:webdevicons_conceal_nerdtree_brackets = 0               
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1               

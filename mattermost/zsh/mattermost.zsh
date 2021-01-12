@@ -4,7 +4,10 @@ export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
 alias jp='j plugins'
 alias ju='j user_repos'
 
+alias gt='go test -v ./server'
+
 alias md='make deploy'
+alias mt='make test'
 alias mmmd='make deploy'
 alias mmmsd='make server-debug'
 alias mmmwd='make webapp-debug'
@@ -29,7 +32,8 @@ alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost
 alias mm_ngrok="ngrok http -bind-tls=true -hostname=jasonf.ngrok.io 8065" 
 
 mm_user() {
-    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
+    # go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
+    ${mm_dir}/mattermost-server/bin/mmctl user create --email $1@example.com --username $1 --password CARS9tuck2psuh@zouk
 }
 
 mm_userbot() {
@@ -41,8 +45,13 @@ mm_user2sysadmin() {
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert --username $1 --system_admin
 }
 
+mm_mmctl_login() {
+    # go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1 --system_admin
+    ${mm_dir}/mattermost-server/bin/mmctl user create --email $1@example.com --username $1 --password CARS9tuck2psuh@zouk
+}
+
 mm_usersysadmin() {
-    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1 --system_admin
+    mmctl user create --email $1@example.com --username $1 --password CARS9tuck2psuh@zouk --system_admin
 }
 
 mm_bot2user() {

@@ -1,21 +1,26 @@
 {
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
+  "coc.preferences.hoverTarget": "echo",
   "list.nextKeymap": "<C-n>",
   "list.previousKeymap": "<C-p>",
   "list.maxHeight": 20,
   "list.insertMappings": {
     "<C-c>": "do:exit"
   },
-
-  "explorer.icon.enableVimDevions": true,
-  "explorer.icon.enableNerdfont": true,
-
-  "coc.preferences.currentFunctionSymbolAutoUpdate": true,
-  "coc.preferences.hoverTarget": "echo",
-
-  "suggest.noselect": false,
-  "suggest.preferCompleteThanJumpPlaceholder": true,
-  "suggest.echodocSupport": true,
-  "suggest.floatEnable": true,
+  "explorer": {
+    "position": "left",
+    "openAction.for.directory": "",
+    "icon" : {
+      "enableVimDevions": true,
+      "enableNerdfont": true,
+    },
+  },
+  "suggest": {
+    "noselect": false,
+    "preferCompleteThanJumpPlaceholder": true,
+    "echodocSupport": true,
+    "floatEnable": true,
+  },
 
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "float",
@@ -24,9 +29,14 @@
   "signature.target": "echo",
   "signature.triggerSignatureWait": 300,
 
-  "snippets.userSnippetsDirectory": "/Users/jfrerich/.vim/mysnippets",
+  "snippets.userSnippetsDirectory": "~/.vim/mysnippets",
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
+  },
+  "eslint.enable": true,
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescript.tsx", "typescriptreact"],
   "jest.watch": true,
   "jest.watchman": true,
   "languageserver": {

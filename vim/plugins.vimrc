@@ -24,7 +24,7 @@ Plugin 'epilande/vim-react-snippets'
 " }}}
 " --- Vim Enhancements {{{
 Plugin 'visual-increment'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
 Plugin 'adelarsq/vim-matchit'
@@ -39,7 +39,6 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'haya14busa/is.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'unimpaired.vim'
-Plugin 'quick-scope'
 " }}}
 " --- Code Navigation {{{
 Plugin 'tagbar'
@@ -103,9 +102,9 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'rakr/vim-one'
 " }}}
-Plugin 'dbeniamine/cheat.sh-vim'
+" Plugin 'dbeniamine/cheat.sh-vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'benknoble/vim-auto-origami'
+" Plugin 'benknoble/vim-auto-origami'
 Plugin 'shougo/echodoc'
 " {{{ COMMENTED OUT
 " }}}

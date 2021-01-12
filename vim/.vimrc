@@ -79,7 +79,7 @@ endfunction
 augroup javascript_folding
     au!
     " .ts, .tsx, .js, .jsx
-    au FileType typescript,typescript.tsx,javascript,javascriptreact setlocal foldmethod=syntax
+    " au FileType typescript,typescript.tsx,javascript,javascriptreact setlocal foldmethod=syntax
 augroup END
 
 

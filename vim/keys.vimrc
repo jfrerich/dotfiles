@@ -26,10 +26,25 @@ noremap <Leader>v :<C-u>vsplit<CR>
 " }}}
 " fzf.vim {{{
 nmap ; :Buffers<CR>
-nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+" nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+nnoremap <silent> <leader>/ :Rg <CR>
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
-nnoremap <leader>* :%s/<c-r>=expand("<cword>")<CR>/
+
+" no need to show the column number
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+" \ call fzf#vim#grep(
+" \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+" \   fzf#vim#with_preview(), <bang>0)
+
+" nnoremap <leader>* :%s/<c-r>=expand("<cword>")<CR>/
+" }}}
+" git-gutter {{{
+nmap ghs <Plug>(GitGutterStageHunk)
+nmap ghu <Plug>(GitGutterUndoHunk)
 " }}}
 
 " nnoremap <silent> <leader>k :call SearchWordWithAg()<CR>
@@ -129,7 +144,8 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" The color is too dark, use vim-go for now
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
