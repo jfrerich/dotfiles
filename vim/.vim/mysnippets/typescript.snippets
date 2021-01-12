@@ -27,6 +27,7 @@
 
 # Fmt Printf debug
 snippet pp "console.log - prettyprint"
+import {inspect} from 'util';
 console.log('$1 = ', inspect(${1:${VISUAL}}, false, null, true /* enable colors */))
 endsnippet
 
