@@ -245,6 +245,7 @@ let g:coc_global_extensions = [
   \ 'coc-jest',
   \ 'coc-ultisnips',
   \ 'coc-json',
+  \ 'coc-spell-checker',
   \ 'coc-css',
   \ 'coc-python',
   \ 'coc-yaml',
@@ -399,6 +400,8 @@ let g:Perl_PerlRegexAnalyser = 'yes'
 " vim-gitgutter {{{
 " don't overwrite other plugins signs
 let g:gitgutter_sign_priority=0
+let g:gitgutter_preview_win_floating=1
+let g:gitgutter_close_preview_on_escape=1
 " }}}
 " vim-signify {{{
 "####################################
