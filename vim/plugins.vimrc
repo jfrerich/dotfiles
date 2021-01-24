@@ -4,162 +4,162 @@ syntax on
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+" set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 " }}}
 " - Plugins Begin {{{
 " let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Plug 'VundleVim/Vundle.vim'
 " }}}
 " --- Autocompletion {{{
 " ~/.vim/coc-settings.json for settings
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " }}}
 " ---   Snippets {{{
-" Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'epilande/vim-react-snippets'
+" Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'epilande/vim-react-snippets'
 " }}}
 " --- Vim Enhancements {{{
-Plugin 'visual-increment'
-" Plugin 'terryma/vim-multiple-cursors'
-Plugin 'alvan/vim-closetag'
-Plugin 'adelarsq/vim-matchit'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-scripts/tComment'
-Plugin 'simnalamburt/mundo.vim'
-Plugin 'tpope/vim-surround'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'mhinz/vim-startify'
+Plug 'visual-increment'
+" Plug 'terryma/vim-multiple-cursors'
+Plug 'alvan/vim-closetag'
+Plug 'adelarsq/vim-matchit'
+Plug 'tpope/vim-repeat'
+Plug 'vim-scripts/tComment'
+Plug 'simnalamburt/mundo.vim'
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'kien/rainbow_parentheses.vim'
+" Plug 'mhinz/vim-startify'
 " Automatically clear search highlights after move your cursor
-" Plugin 'haya14busa/is.vim'
-Plugin 'haya14busa/vim-asterisk'
-Plugin 'unimpaired.vim'
+" Plug 'haya14busa/is.vim'
+Plug 'haya14busa/vim-asterisk'
+Plug 'unimpaired.vim'
 " show vim registers window 
-Plugin 'junegunn/vim-peekaboo' 
+Plug 'junegunn/vim-peekaboo' 
 " }}}
 " --- Code Navigation {{{
-Plugin 'tagbar'
-Plugin 'junegunn/fzf.vim'
-Plugin 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
-Plugin 'kien/ctrlp.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-projectionist'
+Plug 'tagbar'
+Plug 'junegunn/fzf.vim'
+Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
+Plug 'kien/ctrlp.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-projectionist'
 " }}}
 " --- Language Agnostic {{{
-Plugin 'AndrewRadev/splitjoin.vim'
+Plug 'AndrewRadev/splitjoin.vim'
 " }}}
 " --- Language Specific {{{
 " }}}
 " ---   perl {{{
-Plugin 'perl-support.vim'
+Plug 'perl-support.vim'
 " }}}
 " ---   python {{{
-Plugin 'python-mode/python-mode'
+Plug 'python-mode/python-mode'
 " }}}
 " ---   go {{{
-Plugin 'fatih/vim-go'
-Plugin 'buoto/gotests-vim'
+Plug 'fatih/vim-go'
+Plug 'buoto/gotests-vim'
 " }}}
 " ---   js, jsx, typescript {{{
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
-Plugin 'HerringtonDarkholme/yats.vim'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'ianks/vim-tsx'
+Plug 'pangloss/vim-javascript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
 " }}}
 " --- Fonts, Status Line {{{
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'powerline/powerline-fonts'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'powerline/powerline-fonts'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " }}}
 " --- Markdown {{{
-" Plugin 'vimwiki/vimwiki'
-" Plugin 'suan/vim-instant-markdown'
-Plugin 'mzlogin/vim-markdown-toc'
-Plugin 'iamcco/markdown-preview.vim'
-Plugin 'plasticboy/vim-markdown'
+" Plug 'vimwiki/vimwiki'
+" Plug 'suan/vim-instant-markdown'
+Plug 'mzlogin/vim-markdown-toc'
+Plug 'iamcco/markdown-preview.vim'
+Plug 'plasticboy/vim-markdown'
 " }}}
 " --- Testing {{{
-Plugin 'janko/vim-test'
-Plugin 'vim-vdebug/vdebug'
+Plug 'janko/vim-test'
+Plug 'vim-vdebug/vdebug'
 " }}}
 " --- git {{{
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/gv.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'junegunn/gv.vim'
 " needed for fugitive :Gbrowse
-Plugin 'tpope/vim-rhubarb'
+Plug 'tpope/vim-rhubarb'
 " diff two git directorys :DirDiff <dir1> <dir2>
-Plugin 'will133/vim-dirdiff'
+Plug 'will133/vim-dirdiff'
 " inline git gutter changes
-" Plugin 'mhinz/vim-signify'
-Plugin 'airblade/vim-gitgutter'
+" Plug 'mhinz/vim-signify'
+Plug 'airblade/vim-gitgutter'
 " }}}
 " --- Themes {{{
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'rakr/vim-one'
+Plug 'liuchengxu/space-vim-dark'
+Plug 'rakr/vim-one'
 " }}}
-" Plugin 'dbeniamine/cheat.sh-vim'
-Plugin 'editorconfig/editorconfig-vim'
-" Plugin 'benknoble/vim-auto-origami'
-Plugin 'shougo/echodoc'
+" Plug 'dbeniamine/cheat.sh-vim'
+Plug 'editorconfig/editorconfig-vim'
+" Plug 'benknoble/vim-auto-origami'
+Plug 'shougo/echodoc'
 " {{{ COMMENTED OUT
 " }}}
 " --- Maybe use in the future {{{
-" Plugin editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
-" Plugin 'vim-scripts/indentpython.vim'
-" Plugin 'suan/instant-markdown-d'
-" Plugin junegunn/limelight
-" Plugin 'vim-polyglot'
-" Plugin 'mhinz/vim-grepper'
-" Plugin 'tpope/vim-obsession'
-" Plugin 'xolox/vim-misc'
-" Plugin 'xolox/vim-session'
-" Plugin 'roxma/nvim-yarp'
-" Plugin 'Shougo/denite.nvim'
-" Plugin 'roxma/vim-hug-neovim-rpc'
+" Plug editorconfig/editorconfig-vim --> set indent, tab_with for all " editors
+" Plug 'vim-scripts/indentpython.vim'
+" Plug 'suan/instant-markdown-d'
+" Plug junegunn/limelight
+" Plug 'vim-polyglot'
+" Plug 'mhinz/vim-grepper'
+" Plug 'tpope/vim-obsession'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-session'
+" Plug 'roxma/nvim-yarp'
+" Plug 'Shougo/denite.nvim'
+" Plug 'roxma/vim-hug-neovim-rpc'
 " }}}
 " --- vim schema {{{
-" Plugin 'bounceme/poppy.vim'
-"Plugin 'Solarized'
-"Plugin 'elzr/vim-json'
-"Plugin 'tpope/vim-sleuth'
-"Plugin 'vim-scripts/a.vim'
-"Plugin 'vsutil.vim'
+" Plug 'bounceme/poppy.vim'
+"Plug 'Solarized'
+"Plug 'elzr/vim-json'
+"Plug 'tpope/vim-sleuth'
+"Plug 'vim-scripts/a.vim'
+"Plug 'vsutil.vim'
 " }}}
 " --- downloaded some time ago.  {{{ not sure if need, but put here and removed from
-" /plugin dir
-" Plugin 'prettier/vim-prettier'
-"Plugin 'arcseldon/vim-dragvisuals'
-" Plugin 'mattn/emmet-vim'
-"Plugin 'rotate.vim'
-"Plugin 'cscope.vim'
-"Plugin 'SearchComplete'
-"Plugin 'taglist.vim'
-"Plugin 'Align.vim'
-"Plugin 'table_format.vim'
-"Plugin 'vim_IDE.vim'
-" Plugin 'bling/vim-bufferline'
-" Plugin 'tmhedberg/SimpylFold'
+" /Plug dir
+" Plug 'prettier/vim-prettier'
+"Plug 'arcseldon/vim-dragvisuals'
+" Plug 'mattn/emmet-vim'
+"Plug 'rotate.vim'
+"Plug 'cscope.vim'
+"Plug 'SearchComplete'
+"Plug 'taglist.vim'
+"Plug 'Align.vim'
+"Plug 'table_format.vim'
+"Plug 'vim_IDE.vim'
+" Plug 'bling/vim-bufferline'
+" Plug 'tmhedberg/SimpylFold'
 " Bundle 'Valloric/YouCompleteMe' 
-" Plugin 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 " }}}
 " --- seems broken {{{
-"Plugin 'VimRegEx.vim'
+"Plug 'VimRegEx.vim'
 " }}}
 " --- PLUGINS not managed by vundle {{{
 " bclose.vim script
 "let bclose_multiple = 0
 " }}}
 " --- replaced by another plugin{{{
-" Plugin 'ack.vim' -> fzf.vim
-" Plugin 'scrooloose/nerdtree'  -> coc-explorer
-" Plugin 'Xuyuanp/nerdtree-git-plugin -> coc-explorer'
-" Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'ack.vim' -> fzf.vim
+" Plug 'scrooloose/nerdtree'  -> coc-explorer
+" Plug 'Xuyuanp/nerdtree-git-plugin -> coc-explorer'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " }}}
 
 " used this to install cmake
@@ -168,7 +168,7 @@ Plugin 'shougo/echodoc'
 
 " - Plugins End {{{
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
+call plug#end()            " required
 filetype plugin indent on    " required
 " }}}
 

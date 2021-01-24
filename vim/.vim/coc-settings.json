@@ -21,7 +21,7 @@
     "echodocSupport": true,
     "floatEnable": true,
   },
-
+  "cSpell.enabled": false,
   "diagnostic.checkCurrentLine": true,
   "diagnostic.messageTarget": "float",
 
