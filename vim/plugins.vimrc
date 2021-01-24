@@ -23,12 +23,12 @@ Plug 'honza/vim-snippets'
 Plug 'epilande/vim-react-snippets'
 " }}}
 " --- Vim Enhancements {{{
-Plug 'visual-increment'
+Plug 'triglav/vim-visual-increment'
 " Plug 'terryma/vim-multiple-cursors'
 Plug 'alvan/vim-closetag'
 Plug 'adelarsq/vim-matchit'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/tComment'
+Plug 'tomtom/tComment_vim'
 Plug 'simnalamburt/mundo.vim'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -37,12 +37,12 @@ Plug 'kien/rainbow_parentheses.vim'
 " Automatically clear search highlights after move your cursor
 " Plug 'haya14busa/is.vim'
 Plug 'haya14busa/vim-asterisk'
-Plug 'unimpaired.vim'
+Plug 'tpope/vim-unimpaired'
 " show vim registers window 
 Plug 'junegunn/vim-peekaboo' 
 " }}}
 " --- Code Navigation {{{
-Plug 'tagbar'
+Plug 'preservim/tagbar'
 Plug 'junegunn/fzf.vim'
 Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plug 'kien/ctrlp.vim'
@@ -55,7 +55,7 @@ Plug 'AndrewRadev/splitjoin.vim'
 " --- Language Specific {{{
 " }}}
 " ---   perl {{{
-Plug 'perl-support.vim'
+Plug 'wolfgangmehner/perl-support'
 " }}}
 " ---   python {{{
 Plug 'python-mode/python-mode'
