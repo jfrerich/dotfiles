@@ -26,7 +26,6 @@ Plugin 'epilande/vim-react-snippets'
 Plugin 'visual-increment'
 " Plugin 'terryma/vim-multiple-cursors'
 Plugin 'alvan/vim-closetag'
-Plugin 'mattn/emmet-vim'
 Plugin 'adelarsq/vim-matchit'
 Plugin 'tpope/vim-repeat'
 Plugin 'vim-scripts/tComment'
@@ -39,6 +38,8 @@ Plugin 'kien/rainbow_parentheses.vim'
 " Plugin 'haya14busa/is.vim'
 Plugin 'haya14busa/vim-asterisk'
 Plugin 'unimpaired.vim'
+" show vim registers window 
+Plugin 'junegunn/vim-peekaboo' 
 " }}}
 " --- Code Navigation {{{
 Plugin 'tagbar'
@@ -134,6 +135,7 @@ Plugin 'shougo/echodoc'
 " /plugin dir
 " Plugin 'prettier/vim-prettier'
 "Plugin 'arcseldon/vim-dragvisuals'
+" Plugin 'mattn/emmet-vim'
 "Plugin 'rotate.vim'
 "Plugin 'cscope.vim'
 "Plugin 'SearchComplete'
@@ -156,7 +158,7 @@ Plugin 'shougo/echodoc'
 " --- replaced by another plugin{{{
 " Plugin 'ack.vim' -> fzf.vim
 " Plugin 'scrooloose/nerdtree'  -> coc-explorer
-" Plugin 'Xuyuanp/nerdtree-git-plugin'
+" Plugin 'Xuyuanp/nerdtree-git-plugin -> coc-explorer'
 " Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " }}}
 
