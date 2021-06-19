@@ -12,14 +12,14 @@
     "openAction.for.directory": "",
     "icon" : {
       "enableVimDevions": true,
-      "enableNerdfont": true,
-    },
+      "enableNerdfont": true
+    }
   },
   "suggest": {
     "noselect": false,
     "preferCompleteThanJumpPlaceholder": true,
     "echodocSupport": true,
-    "floatEnable": true,
+    "floatEnable": true
   },
   "cSpell.enabled": false,
   "diagnostic.checkCurrentLine": true,
@@ -55,7 +55,7 @@
       "args": ["start"],
       "filetypes": ["sh", "zsh"],
       "ignoredRootPaths": ["~"]
-    },
+    }
   },
   "markdownlint.config": {
       "line_length": false
