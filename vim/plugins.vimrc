@@ -3,15 +3,10 @@ filetype plugin on
 syntax on
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-" set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
 
-call plug#begin('~/.vim/plugged')
-" }}}
 " - Plugins Begin {{{
-" let Vundle manage Vundle, required
-" Plug 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 " }}}
 " --- Autocompletion {{{
 " ~/.vim/coc-settings.json for settings
@@ -43,7 +38,8 @@ Plug 'junegunn/vim-peekaboo'
 " }}}
 " --- Code Navigation {{{
 Plug 'preservim/tagbar'
-Plug 'junegunn/fzf.vim'
+Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
+Plug 'junegunn/fzf.vim', { 'do': 'yes \| ./install' }
 Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
@@ -61,7 +57,7 @@ Plug 'wolfgangmehner/perl-support'
 Plug 'python-mode/python-mode'
 " }}}
 " ---   go {{{
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
 Plug 'buoto/gotests-vim'
 " }}}
 " ---   js, jsx, typescript {{{
