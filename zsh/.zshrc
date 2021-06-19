@@ -266,6 +266,7 @@ export PATH=$PATH:$GOPATH/bin
 ulimit -n 8096
 
 # FZF
+export FZF_PREVIEW_PREVIEW_BAT_THEME='TwoDark'
 export FZF_DEFAULT_COMMAND='rg --files' # this is also picked up by vim :Files.  don' use --hidden or .git dir will be included
 export FZF_CTRL_T_COMMAND='rg --files --hidden' # don't show hidden files.  don't use --no-ignore so .gitignore works
 # export FZF_CTRL_T_COMMAND='rg'
