@@ -1,4 +1,3 @@
-
 " vim-go {{{
 " https://www.diycode.cc/projects/fatih/vim-go
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
@@ -238,6 +237,7 @@ let g:airline_section_y=''
 " replacement for youcomplete and ale linter (uses vscode extensions)
 " coc-snippets
 
+let g:coc_node_path = '/usr/local/Cellar/node/16.3.0/bin/node' 
 " coc config extensions to install when they aren't already installed
 let g:coc_global_extensions = [ 
   \ 'coc-eslint',
@@ -307,34 +307,15 @@ set signcolumn=yes
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 " let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsEnableSnipMate=0
-let g:coc_node_path = '/usr/local/opt/node@10/bin/node'
-" }}}
-" YouCompleteMe {{{
-" Bundle 'Valloric/YouCompleteMe'
-" doing a PluginUpdate will sometimes break this plugin and the server needs to
-" be restarted.  This is done by going to bundle/YouCompleteMe and running
-" python install.py
-
-" YCM and snippet colliding
-let g:ycm_use_ultisnips_completer = 1
-
-let g:ycm_autoclose_preview_window_after_completion=1
-"let g:ycm_server_keep_logfiles = 1
-"let g:ycm_server_log_level = 'debug'
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-let python_highlight_all=1
-let g:ycm_python_binary_path = 'python'
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
-" END - YouCompleteMe }}}
-" vimwiki with markdown support {{{
-" let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
-" helppage -> :h vimwiki-syntax 
 " }}}
 " FZF {{{
 " Default fzf layout
 " - down / up / left / right
-let g:fzf_layout = { 'down': '~55%' }
+" let g:fzf_preview_use_dev_icons = 1
+" let g:fzf_preview_dev_icon_prefix_string_length = 3
+let g:fzf_layout = { 'down': '~85%' }
+" }}}
+" FZF-preview.vim {{{
 " }}}
 " EasyMotion {{{
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
