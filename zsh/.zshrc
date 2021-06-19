@@ -28,7 +28,7 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/Cellar/qt/5.11.0/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="/usr/local/go/bin:$PATH"
+export PATH="/usr/local/Cellar/go/1.16.2/bin:$PATH"
 
 export PYTHONPATH="$HOME/code/mylibraries/python/django-getrealty"
 # export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
@@ -494,8 +494,6 @@ j() {
 # }}}
 
 export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
-# export PATH="/usr/local/opt/node@12/bin:$PATH"
 export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH
 
