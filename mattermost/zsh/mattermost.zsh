@@ -1,5 +1,6 @@
 # mm-redux variable
 export WEBAPP_DIR=$GOPATH/src/github.com/mattermost/mattermost-webapp/
+export MM_FEATUREFLAGS_AppsEnabled=true
 
 alias jp='j plugins'
 alias ju='j user_repos'
