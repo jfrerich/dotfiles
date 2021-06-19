@@ -13,6 +13,11 @@ noremap <Leader>gp :Gpush<CR>
 noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiffsplit<CR>
+
+" add command and key map to force push git changes. (used after fugitive ce
+" command to edit last commit)
+command Gpushforcewithlease :Gpush --force-with-lease
+nnoremap <leader>gpf :Gpushforcewithleas<CR>
 " }}}
 "Split Navigations {{{
 nnoremap <C-J> <C-W><C-J>
@@ -24,9 +29,19 @@ nnoremap <C-H> <C-W><C-H>
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
 " }}}
+
 " fzf.vim {{{
-nmap ; :Buffers<CR>
+" nmap <Leader>f [fzf-p]
+" xmap <Leader>f [fzf-p]
+" nnoremap ; :CocCommand fzf-preview.Buffers<CR>
+" nnoremap <silent> [fzf-p]gs    :<C-u>CocCommand fzf-preview.GitStatus<CR>
+" nnoremap <silent> <leader>/ :Rg <CR>
+" nnoremap <silent> [fzf-p]/     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'"<CR>
+" nnoremap <silent> [fzf-p]*     :<C-u>FzfPreviewLinesRpc --add-fzf-arg=--no-sort --add-fzf-arg=--query="'<C-r>=expand('<cword>')<CR>"<CR>
+
+
 " nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+nmap ; :Buffers<CR>
 nnoremap <silent> <leader>/ :Rg <CR>
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
@@ -34,7 +49,7 @@ nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 " no need to show the column number
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+  \   "rg -g '!package.json' -g '!package-lock.json' --line-number --no-heading --color=always --smart-case -- ".shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
 " \ call fzf#vim#grep(
 " \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
@@ -151,8 +166,8 @@ endfunction
 nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+" xmap <leader>f  <Plug>(coc-format-selected)
+" nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
