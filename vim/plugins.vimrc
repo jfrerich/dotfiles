@@ -26,7 +26,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tomtom/tComment_vim'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
 Plug 'kien/rainbow_parentheses.vim'
 " Plug 'mhinz/vim-startify'
 " Automatically clear search highlights after move your cursor
