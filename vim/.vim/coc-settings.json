@@ -31,12 +31,12 @@
 
   "snippets.userSnippetsDirectory": "~/.vim/mysnippets",
   "snippets.extends": {
-    "javascriptreact": ["javascript"],
-    "typescript": ["javascript"]
+    "javascriptreact": ["typescript"],
+    "javascript": ["typescript"],
+    "typescript.tsx": ["typescript"],
+    "typescriptreact": ["typescript"]
   },
-  "eslint.enable": true,
   "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "javascriptreact", "typescript", "typescript.tsx", "typescriptreact"],
   "jest.watch": true,
   "jest.watchman": true,
   "languageserver": {
@@ -59,6 +59,8 @@
   },
   "markdownlint.config": {
       "line_length": false
-  }
+  },
+  "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
+  "pairs.enableBackspace": true
 }
 
