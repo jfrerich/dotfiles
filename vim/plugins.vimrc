@@ -102,6 +102,7 @@ Plug 'rakr/vim-one'
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'benknoble/vim-auto-origami'
 Plug 'shougo/echodoc'
+Plug 'neoclide/jsonc.vim'
 " {{{ COMMENTED OUT
 " }}}
 " --- Maybe use in the future {{{
