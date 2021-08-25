@@ -37,6 +37,7 @@
     "typescriptreact": ["typescript"]
   },
   "eslint.autoFixOnSave": true,
+  "stylelintplus.autoFixOnSave": true,
   "jest.watch": true,
   "jest.watchman": true,
   "languageserver": {
