@@ -78,6 +78,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mzlogin/vim-markdown-toc'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'plasticboy/vim-markdown'
+Plug 'junegunn/vim-easy-align'
 " }}}
 " --- Testing {{{
 Plug 'janko/vim-test'

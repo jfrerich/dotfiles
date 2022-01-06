@@ -11,7 +11,7 @@ noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
 noremap <Leader>gp :Git push<CR>
 noremap <Leader>gs :Git<CR>
-noremap <Leader>gb :Gblame<CR>
+noremap <Leader>gb :Git blame<CR>
 noremap <Leader>gd :Gvdiffsplit<CR>
 
 " add command and key map to force push git changes. (used after fugitive ce

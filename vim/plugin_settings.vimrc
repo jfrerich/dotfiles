@@ -237,7 +237,8 @@ let g:airline_section_y=''
 " replacement for youcomplete and ale linter (uses vscode extensions)
 " coc-snippets
 
-let g:coc_node_path = '/usr/local/Cellar/node/16.3.0/bin/node' 
+" let g:coc_node_path = '/usr/local/Cellar/node/16.3.0/bin/node' 
+let g:coc_node_path = '/usr/local/Cellar/node/17.0.1/bin/node' 
 " coc config extensions to install when they aren't already installed
 let g:coc_global_extensions = [ 
   \ 'coc-eslint',
@@ -383,6 +384,9 @@ let g:Perl_PerlRegexAnalyser = 'yes'
 let g:gitgutter_sign_priority=0
 let g:gitgutter_preview_win_floating=1
 let g:gitgutter_close_preview_on_escape=1
+highlight GitGutterAdd guifg=#009900 ctermfg=Green
+highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
+highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 " }}}
 " vim-signify {{{
 "####################################
