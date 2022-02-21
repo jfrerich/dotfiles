@@ -42,7 +42,7 @@ augroup go
   " the -n 1,2,3 says search 1st (type) 2nd (func/type) and 3rd columns (fileame)
   " \ 'options': '-n 1,2,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
   " \ 'options': '-n 1,3 --ansi --prompt "GoDecls> " --expect=ctrl-t,ctrl-v,ctrl-x'.colors,
-  
+
   " au FileType go nmap <buffer> <S-F11>  <Plug>(go-debug-stepout)
   " au FileType go nmap <S-F11> <Plug>(go-step-out)
   " au Filetype go command! -bang A call (<bang>0, 'edit')
@@ -90,7 +90,7 @@ let g:go_debug_windows = {
 " vim-test {{{
 " run tests in vim terminal
 let test#strategy = "vimterminal"
-let test#vim#term_position="vertical"                                                                                                                                                                                                                                           
+let test#vim#term_position="vertical"
 
 let test#go#runner = "richgo"
 let g:test#go#richgo#options = '-v'
@@ -108,10 +108,10 @@ let g:asterisk#keeppos = 1
 "####################################
 " Updating Python Mode can cause it to break and I've done it multiple
 " times! The best fix I found is to restore an old copy of the bundle/python-mode
-" folder from Time Machine backup.  
+" folder from Time Machine backup.
 " supposedly, the following pinned command will tell vundle to not update this
 " folder again, if PluginUpdate is run
-" an 
+" an
 let g:pymode_syntax = 1
 " let g:pymode_syntax_all = 1
 let g:pymode_motion = 1
@@ -137,7 +137,7 @@ let g:ropevim_enable_shortcuts = 1
 "let g:pymode_quickfix_maxheight = 6
 " END python-mode }}}
 " NERDtree {{{
-" disable <C-J> and <C-K> nerdtree mappings.  
+" disable <C-J> and <C-K> nerdtree mappings.
 " this conflicts with shortcuts to navigate split windowns
 let g:NERDTreeMapJumpNextSibling = ''
 let g:webdevicons_enable_nerdtree = 1
@@ -158,7 +158,7 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linters = {
-\ 'javascript': ['eslint'], 
+\ 'javascript': ['eslint'],
 \ 'go': ['gometalinter', 'govet']
 \}
 let g:ale_go_gometalinter_options = ' --exclude=ALL_CAPS --exclude="should have comment" --aggregate --fast --sort=line --vendor --vendored-linters --enable=govet --disable=gocyclo '
@@ -172,10 +172,10 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save th
 " Set this. Airline will handle the rest.
 let g:airline#extensions#ale#enabled = 1
 
-" let g:airline_theme='cool' 
+" let g:airline_theme='cool'
 " let g:airline_theme='base16_colors'
 let g:airline_theme='base16_bright'
-" other good ones: light, molokai, sol, understated, simple 
+" other good ones: light, molokai, sol, understated, simple
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
@@ -237,10 +237,9 @@ let g:airline_section_y=''
 " replacement for youcomplete and ale linter (uses vscode extensions)
 " coc-snippets
 
-" let g:coc_node_path = '/usr/local/Cellar/node/16.3.0/bin/node' 
-let g:coc_node_path = '/usr/local/Cellar/node/17.0.1/bin/node' 
+let g:coc_node_path = '/usr/local/Cellar/node/17.5.0/bin/node'
 " coc config extensions to install when they aren't already installed
-let g:coc_global_extensions = [ 
+let g:coc_global_extensions = [
   \ 'coc-eslint',
   \ 'coc-tsserver',
   \ 'coc-jest',
@@ -366,7 +365,7 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
-" let g:poppy_point_enable = 1 
+" let g:poppy_point_enable = 1
 " END - rainbow_parenthesis
 " }}}
 
@@ -392,7 +391,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
 "####################################
 "This setting messes up snippets in jsx -> try fn snippet for example
 " let g:signify_realtime = 1
-highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE 
+highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
 " }}}
 
 " vim:foldmethod=marker:foldlevel=0
