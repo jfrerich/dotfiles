@@ -64,6 +64,10 @@ command! BD call fzf#run(fzf#wrap({
   \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
 \ }))
 
+nnoremap <silent> <Leader>bD :BD<CR>
+
+" highlight the line so it is easily visible
+let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
 " no need to show the column number
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
