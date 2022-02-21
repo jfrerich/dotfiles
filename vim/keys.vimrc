@@ -46,6 +46,24 @@ nnoremap <silent> <leader>/ :Rg <CR>
 nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 
+"FZF Buffer Delete
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))
+
 " no need to show the column number
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
