@@ -170,7 +170,7 @@ let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save th
 " END - w0rp/ale }}}
 " airline {{{
 " Set this. Airline will handle the rest.
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 
 " let g:airline_theme='cool'
 " let g:airline_theme='base16_colors'
@@ -222,10 +222,11 @@ let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = '☰'
 let g:airline_symbols.maxlinenr = ''
 
-set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
-let g:airline#extensions#coc#enabled = 1
+" set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
 " less useful.  Free up this space on the status line
-let g:airline_section_y='' 
+let g:airline_section_x='' " file encoding
+let g:airline_section_y='' " file encoding
+let g:airline_section_z='' " filetype
 " let g:airline_section_y=%{get(b:,'coc_current_function','')}
 " let g:airline_section_y='jason'%{coc#status()}
 " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
