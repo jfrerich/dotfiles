@@ -50,4 +50,16 @@ snippet ffi "console.log(X. IN HERE)"
 console.log('${1:${VISUAL}}. IN HERE!')
 endsnippet
 
+snippet us.cb "useCallback" w
+useCallback(() => {
+		$1
+	}, [$2])${0:;}
+endsnippet
+
+snippet us.e "useEffect" w
+useEffect(() => {
+  $1
+}, [])${0:;}
+endsnippet
+
 
