@@ -31,7 +31,10 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/Cellar/qt/5.11.0/bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-export PATH="/usr/local/Cellar/go/1.16.2/bin:$PATH"
+# export PATH="/usr/local/Cellar/python@3.10/3.10.2/bin:$PATH"
+# export PATH="/usr/local/Cellar/go/1.16.2/bin:$PATH"
+export PATH="/usr/local/go/bin:$PATH"
+
 
 export PYTHONPATH="$HOME/code/mylibraries/python/django-getrealty"
 # export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
@@ -171,7 +174,8 @@ alias ll='ls -ltr'
 alias llh='ls -ltrh'
 alias ltr='ls -ltr'
 alias ltra='ls -ltra'
-alias ds='pwd > ~/.sd'
+alias ds='printf "%q\n" "$(pwd)" > ~/.sd'
+# alias ds="pwd | sed 's/ /\\ /g\'"
 alias sd='cd `\cat ~/.sd`'
 alias go='richgo'
 alias gdoc='godoc -http=":6060"' # http://localhost:6060/pkg/github.com/mattermost/mattermost-plugin-msoffice/server/  - run from mmserver/app
@@ -222,7 +226,8 @@ alias sortnr='sort -n -r'
 case `uname` in 
   Darwin)
     alias top='htop'
-    alias cat='pygmentize -g -O style=monokai'
+    alias cat='bat'
+    # alias cat='pygmentize -g -O style=monokai'
 #  -f terminal256 -g -P style=monokai $* 
     # mvim - updated to use brew version of macvim.  includes python3 support for
     # pythonmod plugin
