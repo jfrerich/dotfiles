@@ -238,7 +238,7 @@ let g:airline_section_z='' " filetype
 " replacement for youcomplete and ale linter (uses vscode extensions)
 " coc-snippets
 
-let g:coc_node_path = '/usr/local/Cellar/node/17.5.0/bin/node'
+let g:coc_node_path = '/usr/local/Cellar/node/18.7.0/bin/node'
 " coc config extensions to install when they aren't already installed
 let g:coc_global_extensions = [
   \ 'coc-eslint',

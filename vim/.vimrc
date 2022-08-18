@@ -13,6 +13,7 @@ source $HOME/keys.vimrc
     colorscheme one " apply after setting let g:space_vim_dark
     " autocmd BufEnter *.go colorscheme space-vim-dark
     " colorscheme one " apply after setting let g:space_vim_dark
+set guifont=HackNerdFontComplete-Regular:h14
 
 " highlight goFunction guifg=lightred 
 " endif
