@@ -40,6 +40,7 @@ Plug 'preservim/tagbar'
 Plug 'yuki-yano/fzf-preview.vim', { 'branch': 'release/rpc' }
 Plug 'junegunn/fzf.vim', { 'do': 'yes \| ./install' }
 Plug 'fszymanski/fzf-quickfix', {'on': 'Quickfix'}
+Plug 'antoinemadec/coc-fzf'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-projectionist'

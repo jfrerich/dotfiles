@@ -5,6 +5,8 @@ source /usr/local/bin/virtualenvwrapper.sh
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+# source <(mmctl completion zsh)
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -234,8 +236,6 @@ export GO=/usr/local/bin/richgo
 export FZF_CTRL_T_OPTS='--preview "bat {} --color=always" --height 100%'
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home"
 export PATH=$PATH:$JAVA_HOME/bin
-
-source <(mmctl completion zsh)
 
 # vim:foldmethod=marker:foldlevel=0
 
