@@ -1,0 +1,62 @@
+# Aliases {{{
+# http://stratus3d.com/blog/2017/10/26/better-vi-mode-in-zshell/
+# open command line in vim to do visual selection
+#didn't_really_use bindkey -M vicmd "^V" edit-command-line
+# only wait 10ms to change modes.  default is 40ms
+export KEYTIMEOUT=1
+
+alias gdt='git difftool'
+
+alias c='clear'
+alias ll='ls -ltr'
+alias llh='ls -ltrh'
+alias ltr='ls -ltr'
+alias ltra='ls -ltra'
+alias ds='printf "%q\n" "$(pwd)" > ~/.sd'
+# alias ds="pwd | sed 's/ /\\ /g\'"
+alias sd='cd `\cat ~/.sd`'
+alias go='richgo'
+alias gdoc='godoc -http=":6060"' # http://localhost:6060/pkg/github.com/mattermost/mattermost-plugin-msoffice/server/  - run from mmserver/app
+alias g='hub'
+alias hb='hub browse'
+
+alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-91033-macosx/py3_dbgp.py -d localhost:9000 '
+
+alias x=exit
+
+####################################
+# from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
+####################################
+# ls, the common ones I use a lot shortened for rapid fire usage
+# alias bat='bat -p'
+
+# alias ls='ls --color'     #always show --color
+alias l='ls -lFh'     #size,show type,human readable
+alias la='ls -lAFh'   #long list,show almost all,show type,human readable
+alias lr='ls -tRFh'   #sorted by date,recursive,show type,human readable
+alias lt='ls -ltFh'   #long list,sorted by date,show type,human readable
+alias ldot='ls -ld .*'
+alias lS='ls -1FSsh'
+alias lart='ls -1Fcart'
+alias lrt='ls -1Fcrt'
+
+alias ltr='exa -l --icons -s=modified'
+alias ltra='exa -l --icons --all -s=modified'
+alias l='ltr'
+alias la='exa -la --icons -s=modified'
+alias ls='exa'
+
+alias grep='grep --color'
+
+alias dud='du -d 1 -h'
+alias duf='du -sh *'
+# alias fd='find . -type d -name'
+# alias ff='find . -type f -name'
+
+alias h='history'
+alias -g G='| rg '
+alias -g Gi='| rg -v '
+alias -g F='| fzf '
+
+alias sortnr='sort -n -r'
+# }}}
