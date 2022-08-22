@@ -1,5 +1,3 @@
-"++++++++++++++++++++ init.vimrc
-
 set autowrite             " automatically write file if you call :make - used for :GoBuild  
 set title
 set smarttab
@@ -14,8 +12,7 @@ set nofoldenable
 " set guifont=InconsolataForPowerline-dz:h11
 " set guifont=DroidSansMono\ Nerd\ Font:h12                     
 " set guifont=Ubuntu\ Mono\ Bold\ Nerd\ Font\ Complete\ Mono\ 12
-
-" used until 2019-10-10
+" set guifont=DejaVuSansMonoPowerline:h11
 set guifont=HackNerdFontComplete-Regular:h11
 
 " if (has("termguicolors"))
@@ -36,9 +33,6 @@ let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 if exists('g:loaded_webdevicons')                             
   call webdevicons#refresh()                                  
 endif                                                         
-
-" set guifont=DejaVuSansMonoPowerline:h11
-" set signcolumn=yes " git gutter, errors, warnings
 
 " Better display for messages
 set cmdheight=1
@@ -84,17 +78,13 @@ let Tlist_Ctags_Cmd = '~/Downloads/ctags-5.8/ctags'
 
 set nocompatible              " required
 
-" iskeyword  {{{
 " define additive keywords to find during * and # commands
 set iskeyword+=- "add to iskeywords to get gf to open files with -'s such as EMIR files
 set iskeyword+=/ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=@ "add to iskeywords to help find dspf hierarchical names
 set iskeyword+=! "add to iskeywords to help find dspf hierarchical names
-" }}}
 
 if has('persistent_undo')
   set undofile
   set undodir=~/.vim_undodir
 endif
-
-" vim:foldmethod=marker:foldlevel=0

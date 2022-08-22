@@ -1,7 +1,6 @@
-" vim-go {{{
+" vim-go
 " https://www.diycode.cc/projects/fatih/vim-go
 au BufNewFile,BufRead *.go setlocal noexpandtab tabstop=2 shiftwidth=2 softtabstop=2
-
 augroup go
   "go build, run, test mappings
   au FileType go nmap <leader>b <Plug>(go-build)
@@ -86,12 +85,12 @@ let g:go_debug_windows = {
       \ 'out':   'botright 10new',
       \ 'vars':  'leftabove 40vnew',
 \ }
-" END vim-go }}}
-" vim-test {{{
+" END vim-go
+
+" vim-test
 " run tests in vim terminal
 let test#strategy = "vimterminal"
 let test#vim#term_position="vertical"
-
 let test#go#runner = "richgo"
 let g:test#go#richgo#options = '-v'
 " function! DebugNearest()
@@ -100,11 +99,11 @@ let g:test#go#richgo#options = '-v'
 "   unlet g:test#go#runner
 " endfunction
 " nmap <silent> t<C-d> :call DebugNearest()<CR>
-" END vim-test }}}
-" vim-asterisk {{{
+
+" vim-asterisk
 let g:asterisk#keeppos = 1
-" END vim-test }}}
-" python-mode {{{
+
+" python-mode
 "####################################
 " Updating Python Mode can cause it to break and I've done it multiple
 " times! The best fix I found is to restore an old copy of the bundle/python-mode
@@ -135,43 +134,9 @@ let g:ropevim_enable_shortcuts = 1
 " Override view python doc key shortcut to Ctrl-Shift-d
 " let g:pymode_doc_bind = "<C-S-d>"
 "let g:pymode_quickfix_maxheight = 6
-" END python-mode }}}
-" NERDtree {{{
-" disable <C-J> and <C-K> nerdtree mappings.
-" this conflicts with shortcuts to navigate split windowns
-let g:NERDTreeMapJumpNextSibling = ''
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-" }}}
-" ctrlp {{{
-let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlPMRU'
-" }}}
-" w0rp/ale {{{
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
-" let g:ale_javascript_eslint_use_global = 1
-" let g:ale_javascript_eslint_executable = 'eslint'
-let g:ale_fixers = {
-\   'javascript': ['eslint'],
-\   'javascript.jsx': ['eslint'],
-\}
 
-let g:ale_linters = {
-\ 'javascript': ['eslint'],
-\ 'go': ['gometalinter', 'govet']
-\}
-let g:ale_go_gometalinter_options = ' --exclude=ALL_CAPS --exclude="should have comment" --aggregate --fast --sort=line --vendor --vendored-linters --enable=govet --disable=gocyclo '
-
-let g:ale_sign_error='✗'
-let g:ale_sign_warning='⚠'
-
-let g:ale_fix_on_save = 1 " Set this variable to 1 to fix files when you save them.
-" END - w0rp/ale }}}
-" airline {{{
+" airline
 " Set this. Airline will handle the rest.
-" let g:airline#extensions#ale#enabled = 1
-
 " let g:airline_theme='cool'
 " let g:airline_theme='base16_colors'
 let g:airline_theme='base16_bright'
@@ -233,11 +198,7 @@ let g:airline_section_z='' " filetype
 " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
 " let g:airline_section_y=cocstatusline
 
-" END airline }}}
-" coc.vim {{{
-" replacement for youcomplete and ale linter (uses vscode extensions)
-" coc-snippets
-
+" coc.vim
 let g:coc_node_path = '/usr/local/Cellar/node/18.7.0/bin/node'
 " coc config extensions to install when they aren't already installed
 let g:coc_global_extensions = [
@@ -266,7 +227,9 @@ augroup mygroup
 augroup end
 
 " jaf use <c-n> <c-p> instead
-" let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<tab>'
+let g:coc_snippet_next = '<c-j>' " default of coc.nvim
+let g:coc_snippet_prev = '<c-k>' " default of coc.nvim
 
 " TAKEN DIRECTLY FROM https://github.com/neoclide/coc.nvim
 " if hidden is not set, TextEdit might fail.
@@ -288,36 +251,44 @@ set updatetime=300
 " always show signcolumns
 set signcolumn=yes
 
-  " \ 'coc-snippets',
-" END }}}
-" UltiSnips {{{
+" UltiSnips
 " Ultisnips - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/UltiSnips/go.snippets
 " snippets (SnipMate) - /Users/jfrerich/dotfiles/vim/.vim/bundle/vim-snippets/snippets.snippets
 let g:UltiSnipsSnippetDirectories=["UltiSnips", "mysnippets"]
 " let g:UltiSnipsSnippetDirectories=["mysnippets"]
 let g:UltiSnipsEnableSnipMate=0
-" }}}
-" FZF {{{
+
+" FZF
 " Default fzf layout
 " - down / up / left / right
 " let g:fzf_preview_use_dev_icons = 1
 " let g:fzf_preview_dev_icon_prefix_string_length = 3
 let g:fzf_layout = { 'down': '~85%' }
-" }}}
-" FZF-preview.vim {{{
-" }}}
-" EasyMotion {{{
+
+" FZF-preview.vim
+" highlight the line so it is easily visible
+let $FZF_PREVIEW_COMMAND="COLORTERM=truecolor bat --style=numbers --color=always {}"
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({'options': ['--layout=reverse', '--info=inline']}), <bang>0)
+
+" no need to show the column number
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   "rg -g '!package.json' -g '!package-lock.json' --line-number --no-heading --color=always --colors 'match:bg:yellow' --colors 'match:fg:black' --colors 'match:style:bold' --smart-case -- ".shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview(), <bang>0)
+" \ call fzf#vim#grep(
+" \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
+" \   fzf#vim#with_preview(), <bang>0)
+
+" EasyMotion
 " Jump to anywhere you want with minimal keystrokes, with just one key binding.
 " `s{char}{label}`
-" Turn on case insensitive feature
-let g:EasyMotion_smartcase = 1
-nmap s <Plug>(easymotion-overwin-f)
 let g:EasyMotion_smartcase = 1 " Turn on case insensitive feature
-
+nmap s <Plug>(easymotion-overwin-f)
 " JK motions: Line motions
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-" }}}
 
 " autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js :normal gggqG
@@ -326,7 +297,7 @@ map <Leader>k <Plug>(easymotion-k)
 " let g:prettier#autoformat = 0
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-" rainbow_parenthesis {{{
+" rainbow_parenthesis
 let g:rbpt_colorpairs = [
     \ ['brown',       'RoyalBlue3'],
     \ ['Darkblue',    'SeaGreen3'],
@@ -345,7 +316,6 @@ let g:rbpt_colorpairs = [
     \ ['darkred',     'DarkOrchid3'],
     \ ['red',         'firebrick3'],
     \ ]
-
 " RainbowParentheses does not work with Plugin 'pangloss/vim-javascript'
 " parenthesis aren't colored.  Works for all others and like the pangloss
 " syntax better than having colored parenlike the parenthesis more than vim-javascripts
@@ -355,19 +325,14 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 " let g:poppy_point_enable = 1
-" END - rainbow_parenthesis
-" }}}
 
-" cheat.sh {{{
+" cheat.sh
 let g:CheatSheetDefaultMode = 2
-" }}}
 
-"let g:Perl_PerlTags='enabled'
 let g:explDetailedList=1 " show delailed list of files (ie. size, date)
 let g:Perl_PerlRegexAnalyser = 'yes'
 
-
-" vim-gitgutter {{{
+" vim-gitgutter
 " don't overwrite other plugins signs
 let g:gitgutter_sign_priority=0
 let g:gitgutter_preview_win_floating=1
@@ -375,12 +340,11 @@ let g:gitgutter_close_preview_on_escape=1
 highlight GitGutterAdd guifg=#009900 ctermfg=Green
 highlight GitGutterChange guifg=#bbbb00 ctermfg=Yellow
 highlight GitGutterDelete guifg=#ff2222 ctermfg=Red
-" }}}
-" vim-signify {{{
+
+" vim-signify
 "####################################
 "This setting messes up snippets in jsx -> try fn snippet for example
 " let g:signify_realtime = 1
 highlight SignColumn ctermbg=NONE cterm=NONE guibg=NONE gui=NONE
-" }}}
 
 " vim:foldmethod=marker:foldlevel=0

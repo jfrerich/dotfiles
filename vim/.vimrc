@@ -3,7 +3,7 @@ source $HOME/plugins.vimrc
 source $HOME/plugin_settings.vimrc
 source $HOME/keys.vimrc
 
-" --- Highlights {{{ 
+" --- Highlights
 " highlight Folded guibg=darkgrey guifg=grey
 " highlight Folded ctermfg=141 ctermbg=234 guifg=#9a9aba guibg=#212026
 
@@ -42,8 +42,6 @@ autocmd BufRead,BufNewFile *.tsx syntax match jsTest /.*test(.*/
 " Add some syntax highlighthing to jsx/tsx snapshots. xml does a decent job
 autocmd BufRead,BufNewFile *.tsx.snap,*.jsx.snap setlocal filetype=xml
 
-" }}}
-
 " Auto-resize splits when Vim gets resized.
 autocmd VimResized * wincmd =
 
@@ -64,12 +62,9 @@ source ~/.vim/myplugins/*.vim
 "####################################
 " map ,# :s/^/#/<CR>:nohlsearch\    " perl # comments
 
-
-" ---  Abbreviations {{{
 ab _" "####################################
 ab _* *########################################################################
 ab _# ####################################
-" }}}
 
 autocmd FileType python call PythonModeText()
 function! PythonModeText()
@@ -82,7 +77,6 @@ augroup javascript_folding
     " .ts, .tsx, .js, .jsx
     " au FileType typescript,typescript.tsx,javascript,javascriptreact setlocal foldmethod=syntax
 augroup END
-
 
 " augroup autofoldcolumn
 "   au!
