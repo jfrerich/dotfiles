@@ -213,6 +213,18 @@ let g:coc_global_extensions = [
   \ 'coc-css',
   \ 'coc-python',
   \ 'coc-yaml',
+  \ 'coc-stylelintplus',
+  \ 'coc-snippets',
+  \ 'coc-pairs',
+  \ 'coc-marketplace',
+  \ 'coc-json',
+  \ 'coc-lists',
+  \ 'coc-jest',
+  \ 'coc-fzf-preview',
+  \ 'coc-explorer',
+  \ 'coc-react-refactor',
+  \ 'coc-markdownlint',
+  \ 'coc-css',
   \ ]
 
 function! s:check_back_space() abort
