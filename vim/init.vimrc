@@ -46,7 +46,7 @@ set shortmess+=c
 
 set textwidth=79
 set incsearch
-set shell=/bin/sh
+set shell=/bin/zsh
 set number
 set noscrollbind
 set scrolloff=1
