@@ -24,6 +24,8 @@ alias python_vdebug='python -S ~/Downloads/Komodo-PythonRemoteDebugging-11.1.0-9
 
 alias x=exit
 
+alias gcg='git checkout gekidou'
+
 ####################################
 # from https://github.com/robbyrussell/oh-my-zsh/blob/master/plugins/common-aliases/common-aliases.plugin.zsh
 ####################################
