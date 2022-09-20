@@ -32,13 +32,14 @@ alias mmw='cd $mm_dir/mattermost-webapp'
 alias mmsql='mysql --host=dockerhost --user=mmuser --password=mostest mattermost_test'
 alias mm_ngrok="ngrok http -bind-tls=true -hostname=jasonf.ngrok.io 8065" 
 
+password='password'
 mm_user() {
     # go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
-    ${mm_dir}/mattermost-server/bin/mmctl user create --email $1@example.com --username $1 --password CARS9tuck2psuh@zouk
+    mmctl user create --email $1@example.com --username $1 --password $password
 }
 
 mm_userbot() {
-    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password password1
+    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user create --email $1@example.com --username $1 --password $password
     go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert $1 --bot
 }
 
@@ -56,7 +57,7 @@ mm_usersysadmin() {
 }
 
 mm_bot2user() {
-    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert $1 --email $1@example.com --username $1 --password password1 --user
+    go run ${mm_dir}/mattermost-server/cmd/mattermost/main.go user convert $1 --email $1@example.com --username $1 --password $password --user
 }
 
 mm_user2bot() {
