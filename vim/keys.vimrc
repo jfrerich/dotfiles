@@ -29,10 +29,11 @@ noremap <Leader>v :<C-u>vsplit<CR>
 
 " fzf.vim
 nnoremap <silent> <leader>/ :Rg <CR>
-nnoremap <silent> <leader><space> :FzfPreviewProjectFiles<CR>
+" nnoremap <silent> <leader><space> :FzfPreviewProjectFiles<CR>
+" nnoremap <silent> <leader><space> :Files<CR>
+nnoremap <silent> <leader><space> :Files<CR>
 nnoremap <silent> <Leader>rg :Rg <C-R><C-W><CR>
 nnoremap <silent> <Leader>bD :BD<CR>
-" nnoremap <silent> <leader><space> :Files<CR>
 " nmap <Leader>f [fzf-p]
 " xmap <Leader>f [fzf-p]
 " nnoremap ; :CocCommand fzf-preview.Buffers<CR>
@@ -53,7 +54,7 @@ map <S-q> :q<CR>   " doesn't work, use unimpaired mapings [q, ]q
 " map <C-M> :cprevious<CR>
 
 " Alternate File 
-nnoremap <leader>a :A<CR>
+" nnoremap <leader>a :A<CR>
 " nnoremap <leader>a :cclose<CR>
 
 " quickfix 
@@ -127,9 +128,14 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
 " comment out because I have <leader>a mapped to show alternate file
-" xmap <leader>a  <Plug>(coc-codeaction-selected)
-" nmap <leader>a  <Plug>(coc-codeaction-selected)
-" vmap <leader>a  <Plug>(coc-codeaction-selected)
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+vmap <leader>a  <Plug>(coc-codeaction-selected)
+
+" Use CTRL-S for selections ranges.
+" Requires 'textDocument/selectionRange' support of language server.
+nmap <silent> <C-s> <Plug>(coc-range-select)
+xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Remap for do codeAction of current line
 nmap <leader>ac  <Plug>(coc-codeaction)
@@ -138,13 +144,29 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
 omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Use <C-d> for select selections ranges, needs server support, like: coc-tsserver, coc-python
+" keep hitting <C-d> to select next outter component
+" conflicts with <C-d> default Page Down command
 " nmap <silent> <C-d> <Plug>(coc-range-select)
 " xmap <silent> <C-d> <Plug>(coc-range-select)
+
+" Remap <C-f> and <C-b> for scroll float windows/popups.
+if has('nvim-0.4.0') || has('patch-8.2.0750')
+  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+endif
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
@@ -174,14 +196,14 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" coc.vim - coc-explorer
 nmap ge :CocCommand explorer<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocAction('doHover')
+    " call CocAction('doHover')
+    call CocAction('definitionHover') " include defintion provider
   endif
 endfunction
 
