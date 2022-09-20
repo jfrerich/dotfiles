@@ -2,6 +2,9 @@
 let mapleader = ","
 nmap ; :Buffers<CR>
 
+" terminal commands
+" tnoremap <Esc> <C-\><C-n>
+
 " vim-fugitive
 noremap <Leader>ga :Gwrite<CR>
 noremap <Leader>gc :Gcommit<CR>
