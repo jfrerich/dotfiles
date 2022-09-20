@@ -1,6 +1,6 @@
 export WORKON_HOME=$HOME/.virtualenvs   # Optional
 # export PROJECT_HOME=$HOME/projects      # Optional
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
@@ -38,7 +38,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
 
-export PYTHONPATH="$HOME/code/mylibraries/python/django-getrealty"
+# export PYTHONPATH="$HOME/code/mylibraries/python/django-getrealty"
+export PYTHONPATH="/usr/bin/python3"
+export NODEPATH="/usr/local/lib/node_modules"
 # export PATH="/usr/local/Cellar/qt/5.11.0/bin:$HOME/Library/Python/3.6/{bin,lib}:/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/python/libexec/bin:/usr/local/bin:$HOME/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
@@ -206,8 +208,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
+# export PATH="/usr/local/opt/ruby/bin:$PATH"
+# export PATH="/usr/local/lib/ruby/gems/2.6.0/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
@@ -241,3 +243,6 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
