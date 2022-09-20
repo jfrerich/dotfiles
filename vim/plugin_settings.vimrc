@@ -135,68 +135,70 @@ let g:ropevim_enable_shortcuts = 1
 " let g:pymode_doc_bind = "<C-S-d>"
 "let g:pymode_quickfix_maxheight = 6
 
-" airline
-" Set this. Airline will handle the rest.
-" let g:airline_theme='cool'
-" let g:airline_theme='base16_colors'
-let g:airline_theme='base16_bright'
-" other good ones: light, molokai, sol, understated, simple
 
 " SimpylFold
 " let g:SimpylFold_docstring_preview=1
 
-let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
-"####################################
 " vim-airline
-"####################################
-let g:airline_powerline_fonts = 1
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
+function! AirlineInit()
+  " airline
+  " Set this. Airline will handle the rest.
+  " let g:airline_theme='cool'
+  " let g:airline_theme='base16_colors'
+  let g:airline_theme='base16_bright'
+  " other good ones: light, molokai, sol, understated, simple
+  "
+  let g:airline_powerline_fonts = 1
+  if !exists('g:airline_symbols')
+      let g:airline_symbols = {}
+  endif
+  let g:airline#extensions#coc#enabled = 1
+  let g:airline#extensions#tabline#enabled = 1
+  let g:airline#extensions#tabline#buffer_nr_show = 1
 
-" unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.crypt = '🔒'
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
-let g:airline_symbols.maxlinenr = '㏑'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = 'Ξ'
+  " unicode symbols
+  let g:airline_left_sep = '»'
+  let g:airline_left_sep = '▶'
+  let g:airline_right_sep = '«'
+  let g:airline_right_sep = '◀'
+  let g:airline_symbols.crypt = '🔒'
+  let g:airline_symbols.linenr = '☰'
+  let g:airline_symbols.linenr = '␊'
+  let g:airline_symbols.linenr = '␤'
+  let g:airline_symbols.linenr = '¶'
+  let g:airline_symbols.maxlinenr = ''
+  let g:airline_symbols.maxlinenr = '㏑'
+  let g:airline_symbols.branch = '⎇'
+  let g:airline_symbols.paste = 'ρ'
+  let g:airline_symbols.paste = 'Þ'
+  let g:airline_symbols.paste = '∥'
+  let g:airline_symbols.spell = 'Ꞩ'
+  let g:airline_symbols.notexists = '∄'
+  let g:airline_symbols.whitespace = 'Ξ'
 
-" powerline symbols
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
+  " powerline symbols
+  let g:airline_left_sep = ''
+  let g:airline_left_alt_sep = ''
+  let g:airline_right_sep = ''
+  let g:airline_right_alt_sep = ''
+  let g:airline_symbols.branch = ''
+  let g:airline_symbols.readonly = ''
+  let g:airline_symbols.linenr = '☰'
+  let g:airline_symbols.maxlinenr = ''
 
-" set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
-" less useful.  Free up this space on the status line
-let g:airline_section_x='' " file encoding
-let g:airline_section_y='' " file encoding
-let g:airline_section_z='' " filetype
-" let g:airline_section_y=%{get(b:,'coc_current_function','')}
-" let g:airline_section_y='jason'%{coc#status()}
-" let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
-" let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
-" let g:airline_section_y=cocstatusline
+  " set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
+  " less useful.  Free up this space on the status line
+  let g:airline_section_x='' " file encoding
+  let g:airline_section_y='' " file encoding
+  let g:airline_section_z='' " filetype
+  " let g:airline_section_y=%{get(b:,'coc_current_function','')}
+  " let g:airline_section_y='jason'%{coc#status()}
+  " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
+  " let g:airline_section_y+=%{coc#status()}%{get(b:,'coc_current_function','')}
+  " let g:airline_section_y=cocstatusline
+endfunction
+
+autocmd VimEnter * call AirlineInit()
 
 " coc.vim
 let g:coc_node_path = '/usr/local/Cellar/node/18.7.0/bin/node'
