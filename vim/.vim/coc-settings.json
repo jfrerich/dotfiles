@@ -1,6 +1,7 @@
 {
   "coc.preferences.currentFunctionSymbolAutoUpdate": true,
   "coc.preferences.hoverTarget": "echo",
+  "coc.preferences.promptInput": "false",
   "list.nextKeymap": "<C-n>",
   "list.previousKeymap": "<C-p>",
   "list.maxHeight": 20,
@@ -30,6 +31,7 @@
   "signature.triggerSignatureWait": 300,
 
   "snippets.userSnippetsDirectory": "~/.vim/mysnippets",
+  "snippets.priority": "100",
   "snippets.extends": {
     "javascriptreact": ["typescript"],
     "javascript": ["typescript"],
@@ -62,6 +64,7 @@
       "line_length": false
   },
   "pairs.enableCharacters": ["(", "[", "{", "<", "'", "\"", "`"],
-  "pairs.enableBackspace": true
+  "pairs.enableBackspace": true,
+  "yank.highlight.enable": false
 }
 
