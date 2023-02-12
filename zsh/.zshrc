@@ -90,6 +90,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   k
+  wp-cli
   git
   git-flow
   history-substring-search
@@ -161,6 +162,9 @@ fi
 ####################################
 # My Personal Setup - from here to EOF
 ####################################
+
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 autoload -U zmv
 bindkey -v
 
@@ -235,7 +239,7 @@ export CONFLUENCE_HOME=$HOME/confluence
 export GO=/usr/local/bin/richgo
 # export PATH="/usr/local/opt/go@1.12/bin:$PATH"
 
-export FZF_CTRL_T_OPTS='--preview "bat {} --color=always" --height 100%'
+export FZF_CTRL_T_OPTS='--preview "bat {} --theme OneHalfDark --color=always" --height 100%'
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home"
 export PATH=$PATH:$JAVA_HOME/bin
 
@@ -246,3 +250,10 @@ export PATH=$PATH:$JAVA_HOME/bin
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export PATH="/usr/local/Cellar/php@7.4/7.4.33_1/bin:$PATH"
+
+# nvm through homebrew
+export NVM_DIR="$HOME/.nvm"
+ [ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+ [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
