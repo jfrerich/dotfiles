@@ -1,4 +1,4 @@
-export WORKON_HOME=$HOME/.virtualenvs   # Optional
+# export WORKON_HOME=$HOME/.virtualenvs   # Optional
 # export PROJECT_HOME=$HOME/projects      # Optional
 # source /usr/local/bin/virtualenvwrapper.sh
 
@@ -89,7 +89,6 @@ HIST_STAMPS="mm/dd/yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  k
   wp-cli
   git
   git-flow
@@ -98,10 +97,10 @@ plugins=(
   colored-man-pages
   colorize
   dircycle
-  zsh-dircolors-solarized
+# JAF  zsh-dircolors-solarized
   dirhistory
-  virtualenv
-  virtualenvwrapper
+#  virtualenv
+#  virtualenvwrapper
   you-should-use
 )
 
@@ -116,14 +115,14 @@ case `uname` in
     plugins+=(ssh-agent)
     
     # must be before source of oh-my-zsh
-    zstyle :omz:plugins:ssh-agent identities id_rsa
+#MIGHT NEED JAF    zstyle :omz:plugins:ssh-agent identities id_rsa
 esac
 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 source $HOME/.private.zsh
-source $HOME/mattermost.zsh
+# source $HOME/mattermost.zsh
 
 
 setopt hist_ignore_dups
@@ -184,15 +183,15 @@ case `uname` in
     alias vim="mvim -v "
 
     # installed with brew install
-    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+ #    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     # source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+#     source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   ;;
   Linux)
     # installed with apt install
-    source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     # source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-    source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+#     source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 esac
 
 # remap cd to cd && ls 
@@ -200,7 +199,7 @@ function cd {
   builtin cd "$@" && ls -F
 }
 
-eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
+# JAF eval `dircolors $HOME/.oh-my-zsh/custom/plugins/zsh-dircolors-solarized/dircolors-solarized/dircolors.ansi-light`
 
 
 # bind k and j for VI mode
@@ -210,6 +209,8 @@ bindkey -M vicmd 'j' history-substring-search-down
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+
+export PATH="/opt/nvim-linux64/bin:$PATH"
 export PATH="/usr/local/opt/sqlite/bin:$PATH"
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 # export PATH="/usr/local/opt/ruby/bin:$PATH"

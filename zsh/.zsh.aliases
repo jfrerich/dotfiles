@@ -7,6 +7,9 @@ export KEYTIMEOUT=1
 
 alias gdt='git difftool'
 
+alias lazyvim="NVIM_APPNAME=lazyvim nvim"
+alias nvchad="NVIM_APPNAME=nvchad nvim"
+
 alias c='clear'
 alias ll='ls -ltr'
 alias llh='ls -ltrh'
