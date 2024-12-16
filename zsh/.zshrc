@@ -49,7 +49,7 @@ export ZSH=$HOME/.oh-my-zsh
 export TERM="xterm-256color"     
 
 # colorize man page with bat
-export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
 
 # Enable go modules support
 # https://developers.mattermost.com/contribute/server/dependencies/
@@ -172,7 +172,7 @@ source $HOME/.zsh.aliases
 case `uname` in 
   Darwin)
     alias top='htop'
-    alias cat='bat'
+    alias cat='batcat'
     # alias cat='pygmentize -g -O style=monokai'
 #  -f terminal256 -g -P style=monokai $* 
     # mvim - updated to use brew version of macvim.  includes python3 support for
@@ -188,6 +188,7 @@ case `uname` in
 #     source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
   ;;
   Linux)
+    alias cat='batcat'
     # installed with apt install
 #     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
     # source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -240,7 +241,7 @@ export CONFLUENCE_HOME=$HOME/confluence
 export GO=/usr/local/bin/richgo
 # export PATH="/usr/local/opt/go@1.12/bin:$PATH"
 
-export FZF_CTRL_T_OPTS='--preview "bat {} --theme OneHalfDark --color=always" --height 100%'
+export FZF_CTRL_T_OPTS='--preview "batcat {} --theme OneHalfDark --color=always" --height 100%'
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-12.0.2.jdk/Contents/Home"
 export PATH=$PATH:$JAVA_HOME/bin
 
